@@ -1,5 +1,7 @@
 class TopicsController < ApplicationController
   def index
+    @guides = Guide.roots
+    @top_questions = Faq.root.order_by_visualizations
   end
 
   def show

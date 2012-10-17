@@ -1,0 +1,2 @@
+class Faq < Topic
+end

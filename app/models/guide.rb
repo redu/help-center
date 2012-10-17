@@ -1,0 +1,3 @@
+class Guide < Topic
+
+end

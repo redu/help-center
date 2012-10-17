@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -14,14 +13,15 @@
 ActiveRecord::Schema.define(:version => 20121015154126) do
 
   create_table "topics", :force => true do |t|
+    t.string   "type"
     t.string   "title"
     t.text     "body"
-    t.integer  "visualizations"
+    t.integer  "visualizations", :default => 0
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
 end

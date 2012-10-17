@@ -1,6 +1,14 @@
+.bundle
+log/*.log
+tmp/
 *.swp
+bin/
+db/schema.rb
+log/**/*
 config/database.yml
 *~
-tmp/
-log/*.log
-bin/
+*.swo
+.DS_Store
+Gemfile.local.rb
+.rvmrc
+

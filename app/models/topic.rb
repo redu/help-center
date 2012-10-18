@@ -7,4 +7,12 @@ class Topic < ActiveRecord::Base
   def order_by_visualizations
     self.leaves.all.sort!{ |a, b| b.visualizations <=> a.visualizations }.take(5)
   end
+
+  def faq?
+    self.type == "Faq"
+  end
+
+  def guide?
+    self.type == "Guide"
+  end
 end

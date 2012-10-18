@@ -43,11 +43,9 @@ describe Topic do
   context "get top questions" do
     before do
       @faq = Factory(:faq)
-      count = 1
 
       6.times do
-        topic = Factory(:topic, :visualizations => count)
-        count += 1
+        topic = Factory(:topic)
 
         topic.move_to_child_of(@faq)
       end
@@ -61,6 +59,20 @@ describe Topic do
       top = @faq.order_by_visualizations
 
       top.first.visualizations.should be > (top.last.visualizations)
+    end
+  end
+
+  context "get type" do
+    it "is faq" do
+      faq = Factory(:faq)
+
+      faq.faq?.should be_true
+    end
+
+    it "is guide" do
+      guide = Factory(:guide)
+
+      guide.guide?.should be_true
     end
   end
 end

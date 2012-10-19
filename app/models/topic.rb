@@ -1,6 +1,7 @@
 class Topic < ActiveRecord::Base
+  attr_accessible :visualizations, :title, :body
+
   acts_as_nested_set
-  attr_accessible :visualizations, :title
 
   validates :title, :presence => true
 

@@ -18,4 +18,12 @@ class FaqsController < ApplicationController
 
     respond_with(@faq)
   end
+
+  def update
+    @faq = Faq.find(params[:id])
+
+    @faq.update_attributes(params[:faq])
+
+    redirect_to edit_topic_path(@faq)
+  end
 end

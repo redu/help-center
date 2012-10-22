@@ -1,0 +1,17 @@
+<h1> Edit <%= @topic.title %> </h1>
+
+<% @topics_and_categories.each do |item| %>
+  <%= item.title %>
+  <%= link_to "Edit", edit_topic_path(item) %>
+  <%= link_to "Add topic", new_topic_path(:parent_id => item) %>
+<% end %>
+
+<%= form_for @topic do |f| %>
+  <%= f.label :title %>:
+  <%= f.text_field :title %><br />
+
+  <%= f.label :body %>:
+  <%= f.text_field :body %><br />
+
+  <%= f.submit %>
+<% end %>

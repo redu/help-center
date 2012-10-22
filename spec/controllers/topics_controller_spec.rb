@@ -129,7 +129,7 @@ describe TopicsController do
 
       get :edit, :id => @topic
 
-      assigns[:topics_and_categories].length.should == @topic.descendants.count + 1
+      assigns[:topics_and_categories].length.should == @topic.descendants.count
     end
 
     context "POST update" do

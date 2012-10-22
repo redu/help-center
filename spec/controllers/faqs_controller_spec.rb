@@ -68,4 +68,19 @@ describe FaqsController do
       assigns[:faq].root?.should be_true
     end
   end
+
+  context "POST update" do
+    before do
+      @faq = Factory(:faq)
+    end
+
+    it "should update the faq" do
+      params = { :id => @faq, :format => :js,
+                 :faq => { :body => "foca no trabalho" } }
+
+      post :update, params
+
+      assigns[:faq].body.should eq("foca no trabalho")
+    end
+  end
 end

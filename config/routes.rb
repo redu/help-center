@@ -15,8 +15,8 @@ HelpCenter::Application.routes.draw do
   root :to => "topics#index"
 
   resources :topics
-  resources :faqs, :only => [:show, :new, :create]
-  resources :guides, :only => [:show, :new, :create]
+  resources :faqs, :only => [:show, :new, :create, :update]
+  resources :guides, :only => [:show, :new, :create, :update]
 
   # Sample resource route with options:
   #   resources :products do

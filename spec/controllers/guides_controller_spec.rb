@@ -61,4 +61,19 @@ describe GuidesController do
       assigns[:guide].root?.should be_true
     end
   end
+
+  context "POST update" do
+    before do
+      @guide = Factory(:guide)
+    end
+
+    it "should update the guide" do
+      params = { :id => @guide, :format => :js,
+                 :guide => { :body => "foca no trabalho" } }
+
+      post :update, params
+
+      assigns[:guide].body.should eq("foca no trabalho")
+    end
+  end
 end

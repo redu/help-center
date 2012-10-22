@@ -27,18 +27,15 @@ class TopicsController < ApplicationController
 
   def edit
     @topic = Topic.find(params[:id])
-    @topics_and_categories = @topic.self_and_descendants
+    @topics_and_categories = @topic.descendants
   end
 
   def update
     @topic = Topic.find(params[:id])
 
-    if @topic.update_attributes(params[:topic])
-      flash[:notice] = 'Tópico editado com sucesso'
-      render :index
-    else
-      render :edit
-    end
+    @topic.update_attributes(params[:topic])
+
+    redirect_to edit_topic_path(@topic)
   end
 
   def destroy

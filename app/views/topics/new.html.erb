@@ -7,6 +7,8 @@
   <%= f.label :body %>:
   <%= f.text_field :body %><br />
 
+  <%= hidden_field_tag :parent_id, params[:parent_id] %>
+
   <%= f.submit %>
 <% end %>
 

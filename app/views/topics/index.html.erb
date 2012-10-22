@@ -1,4 +1,6 @@
-<%= @top_questions %>
+<% @top_questions.each do |topic| %>
+  <%= topic.title %>
+<% end %>
 
 <% @guides.each do |guide| %>
   <%= guide.title %>

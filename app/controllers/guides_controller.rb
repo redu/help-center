@@ -17,4 +17,12 @@ class GuidesController < ApplicationController
 
     respond_with(@guide)
   end
+
+  def update
+    @guide = Guide.find(params[:id])
+
+    @guide.update_attributes(params[:guide])
+
+    redirect_to edit_topic_path(@guide)
+  end
 end

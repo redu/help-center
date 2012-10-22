@@ -1,5 +1,7 @@
 <h1> Edit <%= @topic.title %> </h1>
 
+<%= link_to "Add topic", new_topic_path(:parent_id => @topic) %>
+
 <% @topics_and_categories.each do |item| %>
   <%= item.title %>
   <%= link_to "Edit", edit_topic_path(item) %>

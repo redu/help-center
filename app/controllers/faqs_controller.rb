@@ -5,7 +5,7 @@ class FaqsController < ApplicationController
     @faq = Topic.find(params[:id])
 
     @top_questions = Faq.root.order_by_visualizations
-    @topics_and_categories = @faq.self_and_descendants
+    @topics_and_categories = @faq.descendants
   end
 
   def new
@@ -21,7 +21,6 @@ class FaqsController < ApplicationController
 
   def update
     @faq = Faq.find(params[:id])
-
     @faq.update_attributes(params[:faq])
 
     redirect_to edit_topic_path(@faq)

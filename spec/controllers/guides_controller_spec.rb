@@ -27,7 +27,7 @@ describe GuidesController do
       get :show, :id => @guide
 
       assigns[:topics_and_categories].length.should == \
-        @guide.descendants.length + 1
+        @guide.descendants.length
     end
   end
 

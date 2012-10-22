@@ -34,7 +34,7 @@ describe FaqsController do
       get :show, :id => @faq
 
       assigns[:topics_and_categories].length.should == \
-        @faq.descendants.count + 1
+        @faq.descendants.count
     end
   end
 

@@ -32,7 +32,6 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.find(params[:id])
-
     @topic.update_attributes(params[:topic])
 
     redirect_to edit_topic_path(@topic)

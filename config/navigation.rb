@@ -34,7 +34,7 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.items do |primary|
     primary.item :index, 'Índice', root_path
     primary.item :frequently_questions, 'Dúvidas Frequentes', faq_path(Faq.root)
-    @guides.each do |guide|
+    Guide.roots.each do |guide|
       primary.item :guides, guide.title, guide_path(guide)
     end
   end

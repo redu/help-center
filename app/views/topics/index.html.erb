@@ -1,1 +1,5 @@
-<%= render_navigation %>
+<%= @top_questions %>
+
+<% @guides.each do |guide| %>
+  <%= guide.title %>
+<% end %>

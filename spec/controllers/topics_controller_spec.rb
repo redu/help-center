@@ -143,4 +143,25 @@ describe TopicsController do
       end
     end
   end
+
+  context "POST destroy" do
+    before do
+      @topic = Factory(:topic)
+      @top_child = Factory(:topic)
+
+      @top_child.move_to_child_of(@topic)
+    end
+
+    it "should delete the topic" do
+      delete :destroy, :id => @top_child
+
+      @topic.children.should be_empty
+    end
+
+    it "should redirect to home path" do
+      delete :destroy, :id => @top_child
+
+      response.should redirect_to(root_path)
+    end
+  end
 end

@@ -17,7 +17,6 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.create(params[:topic])
-
     @topic.save
 
     parent = Topic.find(params[:parent_id])
@@ -43,6 +42,10 @@ class TopicsController < ApplicationController
   end
 
   def destroy
+    @topic = Topic.find(params[:id])
+    @topic.destroy
 
+    flash[:notice] = "Tópico removido"
+    redirect_to :root
   end
 end

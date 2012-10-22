@@ -66,7 +66,6 @@ describe TopicsController do
   end
 
   context "New" do
-
     it "should render topics/new" do
       get :new
 

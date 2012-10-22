@@ -7,6 +7,10 @@ class GuidesController < ApplicationController
     @topics_and_categories = @guide.self_and_descendants
   end
 
+  def new
+
+  end
+
   def create
     @guide = Guide.new(params[:guide])
     @guide.save

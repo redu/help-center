@@ -8,6 +8,10 @@ class FaqsController < ApplicationController
     @topics_and_categories = @faq.self_and_descendants
   end
 
+  def new
+
+  end
+
   def create
     @faq = Faq.new(params[:faq])
     @faq.save

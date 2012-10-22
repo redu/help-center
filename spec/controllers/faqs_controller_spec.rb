@@ -38,6 +38,14 @@ describe FaqsController do
     end
   end
 
+  context "GET new" do
+    it "should render faqs/new" do
+      get :new
+
+      response.should render_template("faqs/new")
+    end
+  end
+
   context "POST create" do
     before do
       @params =  {

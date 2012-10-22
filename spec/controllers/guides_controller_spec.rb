@@ -31,6 +31,14 @@ describe GuidesController do
     end
   end
 
+  context "GET new" do
+    it "should render guides/new" do
+      get :new
+
+      response.should render_template("guides/new")
+    end
+  end
+
   context "POST create" do
     before do
       @params =  {

@@ -60,7 +60,7 @@ describe TopicsController do
       assigns[:ancestors].length.should == @topic.ancestors.count
     end
 
-    it "should increase visualizations" do
+    it "should increase view_count" do
 
     end
   end

@@ -55,10 +55,10 @@ describe Topic do
       @faq.order_by_visualizations.count.should == 5
     end
 
-    it "should be ordered by visualizations" do
+    it "should be ordered by view_count" do
       top = @faq.order_by_visualizations
 
-      top.first.visualizations.should be > (top.last.visualizations)
+      top.first.view_count.should be > (top.last.view_count)
     end
   end
 

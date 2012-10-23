@@ -1,5 +1,5 @@
 class Topic < ActiveRecord::Base
-  attr_accessible :view_count, :title, :body
+  attr_accessible :view_count, :title, :body, :icon_name
 
   acts_as_nested_set
 

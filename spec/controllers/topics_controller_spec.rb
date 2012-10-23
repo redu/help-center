@@ -61,7 +61,10 @@ describe TopicsController do
     end
 
     it "should increase view_count" do
-
+      expect{
+        get :show, :id => @topic
+        @topic.reload
+      }.should change(@topic, :view_count).by(1)
     end
   end
 

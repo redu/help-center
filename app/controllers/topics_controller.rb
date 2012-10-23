@@ -1,5 +1,8 @@
 class TopicsController < ApplicationController
+  require 'viewable'
   respond_to :html, :js
+
+  include Viewable
 
   def index
     @guides = Guide.roots
@@ -8,6 +11,9 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    update_view_count(@topic)
+
+    @topic.reload
     @ancestors = @topic.ancestors
   end
 

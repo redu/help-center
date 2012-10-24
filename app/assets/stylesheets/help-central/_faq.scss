@@ -1,0 +1,71 @@
+.faq-title {
+  margin: 10px 30px 20px 30px;
+  overflow: auto;
+
+  h2 {
+    float: left;
+  }
+
+  form {
+    float: right;
+  }
+}
+
+.faq-frequent-questions {
+  margin: 20px 30px;
+}
+
+h2 {
+  color: $blue2;
+}
+
+form-search {
+  float: right;
+}
+
+.faq-questions-category {
+  margin: 20px 30px;
+}
+
+.faq-questions-category li {
+    list-style: none;
+    overflow: auto;
+    clear: both;
+
+    h6 {
+        color: $blue3;
+        float: left;
+    }
+
+    .list-lecture-info {
+        float: right;
+    }
+}
+
+.faq-category {
+  border: 1px solid $gray3;
+  @include border-radius(10px);
+  padding: 10px;
+  margin-top: 20px;
+
+  .faq-category-title {
+    overflow: auto;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+
+    span {
+    }
+
+    h6 {
+      color: $gray5;
+      margin: 0;
+      display: inline-block;
+    }
+  }
+
+  li h6 {
+    text-align: left;
+    margin: 0;
+  }
+}

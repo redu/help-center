@@ -1,0 +1,108 @@
+// ==========================================================================
+// Estilos compartilhados
+// ==========================================================================
+
+
+// Navegação global
+// ==========================================================================
+
+.nav-global-container {
+  // Botão de voltar ao Redu.
+  .button-default {
+    float: right;
+    margin-top: 5px;
+    padding: 5px 10px;
+    line-height: 18px;
+  }
+}
+
+
+// Barra lateral
+// ==========================================================================
+
+// Preenche o fundo com um branco transparente, bordas internas brancas e bordas arredondadas.
+.white-area {
+  @include border-radius;
+  @include box-shadow(0 0 1px 1px $white inset);
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.help-central-sidebar {
+  margin-top: $nav-global-height;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+// Título da Central de Ajuda.
+.help-central-title {
+  text-align: center;
+
+  // Modifica o ícone-before para centralizá-lo.
+  [class*="icon-"][class*="-before"]::before {
+    display: block;
+    margin: 0 auto 10px;
+  }
+}
+
+// Link para Central de Ajuda.
+.help-central-link {
+  @include heading(4);
+
+  &,
+  &:visited { color: $gray5; }
+
+  &:hover {
+    text-decoration: none;
+    color: $link-color-hover;
+  }
+}
+
+.help-central-title +
+.nav-local { margin-top: 20px; }
+
+.help-central-content {
+  padding-top: 14px;
+
+  .breadcrumb-mini {
+    padding-left: 5px;
+    display: inline-block;
+  }
+
+  .white-area { padding: 4px; }
+}
+
+.breadcrumb-mini +
+.content-body,
+.content-body +
+.breadcrumb-mini { margin-top: 10px; }
+
+
+// Lista de perguntas
+// ==========================================================================
+
+// Lista.
+.questions-list  {
+  list-style: none;
+  margin: 0;
+}
+
+// Item da lista.
+.question-list-item {
+  @include border-radius(7px);
+  padding: 10px;
+  overflow: hidden;
+
+  &:nth-child(even) { background-color: $gray1; }
+}
+
+// Ícone.
+.question-list-icon {
+  float: left;
+  margin-right: 10px;
+}
+
+// Wrapper do link e legenda.
+.question-list-content { overflow: hidden; }
+
+// Link.
+.question-list-link { display: block; }

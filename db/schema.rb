@@ -10,18 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121015154126) do
+ActiveRecord::Schema.define(:version => 20121023150350) do
 
   create_table "topics", :force => true do |t|
     t.string   "type"
     t.string   "title"
     t.text     "body"
-    t.integer  "visualizations", :default => 0
+    t.integer  "view_count", :default => 0
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.string   "icon_name"
   end
 
 end

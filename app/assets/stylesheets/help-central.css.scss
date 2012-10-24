@@ -1,0 +1,15 @@
+// ==========================================================================
+// Estilos a Central de Ajuda
+// ==========================================================================
+
+// Mixins de imagens do Compass.
+@import "compass/css3/images";
+// Variáveis do UI-components.
+@import "ui-components/variables";
+// Mixins do UI-components.
+@import "ui-components/mixins";
+
+// Estilos do layout.
+@import "help-central/layout";
+// Estilos compartilhados.
+@import "help-central/shared";

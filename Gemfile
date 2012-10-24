@@ -16,6 +16,15 @@ group :test do
   gem 'shoulda-matchers'
 end
 
+group :assets do
+  gem 'sass-rails'
+  gem 'compass-rails'
+end
+
+group :development do
+  gem 'sqlite3'
+end
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

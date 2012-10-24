@@ -14,10 +14,15 @@ HelpCenter::Application.routes.draw do
   #   resources :products
   root :to => "topics#index"
 
-  resources :topics
-  resources :faqs, :only => [:show, :new, :create, :update]
-  resources :guides, :only => [:show, :new, :create, :update]
+  resources :topics, :only => [:index, :show]
+  resources :faqs, :only => [:show]
+  resources :guides, :only => [:show]
 
+  scope "/admin" do
+    resources :topics, :except => [:index, :show]
+    resources :faqs, :only => [:new, :create, :update]
+    resources :guides, :only => [:new, :create, :update]
+  end
   # Sample resource route with options:
   #   resources :products do
   #     member do

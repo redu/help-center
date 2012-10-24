@@ -8,4 +8,13 @@ class ApplicationController < ActionController::Base
       username == USER_ID && password == PASSWORD
     end
   end
+
+  private
+
+  def search
+    @search = Topic.search do
+      fulltext params[:search]
+      order_by(:view_count, :desc)
+    end
+  end
 end

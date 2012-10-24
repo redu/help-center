@@ -5,15 +5,20 @@ gem 'rails', '3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2', '~> 0.3.11'
 gem 'awesome_nested_set'
 gem 'factory_girl_rails', '~> 1.7.0'
+gem 'mysql2', '~> 0.3.11'
 gem 'simple-navigation'
+gem 'sunspot_rails'
 
 group :test do
   gem 'rspec-rails', '~> 2.8'
   gem 'ruby-debug'
   gem 'shoulda-matchers'
+end
+
+group :development do
+  gem 'sunspot_solr'
 end
 
 # Use unicorn as the web server

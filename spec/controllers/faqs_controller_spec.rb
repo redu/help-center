@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+include AuthHelper
+
 describe FaqsController do
   context "GET show" do
     before do
@@ -39,6 +41,10 @@ describe FaqsController do
   end
 
   context "GET new" do
+    before do
+      http_login
+    end
+
     it "should render faqs/new" do
       get :new
 
@@ -48,6 +54,7 @@ describe FaqsController do
 
   context "POST create" do
     before do
+      http_login
       @params =  {
         :format => :js,
         :faq => {
@@ -71,6 +78,7 @@ describe FaqsController do
 
   context "POST update" do
     before do
+      http_login
       @faq = Factory(:faq)
     end
 

@@ -2,6 +2,8 @@ class TopicsController < ApplicationController
   require 'viewable'
   respond_to :html, :js
 
+  before_filter :authenticate, :except => [:index, :show]
+
   include Viewable
 
   def index

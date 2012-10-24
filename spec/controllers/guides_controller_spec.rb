@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+include AuthHelper
+
 describe GuidesController do
   context "GET show" do
     before do
@@ -33,6 +35,7 @@ describe GuidesController do
 
   context "GET new" do
     it "should render guides/new" do
+      http_login
       get :new
 
       response.should render_template("guides/new")
@@ -41,6 +44,7 @@ describe GuidesController do
 
   context "POST create" do
     before do
+      http_login
       @params =  {
         :format => :js,
         :guide => {
@@ -64,6 +68,7 @@ describe GuidesController do
 
   context "POST update" do
     before do
+      http_login
       @guide = Factory(:guide)
     end
 

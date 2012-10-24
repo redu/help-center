@@ -1,5 +1,7 @@
 require "spec_helper"
 
+include AuthHelper
+
 describe TopicsController do
 
   context "GET index" do
@@ -70,6 +72,7 @@ describe TopicsController do
 
   context "New" do
     it "should render topics/new" do
+      http_login
       get :new
 
       response.should render_template("topics/new")
@@ -77,6 +80,7 @@ describe TopicsController do
 
     context "POST create" do
       before do
+        http_login
         @guide = Factory(:guide)
 
         @params =  {
@@ -111,6 +115,7 @@ describe TopicsController do
 
   context "Edit" do
     before do
+      http_login
       @topic = Factory(:topic)
     end
 
@@ -149,6 +154,7 @@ describe TopicsController do
 
   context "POST destroy" do
     before do
+      http_login
       @topic = Factory(:topic)
       @top_child = Factory(:topic)
 

@@ -11,4 +11,6 @@ config/database.yml
 .DS_Store
 Gemfile.local.rb
 .rvmrc
+solr/data/*
+solr/pids/*
 

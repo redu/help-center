@@ -14,6 +14,8 @@ HelpCenter::Application.routes.draw do
   #   resources :products
   root :to => "topics#index"
 
+  match "search" => "topics#searching"
+
   resources :topics, :only => [:index, :show]
   resources :faqs, :only => [:show]
   resources :guides, :only => [:show]

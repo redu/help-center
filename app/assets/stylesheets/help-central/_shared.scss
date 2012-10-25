@@ -38,7 +38,7 @@
   text-align: center;
 
   // Modifica o ícone-before para centralizá-lo.
-  [class*="icon-"][class*="-before"]::before {
+  [class*="icon-"][class*="-before"]:before {
     display: block;
     margin: 0 auto 10px;
   }
@@ -62,10 +62,12 @@
 
 .help-central-content {
   padding-top: 14px;
+  padding-bottom: 10px;
 
   .breadcrumb-mini {
     padding-left: 5px;
     display: inline-block;
+    vertical-align: middle;
   }
 
   .white-area { padding: 4px; }
@@ -106,3 +108,18 @@
 
 // Link.
 .question-list-link { display: block; }
+
+
+.section { padding: 10px 20px 20px; }
+
+.section-title {
+  line-height: 34px;
+
+  &[class*="icon-"][class*="-before"]:before { margin-right: 12px; }
+}
+
+.section-questions {
+  padding: 10px 30px 20px 20px;
+
+  .questions-list { padding-left: 10px; }
+}

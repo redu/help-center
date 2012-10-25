@@ -11,10 +11,6 @@ class Topic < ActiveRecord::Base
     integer :view_count
   end
 
-  def order_by_visualizations
-    self.leaves.all.sort!{ |a, b| b.view_count <=> a.view_count }.take(5)
-  end
-
   def faq?
     self.type == "Faq"
   end

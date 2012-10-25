@@ -40,28 +40,6 @@ describe Topic do
     end
   end
 
-  context "get top questions" do
-    before do
-      @faq = FactoryGirl.create(:faq)
-
-      6.times do
-        topic = FactoryGirl.create(:topic)
-
-        topic.move_to_child_of(@faq)
-      end
-    end
-
-    it "should retrieve only 5 leaves " do
-      @faq.order_by_visualizations.count.should == 5
-    end
-
-    it "should be ordered by view_count" do
-      top = @faq.order_by_visualizations
-
-      top.first.view_count.should be > (top.last.view_count)
-    end
-  end
-
   context "get type" do
     it "is faq" do
       faq = FactoryGirl.create(:faq)

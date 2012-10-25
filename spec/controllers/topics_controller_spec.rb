@@ -34,7 +34,7 @@ describe TopicsController do
       it "should load top questions in Faq" do
         get :index
 
-        assigns[:top_questions].length.should == 5
+        assigns[:top_questions].hits.length.should == 5
       end
     end
   end

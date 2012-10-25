@@ -29,7 +29,7 @@ describe FaqsController do
     it "should load top_questions" do
       get :show, :id => @faq
 
-      assigns[:top_questions].length.should == 5
+      assigns[:top_questions].hits.length.should == 5
     end
 
     it "should load all topics" do

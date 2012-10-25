@@ -6,7 +6,7 @@ class FaqsController < ApplicationController
   def show
     @faq = Topic.find(params[:id])
 
-    @top_questions = Faq.root.order_by_visualizations
+    top_questions
     @topics_and_categories = @faq.descendants
   end
 

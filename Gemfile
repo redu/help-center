@@ -16,10 +16,8 @@ group :test do
   gem 'shoulda-matchers'
 end
 
-group :assets do
-  gem 'sass-rails'
-  gem 'compass-rails'
-end
+gem 'sass-rails'
+gem 'compass-rails'
 
 group :development do
   gem 'sqlite3'

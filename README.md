@@ -1,8 +1,14 @@
-#Redu Help-Center
+# Redu Help-Center
 
 This is the help-center repository for [Redu](www.redu.com.br).
 
-##Setup
+## Setup
+
+### Populate database
+It can be done just running rake task:
+```shell
+rake populate:minimun
+```
 
 ### Sunspot / Solr
 Once Solr server is properly installed you may run it. If you're using 
@@ -20,7 +26,7 @@ To run the tests you should run the server in this environment:
 rake sunspot:solr:run RAILS_ENV=test
 ```
 
-###Authentication
+### Authentication
 To create or edit some admin route you should authenticate first. To do this you need a file called ``config/initializer/user.rb``:
 ```ruby
 USER_ID = "user"

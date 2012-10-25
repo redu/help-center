@@ -19,6 +19,8 @@ class ApplicationController < ActionController::Base
 
   def top_questions
     @top_questions = Topic.search do
+      with(:leaf, true)
+      with(:parent_faq, true)
       order_by(:view_count, :desc)
       paginate page: 1, per_page: 5
     end

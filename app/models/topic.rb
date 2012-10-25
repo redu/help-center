@@ -9,6 +9,14 @@ class Topic < ActiveRecord::Base
     text :title, :boost => 3.0
     text :body
     integer :view_count
+
+    boolean :leaf do
+      leaf?
+    end
+
+    boolean :parent_faq do
+      root.faq?
+    end
   end
 
   def faq?

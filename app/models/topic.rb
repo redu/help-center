@@ -1,6 +1,5 @@
 class Topic < ActiveRecord::Base
   attr_accessible :view_count, :title, :body, :icon_name
-
   acts_as_nested_set
 
   validates :title, :presence => true
@@ -21,9 +20,5 @@ class Topic < ActiveRecord::Base
 
   def faq?
     self.type == "Faq"
-  end
-
-  def guide?
-    self.type == "Guide"
   end
 end

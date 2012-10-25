@@ -46,11 +46,5 @@ describe Topic do
 
       faq.faq?.should be_true
     end
-
-    it "is guide" do
-      guide = FactoryGirl.create(:guide)
-
-      guide.guide?.should be_true
-    end
   end
 end

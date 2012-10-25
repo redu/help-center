@@ -13,4 +13,5 @@ Gemfile.local.rb
 .rvmrc
 solr/data/*
 solr/pids/*
+config/initializer/user.rb
 

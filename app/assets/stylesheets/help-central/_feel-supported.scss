@@ -1,0 +1,31 @@
+// ==========================================================================
+// Estilos do "Sinta-se apoiado!"
+// ==========================================================================
+
+
+// Título.
+.feel-supported-title { color: $gray4; }
+
+// Somente no Índice ele é preto.
+.feel-supported-title-index { color: $black; }
+
+.feel-supported-title +
+.feel-supported-areas { margin-top: 20px; }
+
+.feel-supported-areas { overflow: hidden; }
+
+// Área.
+.feel-supported-area {
+  float: left;
+  width: 349px;
+  color: $gray5;
+
+  & +
+  & { margin-left: 20px; }
+}
+
+// Título da área.
+.feel-supported-sub-title { color: $green3; }
+
+.feel-supported-sub-title +
+p { margin-top: 9px; }

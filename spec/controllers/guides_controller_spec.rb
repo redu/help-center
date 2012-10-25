@@ -5,7 +5,7 @@ include AuthHelper
 describe GuidesController do
   context "GET show" do
     before do
-      @guide = Factory(:guide)
+      @guide = FactoryGirl.create(:guide)
     end
 
     it "should render guide" do
@@ -16,11 +16,11 @@ describe GuidesController do
 
     it "should load all topics" do
       2.times do
-        category = Factory(:topic)
+        category = FactoryGirl.create(:topic)
         category.move_to_child_of(@guide)
 
         3.times do
-          topic = Factory(:topic)
+          topic = FactoryGirl.create(:topic)
           topic.move_to_child_of(category)
         end
       end
@@ -56,7 +56,7 @@ describe GuidesController do
     it "should create a new guide" do
       expect{
         post :create, @params
-      }.should change(Guide, :count).by(1)
+      }.to change(Guide, :count).by(1)
     end
 
     it "should be a root" do
@@ -69,7 +69,7 @@ describe GuidesController do
   context "POST update" do
     before do
       http_login
-      @guide = Factory(:guide)
+      @guide = FactoryGirl.create(:guide)
     end
 
     it "should update the guide" do

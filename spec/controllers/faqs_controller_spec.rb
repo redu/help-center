@@ -5,14 +5,14 @@ include AuthHelper
 describe FaqsController do
   context "GET show" do
     before do
-      @faq = Factory(:faq)
+      @faq = FactoryGirl.create(:faq)
 
       2.times do
-        category = Factory(:topic)
+        category = FactoryGirl.create(:topic)
         category.move_to_child_of(@faq)
 
         3.times do
-          topic = Factory(:topic)
+          topic = FactoryGirl.create(:topic)
           topic.move_to_child_of(category)
         end
       end
@@ -66,7 +66,7 @@ describe FaqsController do
     it "should create a new faq" do
       expect{
         post :create, @params
-      }.should change(Faq, :count).by(1)
+      }.to change(Faq, :count).by(1)
     end
 
     it "should be a root" do
@@ -79,7 +79,7 @@ describe FaqsController do
   context "POST update" do
     before do
       http_login
-      @faq = Factory(:faq)
+      @faq = FactoryGirl.create(:faq)
     end
 
     it "should update the faq" do

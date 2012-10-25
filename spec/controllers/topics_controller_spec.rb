@@ -6,8 +6,8 @@ describe TopicsController do
 
   context "GET index" do
     before do
-      Factory(:guide)
-      @faq = Factory(:faq)
+      FactoryGirl.create(:guide)
+      @faq = FactoryGirl.create(:faq)
     end
 
     it "should render index" do
@@ -25,7 +25,7 @@ describe TopicsController do
     context "frequently questions list" do
       before do
         6.times do
-          topic = Factory(:topic)
+          topic = FactoryGirl.create(:topic)
 
           topic.move_to_child_of(@faq)
         end
@@ -41,7 +41,7 @@ describe TopicsController do
 
   context "GET show" do
     before do
-      @topic = Factory(:topic)
+      @topic = FactoryGirl.create(:topic)
     end
 
     it "should render show" do
@@ -51,8 +51,8 @@ describe TopicsController do
     end
 
     it "should load all ancestors" do
-      guide = Factory(:guide)
-      category = Factory(:topic)
+      guide = FactoryGirl.create(:guide)
+      category = FactoryGirl.create(:topic)
 
       category.move_to_child_of(guide)
       @topic.move_to_child_of(category)
@@ -66,7 +66,7 @@ describe TopicsController do
       expect{
         get :show, :id => @topic
         @topic.reload
-      }.should change(@topic, :view_count).by(1)
+      }.to change(@topic, :view_count).by(1)
     end
   end
 
@@ -81,7 +81,7 @@ describe TopicsController do
     context "POST create" do
       before do
         http_login
-        @guide = Factory(:guide)
+        @guide = FactoryGirl.create(:guide)
 
         @params =  {
           :format => :js,
@@ -95,7 +95,7 @@ describe TopicsController do
       it "should create a new topic" do
         expect{
           post :create, @params
-        }.should change(Topic, :count).by(1)
+        }.to change(Topic, :count).by(1)
       end
 
       it "should be a leave" do
@@ -116,7 +116,7 @@ describe TopicsController do
   context "Edit" do
     before do
       http_login
-      @topic = Factory(:topic)
+      @topic = FactoryGirl.create(:topic)
     end
 
     it "should render edit" do
@@ -126,11 +126,11 @@ describe TopicsController do
     end
 
     it "should load all descendants" do
-      category = Factory(:topic)
+      category = FactoryGirl.create(:topic)
       category.move_to_child_of(@topic)
 
       3.times do
-        top = Factory(:topic)
+        top = FactoryGirl.create(:topic)
         top.move_to_child_of(category)
       end
       @topic.reload
@@ -155,8 +155,8 @@ describe TopicsController do
   context "POST destroy" do
     before do
       http_login
-      @topic = Factory(:topic)
-      @top_child = Factory(:topic)
+      @topic = FactoryGirl.create(:topic)
+      @top_child = FactoryGirl.create(:topic)
 
       @top_child.move_to_child_of(@topic)
     end

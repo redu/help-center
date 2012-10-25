@@ -10,7 +10,7 @@ describe Topic do
     end
 
     it "should create a topic" do
-      topic = Topic.new(:title => "Guia Básico")
+      topic = Topic.new(:title => "Guia Basico")
 
       topic.save.should be_true
     end
@@ -18,7 +18,7 @@ describe Topic do
 
   context "as tree" do
     before do
-      @root = Factory(:topic)
+      @root = FactoryGirl.create(:topic)
     end
 
     it "should have root" do
@@ -26,14 +26,14 @@ describe Topic do
     end
 
     it "should have children" do
-      child = Factory(:topic)
+      child = FactoryGirl.create(:topic)
       child.move_to_child_of(@root)
 
       @root.children.first.should == child
     end
 
     it "should have leaf" do
-      leaf = Factory(:topic)
+      leaf = FactoryGirl.create(:topic)
       leaf.move_to_child_of(@root)
 
       leaf.leaf?.should be_true
@@ -42,10 +42,10 @@ describe Topic do
 
   context "get top questions" do
     before do
-      @faq = Factory(:faq)
+      @faq = FactoryGirl.create(:faq)
 
       6.times do
-        topic = Factory(:topic)
+        topic = FactoryGirl.create(:topic)
 
         topic.move_to_child_of(@faq)
       end
@@ -64,13 +64,13 @@ describe Topic do
 
   context "get type" do
     it "is faq" do
-      faq = Factory(:faq)
+      faq = FactoryGirl.create(:faq)
 
       faq.faq?.should be_true
     end
 
     it "is guide" do
-      guide = Factory(:guide)
+      guide = FactoryGirl.create(:guide)
 
       guide.guide?.should be_true
     end

@@ -50,6 +50,9 @@ GEM
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
+    jquery-rails (1.0.19)
+      railties (~> 3.0)
+      thor (~> 0.14)
     json (1.7.5)
     kaminari (0.13.0)
       actionpack (>= 3.0.0)
@@ -134,6 +137,7 @@ DEPENDENCIES
   awesome_nested_set
   debugger
   factory_girl_rails
+  jquery-rails
   kaminari
   mysql2
   rails (= 3.2.5)

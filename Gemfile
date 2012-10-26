@@ -7,6 +7,7 @@ gem 'rails', '3.2.5'
 
 gem 'awesome_nested_set'
 gem 'factory_girl_rails'
+gem "jquery-rails"
 gem 'kaminari'
 gem 'mysql2'
 gem 'simple-navigation'

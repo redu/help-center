@@ -12,6 +12,7 @@ gem 'kaminari'
 gem 'mysql2'
 gem 'simple-navigation'
 gem 'sunspot_rails'
+gem 'wymeditor'
 
 group :test do
   gem 'rspec-rails', '~> 2.8'

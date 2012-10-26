@@ -25,6 +25,7 @@ HelpCenter::Application.routes.draw do
     resources :faqs, :only => [:new, :create, :update]
     resources :guides, :only => [:new, :create, :update]
   end
+
   # Sample resource route with options:
   #   resources :products do
   #     member do

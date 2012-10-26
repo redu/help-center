@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
   require 'viewable'
   respond_to :html, :js
 
-  before_filter :authenticate, :except => [:index, :show, :searching]
+  before_filter :authenticate, :except => [:index, :show, :search]
 
   include Viewable
 
@@ -56,9 +56,10 @@ class TopicsController < ApplicationController
     redirect_to :root
   end
 
-  def searching
-    search
+  def search
+    searching
 
-    render :search
+    @results = @search.results
+    @results = Kaminari.paginate_array(@results).page(params[:page])
   end
 end

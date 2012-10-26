@@ -5,6 +5,7 @@ tmp/
 bin/
 db/schema.rb
 log/**/*
+log/
 config/database.yml
 *~
 *.swo

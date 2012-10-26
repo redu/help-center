@@ -5,6 +5,11 @@
   </p>
 <% end %>
 
-<% @search.results.each do |result| %>
+<% @results.each do |result| %>
   <%= result.title %>
 <% end %>
+
+<div id="paginator">
+  <%= link_to_next_page(@results, 'Mostrar Mais', { remote: true }) %>
+</div>
+

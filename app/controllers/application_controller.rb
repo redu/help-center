@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def search
+  def searching
     @search = Topic.search do
       fulltext params[:search]
     end

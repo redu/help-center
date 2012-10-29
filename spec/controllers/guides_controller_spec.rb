@@ -1,15 +1,15 @@
 require 'spec_helper'
-
 include AuthHelper
 
 describe GuidesController do
+
   context "GET show" do
     before do
       @guide = FactoryGirl.create(:guide)
     end
 
     it "should render guide" do
-      get :show, :id => @guide
+      get :show, id: @guide
 
       response.should render_template("guides/show")
     end
@@ -26,7 +26,7 @@ describe GuidesController do
       end
       @guide.reload
 
-      get :show, :id => @guide
+      get :show, id: @guide
 
       assigns[:topics_and_categories].length.should == \
         @guide.descendants.length
@@ -46,10 +46,10 @@ describe GuidesController do
     before do
       http_login
       @params =  {
-        :format => :js,
-        :guide => {
-          :title => "New guide",
-          :body => "Central de Ajuda" }
+        format: :js,
+        guide: {
+          title: "New guide",
+          body: "Central de Ajuda" }
       }
     end
 
@@ -73,8 +73,8 @@ describe GuidesController do
     end
 
     it "should update the guide" do
-      params = { :id => @guide, :format => :js,
-                 :guide => { :body => "foca no trabalho" } }
+      params = { id: @guide, format: :js,
+                 guide: { body: "foca no trabalho" } }
 
       post :update, params
 

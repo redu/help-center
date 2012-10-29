@@ -1,8 +1,8 @@
 require 'spec_helper'
-
 include AuthHelper
 
 describe FaqsController do
+
   context "GET show" do
     before do
       @faq = FactoryGirl.create(:faq)
@@ -21,19 +21,19 @@ describe FaqsController do
     end
 
     it "should render faq" do
-      get :show, :id => @faq
+      get :show, id: @faq
 
       response.should render_template("faqs/show")
     end
 
     it "should load top_questions" do
-      get :show, :id => @faq
+      get :show, id: @faq
 
       assigns[:top_questions].hits.length.should == 5
     end
 
     it "should load all topics" do
-      get :show, :id => @faq
+      get :show, id: @faq
 
       assigns[:topics_and_categories].length.should == \
         @faq.descendants.count
@@ -56,10 +56,10 @@ describe FaqsController do
     before do
       http_login
       @params =  {
-        :format => :js,
-        :faq => {
-          :title => "New faq",
-          :body => "Central de Ajuda" }
+        format: :js,
+        faq: {
+          title: "New faq",
+          body: "Central de Ajuda" }
       }
     end
 
@@ -83,8 +83,8 @@ describe FaqsController do
     end
 
     it "should update the faq" do
-      params = { :id => @faq, :format => :js,
-                 :faq => { :body => "foca no trabalho" } }
+      params = { id: @faq, format: :js,
+                 faq: { body: "foca no trabalho" } }
 
       post :update, params
 

@@ -1,7 +1,7 @@
 class FaqsController < ApplicationController
   respond_to :html, :js
 
-  before_filter :authenticate, :except => [:show]
+  before_filter :authenticate, except: [:show]
 
   def show
     @faq = Topic.find(params[:id])

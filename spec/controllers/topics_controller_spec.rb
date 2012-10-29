@@ -1,5 +1,4 @@
 require "spec_helper"
-
 include AuthHelper
 
 describe TopicsController do
@@ -45,7 +44,7 @@ describe TopicsController do
     end
 
     it "should render show" do
-      get :show, :id => @topic
+      get :show, id: @topic
 
       response.should render_template("topics/show")
     end
@@ -57,14 +56,14 @@ describe TopicsController do
       category.move_to_child_of(guide)
       @topic.move_to_child_of(category)
 
-      get :show, :id => @topic
+      get :show, id: @topic
 
       assigns[:ancestors].length.should == @topic.ancestors.count
     end
 
     it "should increase view_count" do
       expect{
-        get :show, :id => @topic
+      get :show, id: @topic
         @topic.reload
       }.to change(@topic, :view_count).by(1)
     end
@@ -78,7 +77,7 @@ describe TopicsController do
         topic.move_to_child_of(guide)
       end
 
-      get :show, :id => @topic
+      get :show, id: @topic
 
       assigns[:read_more].length.should == 2
     end
@@ -98,11 +97,11 @@ describe TopicsController do
         @guide = FactoryGirl.create(:guide)
 
         @params =  {
-          :format => :js,
-          :parent_id => @guide,
-          :topic => {
-            :title => "New topic",
-            :body => "Central de Ajuda" }
+          format: :js,
+          parent_id: @guide,
+          topic: {
+            title: "New topic",
+            body: "Central de Ajuda" }
         }
       end
 
@@ -134,7 +133,7 @@ describe TopicsController do
     end
 
     it "should render edit" do
-      get :edit, :id => @topic
+      get :edit, id: @topic
 
       response.should render_template("topics/edit")
     end
@@ -149,15 +148,15 @@ describe TopicsController do
       end
       @topic.reload
 
-      get :edit, :id => @topic
+      get :edit, id: @topic
 
       assigns[:topics_and_categories].length.should == @topic.descendants.count
     end
 
     context "POST update" do
       it "should update the topic" do
-        params = { :id => @topic, :format => :js,
-                   :topic => { :body => "foca no trabalho" } }
+        params = { id: @topic, format: :js,
+                   topic: { body: "foca no trabalho" } }
 
         post :update, params
 
@@ -176,13 +175,13 @@ describe TopicsController do
     end
 
     it "should delete the topic" do
-      delete :destroy, :id => @top_child
+      delete :destroy, id: @top_child
 
       @topic.children.should be_empty
     end
 
     it "should redirect to home path" do
-      delete :destroy, :id => @top_child
+      delete :destroy, id: @top_child
 
       response.should redirect_to(root_path)
     end

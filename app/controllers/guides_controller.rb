@@ -1,7 +1,7 @@
 class GuidesController < ApplicationController
   respond_to :html, :js
 
-  before_filter :authenticate, :except => [:show]
+  before_filter :authenticate, except: [:show]
 
   def show
     @guide = Topic.find(params[:id])

@@ -10,7 +10,7 @@ describe Topic do
     end
 
     it "should create a topic" do
-      topic = Topic.new(:title => "Guia Basico")
+      topic = Topic.new(title: "Guia Basico")
 
       topic.save.should be_true
     end

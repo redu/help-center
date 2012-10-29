@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
   require 'viewable'
   respond_to :html, :js
 
-  before_filter :authenticate, :except => [:index, :show, :search]
+  before_filter :authenticate, except: [:index, :show, :search]
 
   include Viewable
 
@@ -48,7 +48,6 @@ class TopicsController < ApplicationController
     redirect_to edit_topic_path(@topic)
   end
 
-  # TODO specs
   def destroy
     @topic = Topic.find(params[:id])
     @topic.destroy

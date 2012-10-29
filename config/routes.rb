@@ -16,14 +16,14 @@ HelpCenter::Application.routes.draw do
 
   match "search" => "topics#search"
 
-  resources :topics, :only => [:index, :show]
-  resources :faqs, :only => [:show]
-  resources :guides, :only => [:show]
+  resources :topics, :except => [:new, :edit]
+  resources :faqs, :only => [:show, :create, :update]
+  resources :guides, :only => [:show, :create, :update]
 
   scope "/admin" do
-    resources :topics, :except => [:index, :show]
-    resources :faqs, :only => [:new, :create, :update]
-    resources :guides, :only => [:new, :create, :update]
+    resources :topics, :only => [:new, :edit]
+    resources :faqs, :only => [:new]
+    resources :guides, :only => [:new]
   end
 
   # Sample resource route with options:

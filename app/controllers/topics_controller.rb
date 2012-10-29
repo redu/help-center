@@ -19,6 +19,7 @@ class TopicsController < ApplicationController
 
     @topic.reload
     @ancestors = @topic.ancestors
+    @read_more = @topic.read_more
   end
 
   def new

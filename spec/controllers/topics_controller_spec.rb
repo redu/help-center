@@ -68,6 +68,20 @@ describe TopicsController do
         @topic.reload
       }.to change(@topic, :view_count).by(1)
     end
+
+    it "should load two topics to read more" do
+      guide = FactoryGirl.create(:guide)
+      @topic.move_to_child_of(guide)
+
+      2.times do
+        topic = FactoryGirl.create(:topic)
+        topic.move_to_child_of(guide)
+      end
+
+      get :show, :id => @topic
+
+      assigns[:read_more].length.should == 2
+    end
   end
 
   context "New" do

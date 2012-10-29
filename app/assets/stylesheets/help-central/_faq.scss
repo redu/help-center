@@ -1,45 +1,54 @@
-.faq-title {
-  margin: 10px 30px 20px 30px;
-  overflow: auto;
+.help-central-header {
+  margin: 10px 30px 20px 20px;
+  overflow: hidden;
 
-  h2 {
+  h1 {
+    color: $blue2;
+    height: 62px;
+  }
+
+  span {
     float: left;
   }
 
-  form {
-    float: right;
+  h2 {
+    color: $blue2;
+    float: left;
+    font-weight: lighter;
   }
-}
 
-.faq-frequent-questions {
-  margin: 20px 30px;
-}
+  .title {
 
-h2 {
-  color: $blue2;
-}
+    float: left;
+    padding-left: 10px;
 
-form-search {
-  float: right;
-}
+    p {
+      float: left;
+      clear: left;
+      padding-left: 10px;
+    }
+  }
 
-.faq-questions-category {
-  margin: 20px 30px;
-}
+  .article-title {
 
-.faq-questions-category li {
-    list-style: none;
-    overflow: auto;
-    clear: both;
+    float: left;
+    padding-left: 10px;
 
-    h6 {
-        color: $blue3;
-        float: left;
+    h2 {
+      color: $gray5;
     }
 
-    .list-lecture-info {
-        float: right;
+    p {
+      float: left;
+      clear: left;
+      padding-left: 10px;
     }
+  }
+
+  .form-search {
+    float: right;
+    margin: 3px 3px 3px 0;
+  }
 }
 
 .faq-category {
@@ -47,25 +56,20 @@ form-search {
   @include border-radius(10px);
   padding: 10px;
   margin-top: 20px;
+}
 
-  .faq-category-title {
-    overflow: auto;
-    margin-bottom: 10px;
-    width: 100%;
-    text-align: center;
+.faq-category-title {
+  overflow: hidden;
+  margin: 10px auto;
+  display: block;
 
-    span {
-    }
-
-    h6 {
-      color: $gray5;
-      margin: 0;
-      display: inline-block;
-    }
+  h6 {
+    float: left;
+    color: $gray5;
+    padding: 7px 0 0 5px;
   }
 
-  li h6 {
-    text-align: left;
-    margin: 0;
+  span {
+    float: left;
   }
 }

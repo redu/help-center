@@ -1,0 +1,57 @@
+.help-central-section {
+  margin: 20px 30px;
+  overflow: hidden;
+
+  h3 {
+    margin-bottom: 10px;
+  }
+
+  h6 {
+    padding-top: 10px;
+    color: $gray5;
+  }
+}
+
+.basic-guide-column {
+  width: 49%;
+  float: left;
+
+  h3 {
+    margin-bottom: 20px;
+  }
+}
+
+.basic-guide-row {
+  float: left;
+  width: 100%;
+
+  h3 {
+    margin-bottom: 20px;
+  }
+}
+
+.basic-guide-section {
+  width: 49%;
+  float: left;
+
+  h6 {
+    color: $gray5;
+  }
+}
+
+.right {
+  float: right;
+}
+
+.help-central-list {
+  margin: 20px 30px;
+
+  h3 {
+    margin-bottom: 10px;
+  }
+
+  h6 {
+    padding-top: 10px;
+    color: $gray5;
+  }
+}

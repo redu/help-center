@@ -1,0 +1,75 @@
+.help-central-section {
+
+  .form-search {
+
+    margin: 3px 30px;
+
+
+    input {
+      height: 40px;
+      font-size: 16px;
+    }
+  }
+
+  button {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .article {
+    color: $gray5;
+  }
+
+  li {
+    list-style: none;
+    overflow: auto;
+    clear: both;
+
+    h6 {
+        color: $blue3;
+        float: left;
+        padding-top: 0;
+    }
+  }
+
+  .title-gray {
+    color: $gray5;
+    font-weight: lighter;
+  }
+
+}
+
+.article {
+
+  p {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+
+.search-results {
+  p {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+.search-empty {
+
+   color: $gray5;
+   margin: 100px 0;
+
+   span {
+     margin: 0 auto;
+     display: block;
+     text-align: center;
+   }
+
+   p {
+     margin-top: 20px;
+     width: 100%;
+     text-align: center;
+   }
+}

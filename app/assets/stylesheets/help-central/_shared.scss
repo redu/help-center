@@ -123,3 +123,19 @@
 
   .questions-list { padding-left: 10px; }
 }
+
+.question-list-description {
+  display: block;
+  clear: both;
+  line-height: 14px;
+  margin: 5px 0;
+
+  &:hover {
+    color: $gray6;
+    cursor: default;
+  }
+}
+
+.item-gray {
+  background-color: $gray1;
+}

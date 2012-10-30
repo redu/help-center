@@ -21,6 +21,9 @@
 
 // Área.
 .feel-supported-area {
+  $icon-width: 48px;
+  $icon-margin-right: 10px;
+
   float: left;
   width: 349px;
   color: $gray5;
@@ -30,10 +33,10 @@
 
   &[class*="icon-"][class*="-before"]:before {
     float: left;
-    margin-right: 10px;
+    margin-right: $icon-margin-right;
   }
 
-  p { margin-left: 48px + 10px; }
+  p { margin-left: $icon-width + $icon-margin-right; }
 }
 
 // Título da área.

@@ -5,7 +5,15 @@ This is the help-center repository for [Redu](www.redu.com.br).
 ## Setup
 
 ### Populate database
-It can be done just running rake task:
+
+First you should create the database, you need the file ``config/database.yml`` with the configurations and run 
+```shell
+rake db:create
+rake db:migrate
+rake db:test:prepare
+```
+
+To populate database just run the rake task:
 ```shell
 rake populate:minimun
 ```

@@ -52,7 +52,6 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     @topic.destroy
 
-    flash[:notice] = "Tópico removido"
     redirect_to :root
   end
 

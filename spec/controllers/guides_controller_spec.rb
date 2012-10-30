@@ -5,7 +5,7 @@ describe GuidesController do
 
   context "GET show" do
     before do
-      @guide = FactoryGirl.create(:guide)
+      @guide = create(:guide)
     end
 
     it "should render guide" do
@@ -16,11 +16,11 @@ describe GuidesController do
 
     it "should load all topics" do
       2.times do
-        category = FactoryGirl.create(:topic)
+        category = create(:topic)
         category.move_to_child_of(@guide)
 
         3.times do
-          topic = FactoryGirl.create(:topic)
+          topic = create(:topic)
           topic.move_to_child_of(category)
         end
       end
@@ -49,7 +49,7 @@ describe GuidesController do
         format: :js,
         guide: {
           title: "New guide",
-          body: "Central de Ajuda" }
+          body: "Basic Guide" }
       }
     end
 
@@ -69,16 +69,16 @@ describe GuidesController do
   context "POST update" do
     before do
       http_login
-      @guide = FactoryGirl.create(:guide)
+      @guide = create(:guide)
     end
 
     it "should update the guide" do
       params = { id: @guide, format: :js,
-                 guide: { body: "foca no trabalho" } }
+                 guide: { body: "focus on the work" } }
 
       post :update, params
 
-      assigns[:guide].body.should eq("foca no trabalho")
+      assigns[:guide].body.should eq("focus on the work")
     end
   end
 end

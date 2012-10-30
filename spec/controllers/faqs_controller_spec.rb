@@ -5,14 +5,14 @@ describe FaqsController do
 
   context "GET show" do
     before do
-      @faq = FactoryGirl.create(:faq)
+      @faq = create(:faq)
 
       2.times do
-        category = FactoryGirl.create(:topic)
+        category = create(:topic)
         category.move_to_child_of(@faq)
 
         3.times do
-          topic = FactoryGirl.create(:topic)
+          topic = create(:topic)
           topic.move_to_child_of(category)
         end
       end
@@ -59,7 +59,7 @@ describe FaqsController do
         format: :js,
         faq: {
           title: "New faq",
-          body: "Central de Ajuda" }
+          body: "Frequently questions" }
       }
     end
 
@@ -79,16 +79,16 @@ describe FaqsController do
   context "POST update" do
     before do
       http_login
-      @faq = FactoryGirl.create(:faq)
+      @faq = create(:faq)
     end
 
     it "should update the faq" do
       params = { id: @faq, format: :js,
-                 faq: { body: "foca no trabalho" } }
+                 faq: { body: "focus on the work" } }
 
       post :update, params
 
-      assigns[:faq].body.should eq("foca no trabalho")
+      assigns[:faq].body.should eq("focus on the work")
     end
   end
 end

@@ -8,7 +8,7 @@ describe Topic do
 
   context "get type" do
     it "is faq" do
-      faq = FactoryGirl.create(:faq)
+      faq = create(:faq)
 
       faq.faq?.should be_true
     end
@@ -17,11 +17,11 @@ describe Topic do
   context "read more" do
     context "with many leaves" do
       before do
-        @guide = FactoryGirl.create(:guide)
+        @guide = create(:guide)
         @leaves = []
 
         3.times do
-          topic = FactoryGirl.create(:topic)
+          topic = create(:topic)
           topic.move_to_child_of(@guide)
           @leaves << topic
         end
@@ -52,11 +52,11 @@ describe Topic do
 
     context "with only one more leaf" do
       before do
-        @guide = FactoryGirl.create(:guide)
+        @guide = create(:guide)
         @leaves = []
 
         2.times do
-          topic = FactoryGirl.create(:topic)
+          topic = create(:topic)
           topic.move_to_child_of(@guide)
           @leaves << topic
         end
@@ -81,10 +81,10 @@ describe Topic do
 
     context "with no more leaf" do
       before do
-        @guide = FactoryGirl.create(:guide)
+        @guide = create(:guide)
         @leaves = []
 
-        topic = FactoryGirl.create(:topic)
+        topic = create(:topic)
         topic.move_to_child_of(@guide)
         @leaves << topic
       end

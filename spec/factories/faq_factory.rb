@@ -1,4 +1,6 @@
-Factory.define :faq do |e|
-  e.title "Dúvidas"
-  e.body "Lorem ipsum dolor sit amet, consectetur magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation"
+FactoryGirl.define do
+  factory :faq do
+    title "Questions"
+    body "Lorem ipsum dolor sit amet, consectetur magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation"
+  end
 end

@@ -2,12 +2,11 @@
 <html>
 <head>
   <title>HelpCenter</title>
+  <%= javascript_include_tag "application" %>
+  <%=raw wymeditor_initialize %>
 </head>
 <body>
-
   <%= render_navigation %>
-
   <%= yield %>
-
 </body>
 </html>

@@ -1,14 +1,16 @@
+# encoding: utf-8
 class TopicsController < ApplicationController
   require 'viewable'
   respond_to :html, :js
 
-  before_filter :authenticate, :except => [:index, :show]
+  before_filter :authenticate, except: [:index, :show, :search]
 
   include Viewable
 
   def index
     @guides = Guide.roots
-    @top_questions = Faq.root.order_by_visualizations
+
+    top_questions
   end
 
   def show
@@ -17,6 +19,7 @@ class TopicsController < ApplicationController
 
     @topic.reload
     @ancestors = @topic.ancestors
+    @read_more = @topic.read_more
   end
 
   def new
@@ -49,7 +52,13 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     @topic.destroy
 
-    flash[:notice] = "Tópico removido"
     redirect_to :root
+  end
+
+  def search
+    searching
+
+    @results = @search.results
+    @results = Kaminari.paginate_array(@results).page(params[:page])
   end
 end

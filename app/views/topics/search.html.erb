@@ -1,0 +1,15 @@
+<%= form_tag search_path, method: :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", name: nil %>
+  </p>
+<% end %>
+
+<% @results.each do |result| %>
+  <%= result.title %>
+<% end %>
+
+<div id="paginator">
+  <%= link_to_next_page(@results, 'Mostrar Mais', { remote: true }) %>
+</div>
+

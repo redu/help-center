@@ -1,12 +1,12 @@
 class FaqsController < ApplicationController
   respond_to :html, :js
 
-  before_filter :authenticate, :except => [:show]
+  before_filter :authenticate, except: [:show]
 
   def show
     @faq = Topic.find(params[:id])
 
-    @top_questions = Faq.root.order_by_visualizations
+    top_questions
     @topics_and_categories = @faq.descendants
   end
 

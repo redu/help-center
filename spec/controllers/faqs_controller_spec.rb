@@ -1,18 +1,18 @@
 require 'spec_helper'
-
 include AuthHelper
 
 describe FaqsController do
+
   context "GET show" do
     before do
-      @faq = Factory(:faq)
+      @faq = create(:faq)
 
       2.times do
-        category = Factory(:topic)
+        category = create(:topic)
         category.move_to_child_of(@faq)
 
         3.times do
-          topic = Factory(:topic)
+          topic = create(:topic)
           topic.move_to_child_of(category)
         end
       end
@@ -21,19 +21,19 @@ describe FaqsController do
     end
 
     it "should render faq" do
-      get :show, :id => @faq
+      get :show, id: @faq
 
       response.should render_template("faqs/show")
     end
 
     it "should load top_questions" do
-      get :show, :id => @faq
+      get :show, id: @faq
 
-      assigns[:top_questions].length.should == 5
+      assigns[:top_questions].hits.length.should == 5
     end
 
     it "should load all topics" do
-      get :show, :id => @faq
+      get :show, id: @faq
 
       assigns[:topics_and_categories].length.should == \
         @faq.descendants.count
@@ -56,17 +56,17 @@ describe FaqsController do
     before do
       http_login
       @params =  {
-        :format => :js,
-        :faq => {
-          :title => "New faq",
-          :body => "Central de Ajuda" }
+        format: :js,
+        faq: {
+          title: "New faq",
+          body: "Frequently questions" }
       }
     end
 
     it "should create a new faq" do
       expect{
         post :create, @params
-      }.should change(Faq, :count).by(1)
+      }.to change(Faq, :count).by(1)
     end
 
     it "should be a root" do
@@ -79,16 +79,16 @@ describe FaqsController do
   context "POST update" do
     before do
       http_login
-      @faq = Factory(:faq)
+      @faq = create(:faq)
     end
 
     it "should update the faq" do
-      params = { :id => @faq, :format => :js,
-                 :faq => { :body => "foca no trabalho" } }
+      params = { id: @faq, format: :js,
+                 faq: { body: "focus on the work" } }
 
       post :update, params
 
-      assigns[:faq].body.should eq("foca no trabalho")
+      assigns[:faq].body.should eq("focus on the work")
     end
   end
 end

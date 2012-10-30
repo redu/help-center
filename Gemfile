@@ -1,26 +1,30 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '3.2.5'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2', '~> 0.3.11'
 gem 'awesome_nested_set'
-gem 'factory_girl_rails', '~> 1.7.0'
+gem 'compass-rails'
+gem 'factory_girl_rails'
+gem "jquery-rails"
+gem 'kaminari'
+gem 'mysql2'
+gem 'sass-rails'
 gem 'simple-navigation'
+gem 'sunspot_rails'
+gem 'wymeditor'
 
 group :test do
   gem 'rspec-rails', '~> 2.8'
-  gem 'ruby-debug'
+  gem 'debugger'
   gem 'shoulda-matchers'
 end
 
-gem 'sass-rails'
-gem 'compass-rails'
-
 group :development do
   gem 'sqlite3'
+  gem 'sunspot_solr'
 end
 
 # Use unicorn as the web server

@@ -6,30 +6,6 @@ describe Topic do
     it { should validate_presence_of(:title) }
   end
 
-  context "as tree" do
-    before do
-      @root = FactoryGirl.create(:topic)
-    end
-
-    it "should have root" do
-      @root.root?.should be_true
-    end
-
-    it "should have children" do
-      child = FactoryGirl.create(:topic)
-      child.move_to_child_of(@root)
-
-      @root.children.first.should == child
-    end
-
-    it "should have leaf" do
-      leaf = FactoryGirl.create(:topic)
-      leaf.move_to_child_of(@root)
-
-      leaf.leaf?.should be_true
-    end
-  end
-
   context "get type" do
     it "is faq" do
       faq = FactoryGirl.create(:faq)

@@ -3,7 +3,7 @@
   overflow: hidden;
 
   h1 {
-    color: $blue2;
+    color: $blue3;
     height: 62px;
   }
 
@@ -12,9 +12,17 @@
   }
 
   h2 {
-    color: $blue2;
-    float: left;
+    color: $blue3;
     font-weight: lighter;
+    float: left;
+
+    a {
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: $blue4;
+    }
   }
 
   .title {
@@ -25,7 +33,7 @@
     p {
       float: left;
       clear: left;
-      padding-left: 10px;
+      padding-left: 4px;
     }
   }
 
@@ -60,7 +68,7 @@
 
 .faq-category-title {
   overflow: hidden;
-  margin: 10px auto;
+  margin-bottom: 8px;
   display: block;
 
   h6 {

@@ -4,7 +4,12 @@
 
 
 // Título.
-.feel-supported-title { color: $gray4; }
+.feel-supported-title {
+  color: $gray4;
+  line-height: 32px;
+
+  &[class*="icon-"][class*="-before"]:before { margin-right: 12px; }
+}
 
 // Somente no Índice ele é preto.
 .feel-supported-title-index { color: $black; }
@@ -22,6 +27,13 @@
 
   & +
   & { margin-left: 20px; }
+
+  &[class*="icon-"][class*="-before"]:before {
+    float: left;
+    margin-right: 10px;
+  }
+
+  p { margin-left: 48px + 10px; }
 }
 
 // Título da área.

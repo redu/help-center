@@ -3,17 +3,7 @@ require "spec_helper"
 describe Topic do
 
   context "creation" do
-    it "should not save without title" do
-      topic = Topic.create
-
-      topic.save.should be_false
-    end
-
-    it "should create a topic" do
-      topic = Topic.new(title: "Guia Basico")
-
-      topic.save.should be_true
-    end
+    it { should validate_presence_of(:title) }
   end
 
   context "as tree" do

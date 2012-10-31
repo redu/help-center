@@ -15,18 +15,22 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.items do |primary|
     primary.dom_class = 'nav-local'
 
-    primary.item :index, 'Índice', help_central_index_path, :class => 'nav-local-item link-container', :link => { :class => 'nav-local-link link-target' }
+    primary.item :index, 'Índice', help_central_index_path,
+      :class => 'nav-local-item link-container icon-list-lightblue_16_18-before',
+      :link => { :class => 'nav-local-link link-target' }
 
-    primary.item :faq, 'Dúvidas Frequentes', help_central_faq_path, :class => 'nav-local-item link-container', :link => { :class => 'nav-local-link link-target' }
+    primary.item :faq, 'Dúvidas Frequentes', faq_path(Faq.root),
+      :class => 'nav-local-item link-container icon-frequent-questions-lightblue_16_18-before',
+      :link => { :class => 'nav-local-link link-target' }
 
-    primary.item :guide_basic, 'Guia Básico', help_central_guide_basic_path, :class => 'nav-local-item link-container', :link => { :class => 'nav-local-link link-target' }
+    primary.item :guide_basic, 'Guia Básico', basic_guide_path(BasicGuide.root),
+      :class => 'nav-local-item link-container icon-basic-guide-lightblue_16_18-before',
+      :link => { :class => 'nav-local-link link-target' }
 
-    primary.item :guide_student, 'Guia do Aluno', help_central_guide_student_path, :class => 'nav-local-item link-container', :link => { :class => 'nav-local-link link-target' }
-
-    primary.item :guide_teacher, 'Guia do Professor', help_central_guide_teacher_path, :class => 'nav-local-item link-container', :link => { :class => 'nav-local-link link-target' }
-
-    primary.item :guide_manager, 'Guia do Gestor', help_central_guide_manager_path, :class => 'nav-local-item link-container', :link => { :class => 'nav-local-link link-target' }
-
-    primary.item :guide_developer, 'Guia do Dev.', help_central_guide_developer_path, :class => 'nav-local-item link-container', :link => { :class => 'nav-local-link link-target' }
+    Guide.roots.each do |guide|
+      primary.item :guides, guide.title, guide_path(guide),
+        :class => "nav-local-item link-container icon-#{ guide.icon_name }-lightblue_16_18-before",
+        :link => { :class => 'nav-local-link link-target' }
+    end
   end
 end

@@ -14,7 +14,7 @@ class NavLocal < SimpleNavigation::Renderer::Base
     if skip_if_empty? && item_container.empty?
       ''
     else
-      content_tag(:ul, list_content, {:id => item_container.dom_id, :class => item_container.dom_class})
+      content_tag(:ul, list_content, {id: item_container.dom_id, class: item_container.dom_class})
     end
   end
 
@@ -22,7 +22,7 @@ class NavLocal < SimpleNavigation::Renderer::Base
 
   # Extracts the options relevant for the generated link
   def link_options_for(item)
-    special_options = {:method => item.method, :class => item.selected_class}.reject {|k, v| v.nil? }
+    special_options = {method: item.method, class: item.selected_class}.reject {|k, v| v.nil? }
     link_options = item.html_options[:link]
     return special_options unless link_options
     opts = special_options.merge(link_options)

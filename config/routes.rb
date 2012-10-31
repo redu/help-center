@@ -20,11 +20,13 @@ HelpCenter::Application.routes.draw do
   match "search" => "topics#search"
 
   resources :topics, except: [:new, :edit]
+  resources :basic_guides, only: [:show, :create, :update]
   resources :faqs, only: [:show, :create, :update]
   resources :guides, only: [:show, :create, :update]
 
   scope "/admin" do
     resources :topics, only: [:new, :edit]
+    resources :basic_guides, only: [:new]
     resources :faqs, only: [:new]
     resources :guides, only: [:new]
   end

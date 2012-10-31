@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :set_locale
+  before_filter :set_locale_from_url
 
   protected
 
@@ -24,5 +26,9 @@ class ApplicationController < ActionController::Base
       order_by(:view_count, :desc)
       paginate page: 1, per_page: 5
     end
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || ((lang = request.env['HTTP_ACCEPT_LANGUAGE']) && lang[/^[a-z]{2}/])
   end
 end

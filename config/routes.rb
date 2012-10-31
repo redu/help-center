@@ -31,4 +31,5 @@ HelpCenter::Application.routes.draw do
     resources :guides, only: [:new]
   end
 
+  ActionDispatch::Routing::Translator.translate_from_file('lang/i18n-routes.yml')
 end

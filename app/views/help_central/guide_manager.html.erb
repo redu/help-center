@@ -5,11 +5,17 @@
 <div class="content-body">
 
   <div class="help-central-header">
+    
+    <span class="icon-manager-lightblue_32_34 show text-replacement">Guia do Gestor</span>
 
-    <h2 class="icon-manager-lightblue_32_34-before" href="">Guia do Gestor</h2>
+    <div id="title" class="title">
+
+      <h2>Guia do Gestor</h2>
+
+    </div>
 
     <form class="form-search">
-      <input class="control-area" type="text" placeholder="O que deseja saber?">
+      <input class="control-area" type="text" placeholder="O que deseja saber?" data-toggle="#title">
       <button class="control-append-area button-default" type="submit">
         <span class="control-search-icon icon-magnifier-gray_16_18 text-replacement">Busca</span>
       </button>
@@ -113,7 +119,7 @@
 
   <hr class="list-separator">
 
-  <%= render :partial => "help_central/shared/feel_supported", :locals => { :index => true } %>
+  <%= render :partial => "shared/feel_supported", :locals => { :index => true } %>
 </div>
 
 <ul class="breadcrumb-mini white-area">

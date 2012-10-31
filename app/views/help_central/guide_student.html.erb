@@ -8,14 +8,14 @@
 
     <span class="icon-member-lightblue_32_34 show text-replacement">Guia do Aluno</span>
 
-    <div class="title">
+    <div id="title" class="title">
 
       <h2>Guia do Aluno</h2>
 
     </div>
 
     <form class="form-search">
-      <input class="control-area" type="text" placeholder="O que deseja saber?">
+      <input class="control-area" type="text" placeholder="O que deseja saber?" data-toggle="#title">
       <button class="control-append-area button-default" type="submit">
         <span class="control-search-icon icon-magnifier-gray_16_18 text-replacement">Busca</span>
       </button>
@@ -73,7 +73,7 @@
 
   <hr class="list-separator">
 
-  <%= render :partial => "help_central/shared/feel_supported", :locals => { :index => true } %>
+  <%= render :partial => "shared/feel_supported", :locals => { :index => true } %>
 </div>
 
 <ul class="breadcrumb-mini white-area">

@@ -8,6 +8,9 @@
 
 .nav-global-container {
   // Botão de voltar ao Redu.
+  .nav-global-brand {
+    text-decoration: none;
+  }
   .button-default {
     float: right;
     margin-top: 5px;

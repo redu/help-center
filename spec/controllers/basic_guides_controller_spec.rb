@@ -9,7 +9,7 @@ describe BasicGuidesController do
     end
 
     it "should render basic guide" do
-      get :show, id: @basic
+      get :show, id: @basic, locale: "pt-BR"
 
       response.should render_template("basic_guides/show")
     end
@@ -26,7 +26,7 @@ describe BasicGuidesController do
       end
       @basic.reload
 
-      get :show, id: @basic
+      get :show, id: @basic, locale: "pt-BR"
 
       assigns[:topics_and_categories].length.should == \
         @basic.descendants.length
@@ -36,7 +36,7 @@ describe BasicGuidesController do
   context "GET new" do
     it "should render guides/new" do
       http_login
-      get :new
+      get :new, locale: "pt-BR"
 
       response.should render_template("basic_guides/new")
     end
@@ -47,6 +47,7 @@ describe BasicGuidesController do
       http_login
       @params =  {
         format: :js,
+        locale: "pt-BR",
         basic_guide: {
           title: "New guide",
           body: "Basic Guide" }
@@ -73,7 +74,7 @@ describe BasicGuidesController do
     end
 
     it "should update the basic guide" do
-      params = { id: @basic, format: :js,
+      params = { id: @basic, format: :js, locale: "pt-BR",
                  basic_guide: { body: "focus on the work" } }
 
       post :update, params

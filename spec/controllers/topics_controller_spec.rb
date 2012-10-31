@@ -10,13 +10,13 @@ describe TopicsController do
     end
 
     it "should render index" do
-      get :index
+      get :index, locale: "pt-BR"
 
       response.should render_template("topics/index")
     end
 
     it "should load all roots from Guide" do
-      get :index
+      get :index, locale: "pt-BR"
 
       assigns[:guides].length.should == Guide.count
     end
@@ -31,7 +31,7 @@ describe TopicsController do
       end
 
       it "should load top questions in Faq" do
-        get :index
+        get :index, locale: "pt-BR"
 
         assigns[:top_questions].hits.length.should == 5
       end
@@ -44,7 +44,7 @@ describe TopicsController do
     end
 
     it "should render show" do
-      get :show, id: @topic
+      get :show, id: @topic, locale: "pt-BR"
 
       response.should render_template("topics/show")
     end
@@ -56,14 +56,14 @@ describe TopicsController do
       category.move_to_child_of(guide)
       @topic.move_to_child_of(category)
 
-      get :show, id: @topic
+      get :show, id: @topic, locale: "pt-BR"
 
       assigns[:ancestors].length.should == @topic.ancestors.count
     end
 
     it "should increase view_count" do
       expect{
-      get :show, id: @topic
+      get :show, id: @topic, locale: "pt-BR"
         @topic.reload
       }.to change(@topic, :view_count).by(1)
     end
@@ -77,7 +77,7 @@ describe TopicsController do
         topic.move_to_child_of(guide)
       end
 
-      get :show, id: @topic
+      get :show, id: @topic, locale: "pt-BR"
 
       assigns[:read_more].length.should == 2
     end
@@ -86,7 +86,7 @@ describe TopicsController do
   context "New" do
     it "should render topics/new" do
       http_login
-      get :new
+      get :new, locale: "pt-BR"
 
       response.should render_template("topics/new")
     end
@@ -98,6 +98,7 @@ describe TopicsController do
 
         @params =  {
           format: :js,
+          locale: "pt-BR",
           parent_id: @guide,
           topic: {
             title: "New topic",
@@ -133,7 +134,7 @@ describe TopicsController do
     end
 
     it "should render edit" do
-      get :edit, id: @topic
+      get :edit, id: @topic, locale: "pt-BR"
 
       response.should render_template("topics/edit")
     end
@@ -148,14 +149,14 @@ describe TopicsController do
       end
       @topic.reload
 
-      get :edit, id: @topic
+      get :edit, id: @topic, locale: "pt-BR"
 
       assigns[:topics_and_categories].length.should == @topic.descendants.count
     end
 
     context "POST update" do
       it "should update the topic" do
-        params = { id: @topic, format: :js,
+        params = { id: @topic, format: :js, locale: "pt-BR",
                    topic: { body: "focus on the work" } }
 
         post :update, params
@@ -175,13 +176,13 @@ describe TopicsController do
     end
 
     it "should delete the topic" do
-      delete :destroy, id: @top_child
+      delete :destroy, id: @top_child, locale: "pt-BR"
 
       @topic.children.should be_empty
     end
 
     it "should redirect to home path" do
-      delete :destroy, id: @top_child
+      delete :destroy, id: @top_child, locale: "pt-BR"
 
       response.should redirect_to(root_path)
     end

@@ -21,19 +21,19 @@ describe FaqsController do
     end
 
     it "should render faq" do
-      get :show, id: @faq
+      get :show, id: @faq, locale: "pt-BR"
 
       response.should render_template("faqs/show")
     end
 
     it "should load top_questions" do
-      get :show, id: @faq
+      get :show, id: @faq, locale: "pt-BR"
 
       assigns[:top_questions].hits.length.should == 5
     end
 
     it "should load all topics" do
-      get :show, id: @faq
+      get :show, id: @faq, locale: "pt-BR"
 
       assigns[:topics_and_categories].length.should == \
         @faq.descendants.count
@@ -46,7 +46,7 @@ describe FaqsController do
     end
 
     it "should render faqs/new" do
-      get :new
+      get :new, locale: "pt-BR"
 
       response.should render_template("faqs/new")
     end
@@ -57,6 +57,7 @@ describe FaqsController do
       http_login
       @params =  {
         format: :js,
+        locale: "pt-BR",
         faq: {
           title: "New faq",
           body: "Frequently questions" }
@@ -83,7 +84,7 @@ describe FaqsController do
     end
 
     it "should update the faq" do
-      params = { id: @faq, format: :js,
+      params = { id: @faq, format: :js, locale: "pt-BR",
                  faq: { body: "focus on the work" } }
 
       post :update, params

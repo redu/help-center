@@ -1,7 +1,8 @@
 pt-BR:
-  edit: "editar"
-  new: "novo"
-  search: "busca"
-  guides: "guias"
-  basic_guides: "guias_basicos"
-  topics: "topicos"
+  routes:
+    edit: editar
+    new: novo
+    search: busca
+    guides: guias
+    basic_guides: guias_basicos
+    topics: topicos

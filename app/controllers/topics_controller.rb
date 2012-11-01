@@ -9,6 +9,7 @@ class TopicsController < ApplicationController
 
   def index
     @guides = Guide.roots
+    @basic_guide = BasicGuide.root
 
     top_questions
   end

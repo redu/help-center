@@ -22,20 +22,9 @@
     <h3 class="section-title icon-course-gray_32_34-before">Aprenda com os Guias</h3>
 
     <ul class="guides-list clearfix">
-      <li class="guides-list-item guides-list-item-basic link-container">
-        <div class="guides-list-item-header">
-          <span class="guides-list-item-icon icon-course-lightblue_32_34 text-replacement">Guia Básico</span>
-        </div>
-        <div class="guides-list-item-body">
-          <h4>
-            <%= link_to "Guia Básico", help_central_guide_basic_path, :class => "guides-list-item-title link-target" %>
-          </h4>
-          <em class="legend">Comece aqui!</em>
-        </div>
-        <div class="guides-list-item-footer">
-          <p class="legend">Conheça o funcionamento básico do Redu, sua estrutura e funcionalidades; e como tirar proveito de cada uma delas.</p>
-        </div>
-      </li>
+
+      <%= render partial: "basic_guide" %>
+
       <li class="guides-list-item link-container">
         <div class="guides-list-item-header">
           <span class="guides-list-item-icon icon-course-lightblue_32_34 text-replacement">Guia do Aluno</span>

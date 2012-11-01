@@ -30,7 +30,7 @@ A plataforma disponibilizada preza pela facilidade de disponibilização desses 
   functionalities.move_to_child_of(faq)
 
   social = Topic.create(title: "Rede Social", icon_name: "social-networks")
-  social.move_to_child_of(general)
+  social.move_to_child_of(functionalities)
 
   what = Topic.create(title: "O que é a Rede Social no Redu?", icon_name: "doubt-topic", body: "O Redu é uma rede social com foco educacional, um ambiente de troca e compartilhamento de informacoes entre os usuários. O detalhe da rede social está em poder adicionar os seus amigos, enviar mensagens direta, conversar através do chat, postar dúvidas, links e interagir com outros contatos através do mural. ")
   what.move_to_child_of(social)
@@ -39,7 +39,7 @@ A plataforma disponibilizada preza pela facilidade de disponibilização desses 
   what.move_to_child_of(social)
 
   chat = Topic.create(title: "Chat", icon_name: "chat")
-  chat.move_to_child_of(general)
+  chat.move_to_child_of(functionalities)
 
   what = Topic.create(title: "Como funciona o Chat do Redu?", icon_name: "doubt-topic", body: "Para adicionar um amigo / contato, você vai no perfil da pessoa que deseja adicionar e clica no botão “Adicionar Contato” na parte superior do menu da direita.")
   what.move_to_child_of(chat)

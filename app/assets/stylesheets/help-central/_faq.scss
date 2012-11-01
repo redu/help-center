@@ -7,28 +7,30 @@
     height: 62px;
   }
 
-  span {
-    float: left;
-  }
-
   h2 {
     color: $blue3;
     font-weight: lighter;
-    float: left;
 
     a {
       text-decoration: none;
     }
-
-    &:hover {
-      color: $blue4;
-    }
   }
 
   .title {
-
-    float: left;
-    padding-left: 10px;
+    text-decoration: none;
+    
+    h2 {
+      display: inline;
+      line-height: inherit;
+      
+      &:hover {
+        color: $blue4;
+      }
+    }
+    
+    span {
+      float: left;
+    }
 
     p {
       float: left;

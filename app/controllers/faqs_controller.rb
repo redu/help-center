@@ -7,7 +7,7 @@ class FaqsController < ApplicationController
     @faq = Topic.find(params[:id])
 
     top_questions
-    @topics_and_categories = @faq.descendants
+    @categories = @faq.children
   end
 
   def new

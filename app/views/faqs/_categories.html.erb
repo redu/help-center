@@ -1,0 +1,15 @@
+<div class="faq-category">
+
+  <div class="faq-category-title">
+
+    <span class="icon-frequent-questions-lightgray_32_34-before"></span>
+    <h6><%= category.title %></h6>
+
+  </div>
+
+  <ul class="list-button">
+    <%= render partial: "faqs/item_categories",
+      collection: category.children, as: :category_item%>
+  </ul>
+
+</div>

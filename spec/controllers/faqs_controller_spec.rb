@@ -31,13 +31,6 @@ describe FaqsController do
 
       assigns[:top_questions].hits.length.should == 5
     end
-
-    it "should load all topics" do
-      get :show, id: @faq, locale: "pt-BR"
-
-      assigns[:topics_and_categories].length.should == \
-        @faq.descendants.count
-    end
   end
 
   context "GET new" do

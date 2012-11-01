@@ -4,7 +4,7 @@
   </div>
   <div class="guides-list-item-body">
     <h4>
-      <%= link_to "Guia Básico", basic_guide_path(@basic_guide), class: "guides-list-item-title link-target" %>
+      <%= link_to @basic_guide.title, basic_guide_path(@basic_guide), class: "guides-list-item-title link-target" %>
     </h4>
     <em class="legend">Comece aqui!</em>
   </div>

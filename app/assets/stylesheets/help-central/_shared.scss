@@ -76,10 +76,11 @@
   .white-area { padding: 4px; }
 }
 
-.breadcrumb-mini +
-.content-body,
 .content-body +
-.breadcrumb-mini { margin-top: 5px; }
+.breadcrumb-mini { margin-top: 10px; }
+
+.breadcrumb-mini +
+.content-body { margin-top: 8px; }
 
 
 // Lista de perguntas
@@ -88,7 +89,7 @@
 // Lista.
 .questions-list  {
   list-style: none;
-  margin: 0;
+  margin: 10px 0 0 0;
 }
 
 // Item da lista.

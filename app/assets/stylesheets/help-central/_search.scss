@@ -12,11 +12,6 @@
     margin-top: 3px;
   }
 
-  h6 {
-    padding-top: 10px;
-    color: $gray5;
-  }
-
   .article {
     color: $gray5;
 
@@ -26,16 +21,10 @@
     }
 
   }
-
+  
   li {
-    list-style: none;
-    overflow: auto;
-    clear: both;
-
     h6 {
-        color: $blue3;
-        float: left;
-        padding-top: 0;
+      display: inline;
     }
   }
 

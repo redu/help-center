@@ -74,16 +74,17 @@
 
 .faq-category-title {
   overflow: hidden;
-  margin-bottom: 8px;
-  display: block;
-
+  padding-bottom: 8px;
+  color: $gray5;
+  font-weight: lighter;
+  
+  [class*="icon-"][class*="-before"]::before {
+    vertical-align: middle;
+  }
+  
   h6 {
     float: left;
-    color: $gray5;
-    padding: 7px 0 0 5px;
-  }
-
-  span {
-    float: left;
+    width: 100%;
+    text-align: center;
   }
 }

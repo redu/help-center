@@ -1,0 +1,43 @@
+<ul class="breadcrumb-mini">
+  <%= render :partial => "help_central/breadcrumb/faq_category" %>
+</ul>
+
+<div class="content-body">
+
+  <div class="help-central-header">
+
+    <a href="#" class="title icon-frequent-questions-lightblue_32_34-before">
+      <h2 id="title">
+        <%= @topic.root.title %>
+      </h2>
+    </a>
+
+    <%= render partial: "shared/small_search_form" %>
+
+    <p id="title" class="legend"><%= topic_path_html(@children.first, true) %></p>
+
+  </div>
+
+  <hr class="list-separator">
+
+  <div class="help-central-section">
+
+    <h3><%= @topic.title %></h3>
+
+    <p class="legend"><%= @children.count %> perguntas</p>
+
+    <ul class="questions-list">
+      <%= render partial: @children %>
+    </ul>
+
+  </div>
+
+  <hr class="list-separator">
+
+  <%= render :partial => "shared/feel_supported", :locals => { :index => true } %>
+</div>
+
+<ul class="breadcrumb-mini white-area">
+  <%= render :partial => "help_central/breadcrumb/faq_category" %>
+</ul>
+

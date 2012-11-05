@@ -2,6 +2,6 @@
   <span class="icon-<%= topic.icon_name %>-gray_16_18 text-replacement question-list-icon">Ícone</span>
   <div class="question-list-content">
     <%= link_to topic.title, topic_path(topic), class: "question-list-link" %>
-    <span class="legend"><%= topic.view_count %> visualizações — <%= topic_path_html(topic) %></span>
+    <span class="legend"><%= topic.view_count %> visualizações — <%= topic_path_html(topic, false) %></span>
   </div>
 </li>

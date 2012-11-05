@@ -43,43 +43,61 @@ describe TopicsController do
       @topic = create(:topic)
     end
 
-    it "should render show" do
-      get :show, id: @topic, locale: "pt-BR"
+    context "faq category" do
+      before do
+        faq = create(:faq)
+        @category = create(:topic)
 
-      response.should render_template("topics/show")
-    end
-
-    it "should load all ancestors" do
-      guide = create(:guide)
-      category = create(:topic)
-
-      category.move_to_child_of(guide)
-      @topic.move_to_child_of(category)
-
-      get :show, id: @topic, locale: "pt-BR"
-
-      assigns[:ancestors].length.should == @topic.ancestors.count
-    end
-
-    it "should increase view_count" do
-      expect{
-      get :show, id: @topic, locale: "pt-BR"
-        @topic.reload
-      }.to change(@topic, :view_count).by(1)
-    end
-
-    it "should load two topics to read more" do
-      guide = create(:guide)
-      @topic.move_to_child_of(guide)
-
-      2.times do
-        topic = create(:topic)
-        topic.move_to_child_of(guide)
+        @category.move_to_child_of(faq)
+        @topic.move_to_child_of(@category)
       end
 
-      get :show, id: @topic, locale: "pt-BR"
+      it "should render category show" do
+        get :show, id: @category, locale: "pt-BR"
 
-      assigns[:read_more].length.should == 2
+        response.should render_template("faqs/category")
+      end
+    end
+
+    context "topics" do
+      it "should render show" do
+        get :show, id: @topic, locale: "pt-BR"
+
+        response.should render_template("topics/show")
+      end
+
+      it "should load all ancestors" do
+        guide = create(:guide)
+        category = create(:topic)
+
+        category.move_to_child_of(guide)
+        @topic.move_to_child_of(category)
+
+        get :show, id: @topic, locale: "pt-BR"
+
+        assigns[:ancestors].length.should == @topic.ancestors.count
+      end
+
+      it "should increase view_count" do
+        expect{
+          get :show, id: @topic, locale: "pt-BR"
+          @topic.reload
+        }.to change(@topic, :view_count).by(1)
+      end
+
+      it "should load two topics to read more" do
+        guide = create(:guide)
+        @topic.move_to_child_of(guide)
+
+        2.times do
+          topic = create(:topic)
+          topic.move_to_child_of(guide)
+        end
+
+        get :show, id: @topic, locale: "pt-BR"
+
+        assigns[:read_more].length.should == 2
+      end
     end
   end
 

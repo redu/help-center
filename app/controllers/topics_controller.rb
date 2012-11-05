@@ -16,11 +16,17 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    update_view_count(@topic)
 
-    @topic.reload
-    @ancestors = @topic.ancestors
-    @read_more = @topic.read_more
+    if @topic.leaf?
+      update_view_count(@topic)
+
+      @topic.reload
+      @ancestors = @topic.ancestors
+      @read_more = @topic.read_more
+    else
+      @children = @topic.children
+      render 'faqs/category'
+    end
   end
 
   def new

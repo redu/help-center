@@ -1,7 +1,13 @@
-<li class="question-list-item">
-  <span class="icon-<%= topic.icon_name %>-gray_16_18 text-replacement question-list-icon">Ícone</span>
-  <div class="question-list-content">
-    <%= link_to topic.title, topic_path(topic), class: "question-list-link" %>
-    <span class="legend"><%= topic.view_count %> visualizações — <%= topic_path_html(topic, false) %></span>
-  </div>
-</li>
+<% if topic.leaf? %>
+  <li class="question-list-item">
+    <span class="icon-<%= topic.icon_name %>-gray_16_18 text-replacement question-list-icon">Ícone</span>
+    <div class="question-list-content">
+      <%= link_to topic.title, topic_path(topic), class: "question-list-link" %>
+      <% if with_path %>
+        <span class="legend"><%= topic.view_count %> visualizações — <%= topic_path_html(topic, false) %></span>
+      <% else %>
+        <span class="legend"><%= topic.view_count %> visualizações</span>
+      <% end %>
+    </div>
+  </li>
+<% end %>

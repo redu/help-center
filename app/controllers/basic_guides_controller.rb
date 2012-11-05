@@ -5,7 +5,7 @@ class BasicGuidesController < ApplicationController
 
   def show
     @basic = Topic.find(params[:id])
-    @topics_and_categories = @basic.descendants
+    @children = @basic.children
   end
 
   def new

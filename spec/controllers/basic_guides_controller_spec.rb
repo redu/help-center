@@ -14,7 +14,7 @@ describe BasicGuidesController do
       response.should render_template("basic_guides/show")
     end
 
-    it "should load all topics" do
+    it "should load all children" do
       2.times do
         category = create(:topic)
         category.move_to_child_of(@basic)
@@ -28,8 +28,8 @@ describe BasicGuidesController do
 
       get :show, id: @basic, locale: "pt-BR"
 
-      assigns[:topics_and_categories].length.should == \
-        @basic.descendants.length
+      assigns[:children].length.should == \
+        @basic.children.length
     end
   end
 

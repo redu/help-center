@@ -47,14 +47,14 @@ A plataforma disponibilizada preza pela facilidade de disponibilização desses 
   what = Topic.create(title: "Posso mudar meu status no Chat do Redu?", icon_name: "doubt-topic", body: "Não ha possibilidade de alterar o status, pois o objetivo do mesmo é incentivar o usuário a ter uma conversa mais pessoal com sua rede de contatos.")
   what.move_to_child_of(chat)
 
-  BasicGuide.create(title: "Guia Básico", icon_name: "basic-guide", body: "Conheça o funcionamento básico do Redu, sua estrutura e funcionalidades; e como tirar proveito de cada uma delas.")
+  basic = BasicGuide.create(title: "Guia Básico", icon_name: "basic-guide", body: "Conheça o funcionamento básico do Redu, sua estrutura e funcionalidades; e como tirar proveito de cada uma delas.")
 
   start = Topic.create(title: "Começando...")
+  start.move_to_child_of(basic)
   what = Topic.create(title: "O que é o Redu?", icon_name: "guide-topic", body: "O Redu é uma plataforma educacional que favorece a aprendizagem e o desenvolvimento de habilidades por meio da tecnologia. Além de fornecer recursos específicos à prática do Ensino A Distância, o Redu permite a criação, o compartilhamento e a discussão de conteúdos das mais diversas formas – estimulando, assim, o aprendizado, a colaboração e a diversão.
 
 A fim de atingir esse objetivo, a plataforma se utiliza de recursos presentes em redes sociais: murais de discussão, vínculos interpessoais e troca de mensagens instantâneas, por exemplo. Dessa maneira, aulas, exercícios e outros componentes aplicados à educação transpõem as barreiras da sala de aula, a distância entre professor e aluno deixa de ser um obstáculo à aprendizagem e o conhecimento flui livre e espontaneamente.")
   what.move_to_child_of(start)
-
 
   what = Topic.create(title: "Cadastro", icon_name: "guide-topic", body: "Vá em “www.redu.com.br”, e no menu superior clique no botão “Não possui conta? Cadastre-se, é grátis”, ou
 acesse diretamente “www.redu.com.br/registrar”. Nos campos vazios, preencha:
@@ -71,6 +71,7 @@ Você também pode efetuar o cadastro utilizando sua conta do Facebook. Para ist
   what.move_to_child_of(start)
 
   navigation = Topic.create(title: "A Navegação no Redu")
+  navigation.move_to_child_of(basic)
   what = Topic.create(title: "Hierarquia e Áreas do Redu", icon_name: "redu-areas", body: "O Menu Superior está visivel em toda a navegação do Redu. Nele constam os botões:
 
 Início: te direciona para a navegação casual (link para explicação de Início)
@@ -101,6 +102,7 @@ Na barra lateral esquerda você poderá navegar para seu Mural ou Contatos. Na d
   what.move_to_child_of(navigation)
 
   home = Topic.create(title: "Início", icon_name: "home")
+  home.move_to_child_of(basic)
 
   what = Topic.create(title: "Imagem (Foto)", icon_name: "profile", body: "Está no topo do Menu Esquerdo. Ao lado dela você encontrará as opções de visualizar perfil e mudar a foto.")
   what.move_to_child_of(home)
@@ -122,6 +124,25 @@ Para cada comentário você terá a opção de excluir ou responder do lado infe
 Para escrever uma nova mensagem clique na aba “Nova”. Digite o destinatário, o assunto e a
 mensagem nos respectivos campos e clique Enviar na parte inferior direita da janela.")
   what.move_to_child_of(home)
+
+  config = Topic.create(title: "Configurações")
+  config.move_to_child_of(home)
+
+  what = Topic.create(title: "Biografia", icon_name: "biography", body: "Foto do seu Perfil - Mude sua foto clicando em “Choose File” e escolha um arquivo de seu computador.
+Dados Pessoais - Preencha nos campos indicados: Nome, Sobrenome, Data de Nascimento, Cidade onde nasceu, Cidade onde vive, Celular e Idiomas.
+Mais - Escreva sobre sua personalidade ou informações adicionais em “Sobre Você”; escreva uma frase sua ou de outra pessoa, que reflita sua maneira de pensar e agir em “Frase Marcante”; cite ramos do conhecimento que despertam seu interesse em “Áreas de seu interesse”
+Perfis adicionais - coloque o link de seu perfil de outras redes sociais.
+Ao concluir clique em “Salvar alterações” no canto inferior direito do conteúdo central.")
+  what.move_to_child_of(config)
+
+  what = Topic.create(title: "Currículo", icon_name: "curriculum", body: "Nesta seção, você pode alocar informações a respeito de sua formação escolar e acadêmica, bem como sua experiência no mercado de trabalho.
+
+Exponha seu currículo de forma simples e divulgue-o junto a sua rede de contatos.
+
+Experiência Profissional - Em “+ Novo Projeto” preencha o Nome de sua profissão, empresa atual, data de entrada e faça uma pequena descrição das atividades pelas quais é responsável. Você pode adicionar outros itens de trabalhos anteriores. Para os itens adicionados você também pode editar a exepriência clicando em 'editar' do lado esquerdo do título da profissão, existe também a opção de excluir o item clicando no 'x' no canto superior direito.
+
+Experiência Acadêmica - Em educação há quatro categorias: ensino fundamental, superior, complementar e eventos. Fundamental: corresponde à sua educação básica escolar; Superior: academia e correlatos; Complementar: cursos extras; Eventos: seminários e palestras. Clicando em “Adicionar novo item” preencha os campos com as informações requisitadas. Você pode editar ou excluir os itens depois de adicioná-los.")
+  what.move_to_child_of(config)
 
   Guide.create(title: "Guia do Aluno", icon_name: "wall", body: "Conheça o funcionamento do Redu sob a perspectiva de um Aluno e como utilizá-lo para melhorar seu aprendizado.")
   Guide.create(title: "Guia do Professor", icon_name: "teacher", body: "Conheça o funcionamento do Redu sob a perspectiva de um Professor e como utilizá-lo para melhorar o aprendizado de seus alunos.")

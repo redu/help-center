@@ -27,7 +27,7 @@
     <h3>Dúvidas (Mais) Frequentes</h3>
 
     <ul class="questions-list">
-      <%= render partial: @top_questions.results %>
+      <%= render partial: @top_questions.results, locals: { with_path: true }  %>
     </ul>
 
   </div>
@@ -39,7 +39,6 @@
     <h3>Dúvidas por Categorias</h3>
 
     <%= render partial: "faqs/categories", collection: @categories, as: :category %>
-
   </div>
 
 </div>

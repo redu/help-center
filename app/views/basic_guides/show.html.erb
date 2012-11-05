@@ -1,0 +1,20 @@
+<ul class="breadcrumb-mini">
+  <%= render :partial => "help_central/breadcrumb/guide_basic" %>
+</ul>
+
+<div class="content-body">
+  <%= render partial: "guides/header", locals: { title: @basic.title } %>
+
+  <hr class="list-separator">
+
+  <div class="help-central-section">
+    <%= render partial: "basic_guides/category_column", locals: { categories: @children.shift(2) } %>
+  </div>
+
+  <%= render partial: "basic_guides/category_section", collection: @children, as: :category %>
+</div>
+
+<ul class="breadcrumb-mini white-area">
+  <%= render :partial => "help_central/breadcrumb/guide_basic" %>
+</ul>
+

@@ -1,0 +1,9 @@
+<% unless subcategory.leaf? %>
+  <div class="basic-guide-section right">
+    <h6><%= subcategory.title %></h6>
+
+    <ul class="questions-list">
+      <%= render partial: subcategory.children, locals: { with_path: false } %>
+    </ul>
+  </div>
+<% end %>

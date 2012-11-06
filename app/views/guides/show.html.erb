@@ -1,3 +1,18 @@
-<% @topics_and_categories.each do |item| %>
-  <%= item.title %>
-<% end %>
+<ul class="breadcrumb-mini">
+  <%= render :partial => "help_central/breadcrumb/guide_manager" %>
+</ul>
+
+<div class="content-body">
+  <%= render partial: "guides/header", locals: { guide: @guide } %>
+
+  <%= render partial: "guides/categories", collection: @guide.children, as: :category %>
+
+  <hr class="list-separator">
+
+  <%= render :partial => "shared/feel_supported", :locals => { :index => true } %>
+</div>
+
+<ul class="breadcrumb-mini white-area">
+  <%= render :partial => "help_central/breadcrumb/guide_manager" %>
+</ul>
+

@@ -3,7 +3,7 @@
     <h6><%= subcategory.title %></h6>
 
     <ul class="questions-list">
-      <%= render partial: subcategory.children, locals: { with_path: false } %>
+      <%= render partial: subcategory.children, locals: { with_path: false, basic_guide: true } %>
     </ul>
   </div>
 <% end %>

@@ -144,8 +144,33 @@ Experiência Profissional - Em “+ Novo Projeto” preencha o Nome de sua profi
 Experiência Acadêmica - Em educação há quatro categorias: ensino fundamental, superior, complementar e eventos. Fundamental: corresponde à sua educação básica escolar; Superior: academia e correlatos; Complementar: cursos extras; Eventos: seminários e palestras. Clicando em “Adicionar novo item” preencha os campos com as informações requisitadas. Você pode editar ou excluir os itens depois de adicioná-los.")
   what.move_to_child_of(config)
 
+  gestor = Guide.create(title: "Guia do Gestor", icon_name: "manager", body: "Conheça o funcionamento do Redu sob a perspectiva de um Gestor da Instituição de Ensino e como utilizá-lo para gerenciar o desempenho de seu Ambiente.")
+
+  start = Topic.create(title: "Começando...")
+  start.move_to_child_of(gestor)
+
+  what = Topic.create(title: "O que fazer como Gestor(a) de um Ambiente?", icon_name: "guide-topic", body: "O gestor de um Ambiente no Redu, tem à sua disposição o controle de membros e todo conteúdo desse ambiente. O gestor pode criar desde Cursos até Aulas, adicionar material de apoio, e convidar Alunos, Professores e Tutores para participar do ambiente, também pode trocar os seus papéis a qualquer momento ou até mesmo remover algum membro. Terá acesso à relatórios estatísticos e descritivos sobre a participação dos Alunos e Professores, além de poder interagir dentro do ambiente com os membros.
+
+O gestor é responsável pela manutenção do plano para aquele ambiente, ou seja, é ele quem é responsável pelo controle da quantidade de membros e materiais que podem ser adicionados ao ambiente e também quanto ao pagamento das faturas, para planos pagos.")
+  what.move_to_child_of(start)
+
+  environment = Topic.create(title: "Ambientes de Aprendizagem", icon_name: "environment")
+  environment.move_to_child_of(gestor)
+
+  what = Topic.create(title: "Convidar alunos para o Curso", icon_name: "member", body: "Para convidar Alunos é simples, basta ir até a página do Curso, ao lado da aba 'Disciplinas' existe outra aba clique nela(seria bom colocar o ícone que aparece), e você verá no conteúdo central os membros do Curso, do lado direito da tela existe um botão 'Convidar membros' clique nele e você será direcionado para a página de convites, lá você pode convidar os Alunos pelo nome ou pelo e-mail apenas digitando no campo que aparece logo abaixo de 'Convide membros para o seu curso'. Ao terminar de escrever os nomes ou e-mails clique em enviar convites, e um convite será enviado para os Alunos.")
+  what.move_to_child_of(environment)
+
+  manage = Topic.create(title: "Gerenciamento")
+  manage.move_to_child_of(environment)
+
+  what = Topic.create(title: "Informações", icon_name: "description", body: "Assim que a página de gerenciamento é carregada as informações referentes ao seu espaço serão mostradas com seus detalhes, você também tem a opção de editar essas informações básicas como nome, descrição, palavras-chaves e configurações específicas de cada tipo de ambiente. Depois de alterar as informações, confirme clicando em 'Salvar alterações'.
+
+Caso deseje remover o Ambiente clique no botão vermelho na parte inferior do lado esquerdo 'Remover'")
+  what.move_to_child_of(manage)
+
   Guide.create(title: "Guia do Aluno", icon_name: "wall", body: "Conheça o funcionamento do Redu sob a perspectiva de um Aluno e como utilizá-lo para melhorar seu aprendizado.")
+
   Guide.create(title: "Guia do Professor", icon_name: "teacher", body: "Conheça o funcionamento do Redu sob a perspectiva de um Professor e como utilizá-lo para melhorar o aprendizado de seus alunos.")
-  Guide.create(title: "Guia do Gestor", icon_name: "manager", body: "Conheça o funcionamento do Redu sob a perspectiva de um Gestor da Instituição de Ensino e como utilizá-lo para gerenciar o desempenho de seu Ambiente.")
+
   Guide.create(title: "Guia do Desenvolvedor", icon_name: "app", body: "Conheça as ferramentas que o Redu disponibiliza aos Desenvolvedores de Software e saiba como integrar a outros serviços.")
 end

@@ -1,13 +1,24 @@
-<% if topic.leaf? %>
-  <li class="question-list-item">
-    <span class="icon-<%= topic.icon_name %>-gray_16_18 text-replacement question-list-icon">Ícone</span>
-    <div class="question-list-content">
-      <%= link_to topic.title, topic_path(topic), class: "question-list-link" %>
-      <% if with_path %>
-        <span class="legend"><%= topic.view_count %> visualizações — <%= topic_path_html(topic, false) %></span>
-      <% else %>
-        <span class="legend"><%= topic.view_count %> visualizações</span>
-      <% end %>
-    </div>
-  </li>
+<% # If the topic isn't leaf and belongs to a basic guide nothing happens %>
+<% unless !topic.leaf? && basic_guide %>
+
+  <% if topic.leaf? %>
+    <li class="question-list-item">
+      <span class="icon-<%= topic.icon_name %>-gray_16_18 text-replacement question-list-icon">Ícone</span>
+      <div class="question-list-content">
+        <%= link_to topic.title, topic_path(topic), class: "question-list-link" %>
+        <% if with_path %>
+          <span class="legend"><%= topic.view_count %> visualizações — <%= topic_path_html(topic, false) %></span>
+        <% else %>
+          <span class="legend"><%= topic.view_count %> visualizações</span>
+        <% end %>
+      </div>
+    </li>
+
+  <% else %>
+    <h6><%= topic.title %></h6>
+    <ul class="questions-list">
+      <%= render partial: topic.children, locals: { with_path: false, basic_guide: false } %>
+    </ul>
+  <% end %>
+
 <% end %>

@@ -28,8 +28,8 @@ describe GuidesController do
 
       get :show, id: @guide, locale: "pt-BR"
 
-      assigns[:topics_and_categories].length.should == \
-        @guide.descendants.length
+      assigns[:children].length.should == \
+        @guide.children.length
     end
   end
 

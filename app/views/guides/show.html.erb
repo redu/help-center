@@ -5,7 +5,7 @@
 <div class="content-body">
   <%= render partial: "guides/header", locals: { guide: @guide } %>
 
-  <%= render partial: "guides/categories", collection: @guide.children, as: :category %>
+  <%= render partial: "guides/categories", collection: @children, as: :category %>
 
   <hr class="list-separator">
 

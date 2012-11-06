@@ -1,5 +1,7 @@
 <li class="list-button-item link-container">
-  <h6 class="list-button-link link-target icon-frequent-questions-lightblue_16_18-before" href=<%= topics_path(category_item) %> title=<%= category_item.title %>> <%= category_item.title %> </h6>
+  <%= link_to topic_path(category_item), title: category_item.title, class: "list-button-link link-target icon-frequent-questions-lightblue_16_18-before" do %>
+    <h6><%= category_item.title %></h6>
+  <% end %>
   <div class="list-lecture-info">
     <span class="wall-stats icon-doubt-topic-gray_16_18-before legend"><%= category_item.children.count %> perguntas </span>
   </div>

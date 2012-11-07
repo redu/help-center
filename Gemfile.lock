@@ -162,6 +162,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mysql2
+  nokogiri
   rails (= 3.2.5)
   rails-translate-routes
   redcarpet

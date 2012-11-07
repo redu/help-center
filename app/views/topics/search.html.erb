@@ -1,15 +1,33 @@
-<%= form_tag search_path, method: :get do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", name: nil %>
-  </p>
-<% end %>
+<ul class="breadcrumb-mini">
+  <%= render :partial => "help_central/breadcrumb/search" %>
+</ul>
 
-<% @results.each do |result| %>
-  <%= result.title %>
-<% end %>
+<div class="content-body">
+  <%= render partial: "shared/big_search_form", locals: { question: "Procurando por algo?" } %>
 
-<div id="paginator">
-  <%= link_to_next_page(@results, 'Mostrar Mais', { remote: true }) %>
+  <div class="search-results help-central-section">
+
+    <p>Você buscou por <b>“<%= params[:search] %>”</b>. Achamos <b><%= @search.total %></b> resultados.</p>
+
+    <ul class="questions-list">
+      <%= render partial: @search.results, locals: { with_path: true, search: true } %>
+    </ul>
+  </div>
+
+  <hr class="list-separator">
+
+  <div class="help-central-footer">
+    <div class="pagination">
+      <a href="#" class="button-default" title="1">1</a>
+      <a href="#" class="button-default" title="2">2</a>
+      <a href="#" class="button-default" title="3">3</a>
+      <a href="#" class="button-default" title="4">4</a>
+    </div>
+  </div>
+
 </div>
+
+<ul class="breadcrumb-mini white-area">
+  <%= render :partial => "help_central/breadcrumb/search" %>
+</ul>
 

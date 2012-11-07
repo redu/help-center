@@ -3,14 +3,22 @@
 <% basic_guide ||= false %>
 <% read_more ||= false %>
 <% with_path ||= false %>
+<% search ||= false %>
 
 <% unless !topic.leaf? && basic_guide %>
 
   <% if topic.leaf? %>
     <li class="question-list-item <% if read_more %> item-gray <% end %>">
-      <span class="icon-<%= topic.icon_name %>-gray_16_18 text-replacement question-list-icon">Ícone</span>
+      <span class="icon-<%= search ? 'doubt-topic' : topic.icon_name %>-gray_16_18 text-replacement question-list-icon">Ícone</span>
       <div class="question-list-content">
         <%= link_to topic.title, topic_path(topic), class: "question-list-link" %>
+
+        <% if search %>
+          <span class="question-list-description legend">
+            <% text = markparser.render(topic.body) %>
+            <%= raw truncate_html(truncate_html_tag(text, "img")) %>
+          </span>
+        <% end %>
 
         <% if read_more %>
           <span class="legend"><%= topic_path_html(topic) %></span>

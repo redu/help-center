@@ -11,6 +11,7 @@ gem 'factory_girl_rails'
 gem "jquery-rails"
 gem 'kaminari'
 gem 'mysql2'
+gem 'nokogiri'
 gem 'rails-translate-routes'
 gem "redcarpet"
 gem 'sass-rails'

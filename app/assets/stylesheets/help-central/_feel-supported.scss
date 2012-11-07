@@ -7,6 +7,7 @@
 .feel-supported-title {
   color: $gray4;
   line-height: 32px;
+  font-weight: lighter;
 
   &[class*="icon-"][class*="-before"]:before { margin-right: 12px; }
 }
@@ -40,7 +41,10 @@
 }
 
 // Título da área.
-.feel-supported-sub-title { color: $green3; }
+.feel-supported-sub-title {
+  color: $green3;
+  font-weight: lighter;
+}
 
 .feel-supported-sub-title +
 p { margin-top: 9px; }

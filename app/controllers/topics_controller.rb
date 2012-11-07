@@ -25,6 +25,7 @@ class TopicsController < ApplicationController
       @read_more = @topic.read_more
     else
       @children = @topic.children
+
       render 'faqs/category'
     end
   end

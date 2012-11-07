@@ -168,7 +168,7 @@ O gestor é responsável pela manutenção do plano para aquele ambiente, ou sej
 Caso deseje remover o Ambiente clique no botão vermelho na parte inferior do lado esquerdo 'Remover'")
   what.move_to_child_of(manage)
 
-  Guide.create(title: "Guia do Aluno", icon_name: "wall", body: "Conheça o funcionamento do Redu sob a perspectiva de um Aluno e como utilizá-lo para melhorar seu aprendizado.")
+  Guide.create(title: "Guia do Aluno", icon_name: "member", body: "Conheça o funcionamento do Redu sob a perspectiva de um Aluno e como utilizá-lo para melhorar seu aprendizado.")
 
   Guide.create(title: "Guia do Professor", icon_name: "teacher", body: "Conheça o funcionamento do Redu sob a perspectiva de um Professor e como utilizá-lo para melhorar o aprendizado de seus alunos.")
 

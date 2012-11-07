@@ -2,7 +2,7 @@
   <h3><%= categories.first.title %></h3>
 
   <ul class="questions-list">
-    <%= render partial: categories.first.children, locals: { with_path: false, basic_guide: true }%>
+    <%= render partial: categories.first.children, locals: { basic_guide: true }%>
   </ul>
 </div>
 
@@ -10,7 +10,7 @@
   <h3><%= categories.second.title %></h3>
 
   <ul class="questions-list">
-    <%= render partial: categories.second.children, locals: { with_path: false, basic_guide: true } %>
+    <%= render partial: categories.second.children, locals: { basic_guide: true } %>
   </ul>
 </div>
 

@@ -1,0 +1,48 @@
+<ul class="breadcrumb-mini">
+  <%= render :partial => "help_central/breadcrumb/article" %>
+</ul>
+
+<div class="content-body">
+
+  <div class="help-central-header">
+
+    <a href="#" class="article title icon-basic-guide-gray_32_34-before">
+      <h2 id="title">
+        <%= @ancestors.first.title %>
+      </h2>
+    </a>
+
+    <%= render partial: "shared/small_search_form" %>
+
+    <p id="title" class="legend"><%= @ancestors.second.title %></p>
+  </div>
+
+  <hr class="list-separator">
+
+  <div class="help-central-section">
+    <div class="article">
+      <h3><%= @topic.title %></h3>
+      <%= raw markparser.render(@topic.body) %>
+    </div>
+  </div>
+
+  <hr class="list-separator">
+
+  <div class="help-central-section">
+    <h3 class="title-gray">Leia também</h3>
+
+    <%= render partial: "topics/read_more", locals: { more: @read_more }%>
+  </div>
+
+  <hr class="list-separator">
+
+  <div class="help-central-footer">
+    <p class="article">Este é um artigo do <a href="">Guia Básico</a>, capítulo “Começando...”.</p>
+  </div>
+
+</div>
+
+<ul class="breadcrumb-mini white-area">
+  <%= render :partial => "help_central/breadcrumb/article" %>
+</ul>
+

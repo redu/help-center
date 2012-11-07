@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def topic_path_html(topic, without_root)
+  def topic_path_html(topic, without_root = false)
     html = ""
     ancestors = topic.ancestors
 

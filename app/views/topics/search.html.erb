@@ -10,7 +10,9 @@
     <p>Você buscou por <b>“<%= params[:search] %>”</b>. Achamos <b><%= @search.total %></b> resultados.</p>
 
     <ul class="questions-list">
-      <%= render partial: @search.results, locals: { with_path: true, search: true } %>
+      <div id="search-results">
+        <%= render partial: @results, locals: { with_path: true, search: true } %>
+      </div>
     </ul>
   </div>
 
@@ -18,10 +20,7 @@
 
   <div class="help-central-footer">
     <div class="pagination">
-      <a href="#" class="button-default" title="1">1</a>
-      <a href="#" class="button-default" title="2">2</a>
-      <a href="#" class="button-default" title="3">3</a>
-      <a href="#" class="button-default" title="4">4</a>
+      <%= paginate @results, remote: true, window: 3 %>
     </div>
   </div>
 

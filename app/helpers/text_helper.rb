@@ -1,5 +1,4 @@
 module TextHelper
-
   def markparser
     parser = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
                                         :autolink => true,

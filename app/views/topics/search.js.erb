@@ -1,0 +1,10 @@
+var $results = $('#search-results');
+var $pages = $('.pagination-nav');
+
+var $newResults = ('<div id="search-results"><%= escape_javascript render @results, with_path: true, search: true %></div>');
+var $newPaginate = ('<%= escape_javascript(paginate(@results,
+                                                    remote: true,
+                                                    left: 3, right: 3).to_s) %>');
+
+$results.replaceWith($newResults);
+$pages.replaceWith($newPaginate);

@@ -5,25 +5,31 @@
 <div class="content-body">
   <%= render partial: "shared/big_search_form", locals: { question: "Procurando por algo?" } %>
 
-  <div class="search-results help-central-section">
-
-    <p>Você buscou por <b>“<%= params[:search] %>”</b>. Achamos <b><%= @search.total %></b> resultados.</p>
-
-    <ul class="questions-list">
-      <div id="search-results">
-        <%= render partial: @results, locals: { with_path: true, search: true } %>
-      </div>
-    </ul>
-  </div>
-
-  <hr class="list-separator">
-
-  <div class="help-central-footer">
-    <div class="pagination">
-      <%= paginate @results, remote: true, window: 3 %>
+  <% if @results.empty? %>
+    <div class="search-empty">
+      <span class="icon-help-central-empty_128 show text-replacement">Não encontrado</span>
+      <p>Sentimos muito, mas não achamos resultado para <b>“<%= params[:search] %>”</b>. Tente outro termo.</p>
     </div>
-  </div>
 
+  <% else %>
+    <div class="search-results help-central-section">
+      <p>Você buscou por <b>“<%= params[:search] %>”</b>. Achamos <b><%= @search.total %></b> resultados.</p>
+
+      <ul class="questions-list">
+        <div id="search-results">
+          <%= render partial: @results, locals: { with_path: true, search: true } %>
+        </div>
+      </ul>
+    </div>
+
+    <hr class="list-separator">
+
+    <div class="help-central-footer">
+      <div class="pagination">
+        <%= paginate @results, remote: true, window: 1 %>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <ul class="breadcrumb-mini white-area">

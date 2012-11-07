@@ -24,7 +24,7 @@
     </li>
 
   <% else %>
-    <h6><%= topic.title %></h6>
+    <h6 class="guide-subtopic"><%= topic.title %></h6>
     <ul class="questions-list">
       <%= render partial: topic.children %>
     </ul>

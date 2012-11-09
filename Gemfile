@@ -6,7 +6,6 @@ gem 'rails', '3.2.5'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'awesome_nested_set'
-gem 'compass-rails'
 gem 'factory_girl_rails'
 gem "jquery-rails"
 gem 'kaminari'
@@ -14,7 +13,6 @@ gem 'mysql2'
 gem 'nokogiri'
 gem 'rails-translate-routes'
 gem "redcarpet"
-gem 'sass-rails'
 gem 'simple-navigation'
 gem 'sunspot_rails'
 gem 'wymeditor'
@@ -28,6 +26,12 @@ end
 group :development do
   gem 'sqlite3'
   gem 'sunspot_solr'
+end
+
+group :assets do
+  gem 'asset_sync'
+  gem 'sass-rails'
+  gem 'compass-rails'
 end
 
 # Use unicorn as the web server

@@ -26,13 +26,15 @@ SimpleNavigation::Configuration.run do |navigation|
     end
 
     BasicGuide.roots.each do |basic|
-      primary.item :guide_basic, basic.title, basic_guide_path(basic), highlights_on: lambda { highlights?(basic) },
+      primary.item :guide_basic, basic.title, basic_guide_path(basic),
+        highlights_on: lambda { highlights?(basic) },
         class: "nav-local-item link-container icon-#{ basic.icon_name }-lightblue_16_18-before",
         link: { class: 'nav-local-link link-target' }
     end
 
     Guide.roots.each do |guide|
-      primary.item :guides, guide.title, guide_path(guide), highlights_on: lambda { highlights?(guide) },
+      primary.item :guides, guide.title, guide_path(guide),
+        highlights_on: lambda { highlights?(guide) },
         class: "nav-local-item link-container icon-#{ guide.icon_name }-lightblue_16_18-before",
         link: { class: 'nav-local-link link-target' }
     end
@@ -47,5 +49,5 @@ def highlights?(item)
   end
 
   topic = Topic.find(id).root
-  topic.root == item
+  topic == item
 end

@@ -41,5 +41,8 @@ module HelpCenter
     config.filter_parameters += [:password]
 
     config.assets.enabled = true
+
+    # Carrega renderers do simple_navigation
+    config.autoload_paths << "#{config.root}/app/navigation_renderers"
   end
 end

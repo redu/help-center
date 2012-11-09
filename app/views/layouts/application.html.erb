@@ -26,7 +26,9 @@
           </div>
           <div class="span13">
             <div class="help-central-content">
+              <%= render_navigation(context: :breadcrumbs, renderer: CustomBreadcrumbs) %>
               <%= yield %>
+              <%= render_navigation(context: :breadcrumbs, white: true, renderer: CustomBreadcrumbs)%>
             </div>
           </div>
         </div>

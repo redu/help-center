@@ -19,13 +19,17 @@ SimpleNavigation::Configuration.run do |navigation|
       class: 'nav-local-item link-container icon-list-lightblue_16_18-before',
       link: { class: 'nav-local-link link-target' }
 
-    primary.item :faq, 'Dúvidas Frequentes', faq_path(Faq.root),
-      class: 'nav-local-item link-container icon-frequent-questions-lightblue_16_18-before',
-      link: { class: 'nav-local-link link-target' }
+    Faq.roots.each do |faq|
+      primary.item :faq, faq.title, faq_path(faq),
+        class: "nav-local-item link-container icon-#{ faq.icon_name }-lightblue_16_18-before",
+        link: { class: 'nav-local-link link-target' }
+    end
 
-    primary.item :guide_basic, 'Guia Básico', basic_guide_path(BasicGuide.root),
-      class: 'nav-local-item link-container icon-basic-guide-lightblue_16_18-before',
-      link: { class: 'nav-local-link link-target' }
+    BasicGuide.roots.each do |basic|
+      primary.item :guide_basic, basic.title, basic_guide_path(basic),
+        class: "nav-local-item link-container icon-#{ basic.icon_name }-lightblue_16_18-before",
+        link: { class: 'nav-local-link link-target' }
+    end
 
     Guide.roots.each do |guide|
       primary.item :guides, guide.title, guide_path(guide),

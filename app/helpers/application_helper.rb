@@ -1,5 +1,4 @@
 module ApplicationHelper
-  require 'navigation_procs'
   def topic_path_html(topic, without_root = false)
     html = ""
     ancestors = topic.ancestors

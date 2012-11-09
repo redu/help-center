@@ -8,7 +8,8 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
-      username == USER_ID && password == PASSWORD
+      config = HelpCenter::Application.config.user
+      username == config[:user_id] && password == config[:user_password]
     end
   end
 

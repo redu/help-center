@@ -1,8 +1,9 @@
 module AuthHelper
   def http_login
-    user = USER_ID
-    pw = PASSWORD
-    request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials(user,pw)
+    config = HelpCenter::Application.config.user
+    request.env['HTTP_AUTHORIZATION'] =\
+      ActionController::HttpAuthentication::Basic.
+        encode_credentials(config[:user_id], config[:user_password])
   end
 end
 

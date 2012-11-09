@@ -47,5 +47,9 @@ module HelpCenter
 
     # Carrega renderers do simple_navigation
     config.autoload_paths << "#{config.root}/app/navigation_renderers"
+    File.open("#{Rails.root}/config/user.yml") do |file|
+      user = Psych.load(file)
+      config.user = HashWithIndifferentAccess.new_from_hash_copying_default(user)
+    end
   end
 end

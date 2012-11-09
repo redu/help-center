@@ -35,10 +35,11 @@ rake sunspot:solr:run RAILS_ENV=test
 ```
 
 ### Authentication
-To create or edit some admin route you should authenticate first. To do this you need a file called ``config/initializer/user.rb``:
-```ruby
-USER_ID = "user"
-PASSWORD = "password"
+To create or edit some admin route you should authenticate first. To do this you need a file called ``config/user.yml``:
+
+```yml
+user_id: "user"
+user_password: "password"
 ```
 
 ### Static assets and AWS

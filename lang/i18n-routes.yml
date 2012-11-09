@@ -1,6 +1,7 @@
 pt-BR:
   routes:
     edit: editar
+    edit_all: edicao
     new: novo
     search: busca
     guides: guias

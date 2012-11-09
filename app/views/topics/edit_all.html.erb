@@ -1,0 +1,6 @@
+<% @categories.each do |item| %>
+  <%= item.title %>
+  <%= link_to "Edit", edit_topic_path(item) %>
+  <%= link_to "Add topic", new_topic_path(parent_id: item) %>
+  <%= link_to "Remove topic", topic_path(item), confirm: "Are you sure?", method: :delete %>
+<% end %>

@@ -18,6 +18,7 @@ HelpCenter::Application.routes.draw do
   root to: "topics#index"
 
   match "search" => "topics#search"
+  match "admin/edit" => "topics#edit_all"
 
   resources :topics, except: [:new, :edit]
   resources :basic_guides, only: [:show, :create, :update]

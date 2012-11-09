@@ -69,4 +69,14 @@ class TopicsController < ApplicationController
     @results = @search.results
     @results = Kaminari.paginate_array(@results).page(params[:page])
   end
+
+  def edit_all
+    @categories = []
+    @categories << Faq.roots
+    @categories << BasicGuide.roots
+    @categories << Guide.roots
+    @categories = @categories.flatten
+
+    render 'topics/edit_all'
+  end
 end

@@ -184,6 +184,15 @@ describe TopicsController do
     end
   end
 
+  context "GET edit_all" do
+    it "should render edit_all" do
+      http_login
+      get "edit_all", locale: "pt-BR"
+
+      response.should render_template("topics/edit_all")
+    end
+  end
+
   context "POST destroy" do
     before do
       http_login

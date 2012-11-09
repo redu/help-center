@@ -22,7 +22,7 @@
 
     <div class="help-central-footer">
       <div class="pagination">
-        <%= paginate @results, remote: true, window: 1 %>
+        <%= paginate @results, remote: true, outer_window: 1, inner_window: 4 %>
       </div>
     </div>
   <% end %>

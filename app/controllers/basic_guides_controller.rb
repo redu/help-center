@@ -9,7 +9,7 @@ class BasicGuidesController < ApplicationController
   end
 
   def new
-    @basic = BasicGuide.new
+    @basic_new = BasicGuide.new
   end
 
   def create

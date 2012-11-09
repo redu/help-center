@@ -11,7 +11,7 @@ class FaqsController < ApplicationController
   end
 
   def new
-    @faq = Faq.new
+    @faq_new = Faq.new
   end
 
   def create

@@ -1,24 +1,52 @@
-<%=raw wymeditor_initialize %>
-<h1> Edit <%= @topic.title %> </h1>
+<div class="content-body">
 
-<%= link_to "Add topic", new_topic_path(parent_id: @topic) %>
+  <div class="help-central-header">
 
-<% @topics_and_categories.each do |item| %>
-  <%= item.title %>
-  <%= link_to "Edit", edit_topic_path(item) %>
-  <%= link_to "Add topic", new_topic_path(parent_id: item) %>
-  <%= link_to "Remove topic", topic_path(item), confirm: "Are you sure?", method: :delete %>
-<% end %>
+    <%=raw wymeditor_initialize %>
+    <h2> Edit <%= @topic.title %> </h2>
+    <%= link_to "Add topic", new_topic_path(parent_id: @topic) %>
 
-<%= form_for @topic do |f| %>
-  <%= f.label :title %>:
-  <%= f.text_field :title %><br />
+  </div>
 
-  <%= f.label :icon_name %>:
-  <%= f.text_field :icon_name %><br />
+  <hr class="list-separator">
 
-  <%= f.label :body %>:
-  <%= f.text_area :body, class: 'wymeditor' %><br />
+  <div class="help-central-section">
 
-  <%= f.submit %>
-<% end %>
+
+    <%= form_for @topic do |f| %>
+      <%= f.label :title %>:
+      <%= f.text_field :title %><br />
+
+      <%= f.label :icon_name %>:
+      <%= f.text_field :icon_name %><br />
+
+      <%= f.label :body %>:
+      <%= f.text_area :body, class: 'wymeditor' %><br />
+
+      <input type="button" class="button-default"<%= f.submit %></input>
+    <% end %>
+
+  </div>
+
+  <hr class="list-separator">
+
+  <div class="help-central-section">
+
+    <ul class="list-button">
+
+      <% @topics_and_categories.each do |item| %>
+        <li class="list-button-item">
+          <h6><a><%= item.title %></a></h6>
+          <div class="list-lecture-info">
+            <%= link_to "Edit", edit_topic_path(item) %>
+            <%= link_to "Add topic", new_topic_path(parent_id: item) %>
+            <%= link_to "Remove topic", topic_path(item), confirm: "Are you sure?", method: :delete %>
+          </div>
+        </li>
+      <% end %>
+
+    </ul>
+
+  </div>
+
+</div>

@@ -1,5 +1,6 @@
 HelpCenter::Application.routes.draw do
   root to: "topics#index"
+  match "index" => "topics#index"
 
   match "search" => "topics#search"
   match "admin/edit" => "topics#edit_all"

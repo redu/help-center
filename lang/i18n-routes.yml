@@ -1,5 +1,6 @@
 pt-BR:
   routes:
+    index: indice
     edit: editar
     edit_all: edicao
     new: novo

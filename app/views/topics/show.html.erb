@@ -10,7 +10,7 @@
 
     <%= render partial: "shared/small_search_form" %>
 
-    <p id="title" class="legend"><%= @ancestors.second.title %></p>
+    <p id="title" class="legend"><%= topic_path_html(@topic, true) %></p>
   </div>
 
   <hr class="list-separator">
@@ -33,6 +33,6 @@
   <hr class="list-separator">
 
   <div class="help-central-footer">
-    <p class="article">Este é um artigo do <a href="">Guia Básico</a>, capítulo “Começando...”.</p>
+    <p class="article">Este é um artigo do <%= link_to @ancestors.first.title, url_for(@ancestors.first) %>, capítulo “<%= topic_path_html(@topic, true) %>”.</p>
   </div>
 </div>

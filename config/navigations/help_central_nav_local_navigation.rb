@@ -20,21 +20,32 @@ SimpleNavigation::Configuration.run do |navigation|
       link: { class: 'nav-local-link link-target' }
 
     Faq.roots.each do |faq|
-      primary.item :faq, faq.title, faq_path(faq),
+      primary.item :faq, faq.title, faq_path(faq), highlights_on: lambda { highlights?(faq) },
         class: "nav-local-item link-container icon-#{ faq.icon_name }-lightblue_16_18-before",
         link: { class: 'nav-local-link link-target' }
     end
 
     BasicGuide.roots.each do |basic|
-      primary.item :guide_basic, basic.title, basic_guide_path(basic),
+      primary.item :guide_basic, basic.title, basic_guide_path(basic), highlights_on: lambda { highlights?(basic) },
         class: "nav-local-item link-container icon-#{ basic.icon_name }-lightblue_16_18-before",
         link: { class: 'nav-local-link link-target' }
     end
 
     Guide.roots.each do |guide|
-      primary.item :guides, guide.title, guide_path(guide),
+      primary.item :guides, guide.title, guide_path(guide), highlights_on: lambda { highlights?(guide) },
         class: "nav-local-item link-container icon-#{ guide.icon_name }-lightblue_16_18-before",
         link: { class: 'nav-local-link link-target' }
     end
   end
+end
+
+def highlights?(item)
+  id = request.path_parameters[:id]
+
+  if id.nil?
+    return false
+  end
+
+  topic = Topic.find(id).root
+  topic.root == item
 end

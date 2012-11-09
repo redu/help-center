@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 SimpleNavigation::Configuration.run do |navigation|
-
   # Specify the class that will be applied to active navigation items. Defaults to 'selected'
   navigation.selected_class = 'nav-local-item-active icon-arrow-right-nav-local-lightblue_11_32-after'
 

@@ -1,15 +1,15 @@
 <%=raw wymeditor_initialize %>
-<h1> New Guide </h1>
+<h1> Nova Guia </h1>
 
 <%= form_for @guide_new do |f| %>
-  <%= f.label :title %>:
-  <%= f.text_field :title %><br />
+  <%= f.label :title %>
+  <%= f.text_field :title %>
 
-  <%= f.label :icon_name %>:
-  <%= f.text_field :icon_name %><br />
+  <%= f.label :icon_name %>
+  <%= f.text_field :icon_name %>
 
-  <%= f.label :body %>:
-  <%= f.text_area :body, class: 'wymeditor' %><br />
+  <%= f.label :body %>
+  <%= f.text_area :body, class: 'wymeditor' %>
 
   <%= f.submit %>
 <% end %>

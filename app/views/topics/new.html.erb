@@ -1,15 +1,15 @@
 <%=raw wymeditor_initialize %>
-<h1> New Topic </h1>
+<h1> Novo Tópico </h1>
 
 <%= form_for @topic_new do |f| %>
-  <%= f.label :title %>:
-  <%= f.text_field :title %><br />
+  <%= f.label :title %>
+  <%= f.text_field :title %>
 
-  <%= f.label :icon_name %>:
-  <%= f.text_field :icon_name %><br />
+  <%= f.label :icon_name %>
+  <%= f.text_field :icon_name %>
 
-  <%= f.label :body %>:
-  <%= f.text_area :body, class: 'wymeditor' %><br />
+  <%= f.label :body %>
+  <%= f.text_area :body, class: 'wymeditor' %>
 
   <%= hidden_field_tag :parent_id, params[:parent_id] %>
 

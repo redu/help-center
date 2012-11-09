@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 
-@faq ||= Faq.root
-@basic ||= BasicGuide.root
-@guide ||= Guide.root
-@topic ||= Topic.root
-@ancestors ||= [Topic.root]
+root = Faq.root
+
+@faq ||= root
+@basic ||= root
+@guide ||= root
+@topic ||= root
+@ancestors ||= [root]
 
 SimpleNavigation::Configuration.run do |navigation|
   navigation.selected_class = ''
@@ -13,7 +15,8 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :index, 'Índice', root_path,
       class: "icon-list-lightblue_16_18-before"
 
-    primary.item :roots, 'Índice', faq_path(@faq) || basic_guide_path(@basic) || guide_path(@guide) || topic_path(@topic) || search_path,
+    primary.item :roots, 'Índice', faq_path(@faq) || basic_guide_path(@basic) ||
+                                   guide_path(@guide) || topic_path(@topic) || search_path,
       alt_class: 'breadcrumb-mini-link icon-list-lightblue_16_18-before text-replacement' do |help|
       help.item :faq, @faq.title, faq_path(@faq),
         class: "breadcrumb-mini-link icon-#{ @faq.icon_name }-lightblue_16_18-before"
@@ -22,7 +25,12 @@ SimpleNavigation::Configuration.run do |navigation|
       help.item :guide, @guide.title, guide_path(@guide),
         class: "breadcrumb-mini-link icon-#{ @guide.icon_name }-lightblue_16_18-before"
       help.item :topic, @ancestors.first.title, topic_path(@topic),
-        class: "breadcrumb-mini-link icon-#{ @ancestors.first.icon_name }-lightblue_16_18-before"
+        class: "breadcrumb-mini-link icon-#{ @ancestors.first.icon_name }-lightblue_16_18-before",
+        alt_class: "breadcrumb-mini-link icon-#{ @ancestors.first.icon_name }-lightblue_16_18-before" do |category|
+          category.item :category, @topic.title, topic_path(@topic),
+          unless: Proc.new { @topic.leaf? },
+          class: "breadcrumb-mini-link icon-#{ @topic.icon_name }-lightblue_16_18-before"
+        end
       help.item :search, "Busca", search_path,
         class: "breadcrumb-mini-link icon-magnifier-lightblue_16_18-before"
     end

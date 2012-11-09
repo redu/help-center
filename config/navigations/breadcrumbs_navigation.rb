@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 root = Faq.root
 
 @faq ||= root
@@ -24,7 +23,7 @@ SimpleNavigation::Configuration.run do |navigation|
         class: "breadcrumb-mini-link icon-#{ @basic.icon_name }-lightblue_16_18-before"
       help.item :guide, @guide.title, guide_path(@guide),
         class: "breadcrumb-mini-link icon-#{ @guide.icon_name }-lightblue_16_18-before"
-      help.item :topic, @ancestors.first.title, topic_path(@topic),
+      help.item :topic, @ancestors.first.title, url_for(@ancestors.first), highlights_on: lambda { highlights?(@topic) },
         class: "breadcrumb-mini-link icon-#{ @ancestors.first.icon_name }-lightblue_16_18-before",
         alt_class: "breadcrumb-mini-link icon-#{ @ancestors.first.icon_name }-lightblue_16_18-before" do |category|
           category.item :category, @topic.title, topic_path(@topic),
@@ -35,4 +34,15 @@ SimpleNavigation::Configuration.run do |navigation|
         class: "breadcrumb-mini-link icon-magnifier-lightblue_16_18-before"
     end
   end
+end
+
+def highlights?(item)
+  id = request.path_parameters[:id]
+
+  if id.nil?
+    return false
+  end
+
+  topic = Topic.find(id)
+  topic.leaf?
 end

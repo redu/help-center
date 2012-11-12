@@ -88,4 +88,11 @@
 }
 
 // Rodapé.
-.guides-list-item-footer { padding: 10px 9px; }
+.guides-list-item-footer {
+  padding: 10px 9px;
+
+  .legend {
+    color: $gray6;
+    line-height: 14px;
+  }
+}

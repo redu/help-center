@@ -17,7 +17,23 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find_using_slug(params[:id])
 
-    if @topic.leaf?
+    if @topic.faq?
+      @faq = @topic
+      top_questions
+      @categories = @faq.children
+
+      render 'faqs/show'
+    elsif @topic.guide?
+      @guide = @topic
+      @children = @guide.children
+
+      render 'guides/show'
+    elsif @topic.basic?
+      @basic = @topic
+      @children = @basic.children
+
+      render 'basic_guides/show'
+    elsif @topic.leaf?
       update_view_count(@topic)
 
       @topic.reload

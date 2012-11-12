@@ -24,6 +24,14 @@ class Topic < ActiveRecord::Base
     self.type == "Faq"
   end
 
+  def guide?
+    self.type == "Guide"
+  end
+
+  def basic?
+    self.type == "BasicGuide"
+  end
+
   def read_more
     leaves = self.root.leaves
     index = leaves.index(self)

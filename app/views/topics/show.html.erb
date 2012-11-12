@@ -33,6 +33,6 @@
   <hr class="list-separator">
 
   <div class="help-central-footer">
-    <p class="article">Este é um artigo do <%= link_to @ancestors.first.title, url_for(@ancestors.first) %>, capítulo “<%= topic_path_html(@topic, true) %>”.</p>
+    <p class="article">Este é um artigo do <%= link_to @ancestors.first.title, show_root_topic_path(@ancestors.first) %>, capítulo “<%= topic_path_html(@topic, true) %>”.</p>
   </div>
 </div>

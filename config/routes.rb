@@ -5,11 +5,12 @@ HelpCenter::Application.routes.draw do
   match "search" => "topics#search"
   match "admin/edit" => "topics#edit_all"
 
-  resources :basic_guides, only: [:show, :create, :update]
-  resources :faqs, only: [:show, :create, :update]
-  resources :guides, only: [:show, :create, :update]
+  get "/:id" => "topics#show", as: :show_root_topic
 
-  resources :topics, except: [:new, :edit]
+  resources :basic_guides, only: [:create, :update]
+  resources :faqs, only: [:create, :update]
+  resources :guides, only: [:create, :update]
+  resources :topics, except: [:show, :new, :edit]
   get "/:root_id/:id" => "topics#show", as: :show_topic
 
   scope "/admin" do

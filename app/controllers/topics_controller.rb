@@ -15,7 +15,7 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:id])
+    @topic = Topic.find_using_slug(params[:id])
 
     if @topic.leaf?
       update_view_count(@topic)
@@ -45,19 +45,19 @@ class TopicsController < ApplicationController
   end
 
   def edit
-    @topic = Topic.find(params[:id])
+    @topic = Topic.find_using_slug(params[:id])
     @topics_and_categories = @topic.descendants
   end
 
   def update
-    @topic = Topic.find(params[:id])
+    @topic = Topic.find_using_slug(params[:id])
     @topic.update_attributes(params[:topic])
 
     redirect_to edit_topic_path(@topic)
   end
 
   def destroy
-    @topic = Topic.find(params[:id])
+    @topic = Topic.find_using_slug(params[:id])
     @topic.destroy
 
     redirect_to :root

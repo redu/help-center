@@ -43,6 +43,6 @@ def highlights?(item)
     return false
   end
 
-  topic = Topic.find(id)
+  topic = Topic.find_using_slug(id)
   topic.leaf?
 end

@@ -4,7 +4,7 @@ class FaqsController < ApplicationController
   before_filter :authenticate, except: [:show]
 
   def show
-    @faq = Topic.find(params[:id])
+    @faq = Topic.find_using_slug(params[:id])
 
     top_questions
     @categories = @faq.children
@@ -22,7 +22,7 @@ class FaqsController < ApplicationController
   end
 
   def update
-    @faq = Faq.find(params[:id])
+    @faq = Faq.find_using_slug(params[:id])
     @faq.update_attributes(params[:faq])
 
     redirect_to edit_topic_path(@faq)

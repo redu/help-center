@@ -14,6 +14,7 @@ gem 'nokogiri'
 gem 'rails-translate-routes'
 gem "redcarpet"
 gem 'simple-navigation'
+gem 'slugged'
 gem 'sunspot_rails'
 gem 'wymeditor'
 

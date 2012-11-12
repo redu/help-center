@@ -1,5 +1,7 @@
 class Topic < ActiveRecord::Base
   attr_accessible :view_count, :title, :body, :icon_name
+  is_sluggable :title
+
   acts_as_nested_set
 
   validates :title, presence: true

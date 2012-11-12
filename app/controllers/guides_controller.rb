@@ -4,7 +4,7 @@ class GuidesController < ApplicationController
   before_filter :authenticate, except: [:show]
 
   def show
-    @guide = Topic.find(params[:id])
+    @guide = Topic.find_using_slug(params[:id])
     @children = @guide.children
   end
 
@@ -20,7 +20,7 @@ class GuidesController < ApplicationController
   end
 
   def update
-    @guide = Guide.find(params[:id])
+    @guide = Guide.find_using_slug(params[:id])
     @guide.update_attributes(params[:guide])
 
     redirect_to edit_topic_path(@guide)

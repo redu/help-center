@@ -11,7 +11,7 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.selected_class = ''
 
   navigation.items do |primary|
-    primary.item :index, 'Índice', root_path,
+    primary.item :index, 'Índice', root_path, highlights_on: %r(^(\/indice|\/)$),
       class: "icon-list-lightblue_16_18-before"
 
     primary.item :roots, 'Índice', faq_path(@faq) || basic_guide_path(@basic) ||

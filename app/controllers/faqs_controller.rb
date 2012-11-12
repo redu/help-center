@@ -3,13 +3,6 @@ class FaqsController < ApplicationController
 
   before_filter :authenticate, except: [:show]
 
-  def show
-    @faq = Topic.find_using_slug(params[:id])
-
-    top_questions
-    @categories = @faq.children
-  end
-
   def new
     @faq_new = Faq.new
   end

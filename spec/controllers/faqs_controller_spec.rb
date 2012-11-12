@@ -2,37 +2,6 @@ require 'spec_helper'
 include AuthHelper
 
 describe FaqsController do
-
-  context "GET show" do
-    before do
-      @faq = create(:faq)
-
-      2.times do
-        category = create(:topic)
-        category.move_to_child_of(@faq)
-
-        3.times do
-          topic = create(:topic)
-          topic.move_to_child_of(category)
-        end
-      end
-
-      @faq.reload
-    end
-
-    it "should render faq" do
-      get :show, id: @faq, locale: "pt-BR"
-
-      response.should render_template("faqs/show")
-    end
-
-    it "should load top_questions" do
-      get :show, id: @faq, locale: "pt-BR"
-
-      assigns[:top_questions].hits.length.should == 5
-    end
-  end
-
   context "GET new" do
     before do
       http_login

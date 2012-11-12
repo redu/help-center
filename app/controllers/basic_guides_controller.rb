@@ -3,11 +3,6 @@ class BasicGuidesController < ApplicationController
 
   before_filter :authenticate, except: [:show]
 
-  def show
-    @basic = Topic.find_using_slug(params[:id])
-    @children = @basic.children
-  end
-
   def new
     @basic_new = BasicGuide.new
   end

@@ -2,37 +2,6 @@ require 'spec_helper'
 include AuthHelper
 
 describe BasicGuidesController do
-
-  context "GET show" do
-    before do
-      @basic = create(:basic_guide)
-    end
-
-    it "should render basic guide" do
-      get :show, id: @basic, locale: "pt-BR"
-
-      response.should render_template("basic_guides/show")
-    end
-
-    it "should load all children" do
-      2.times do
-        category = create(:topic)
-        category.move_to_child_of(@basic)
-
-        3.times do
-          topic = create(:topic)
-          topic.move_to_child_of(category)
-        end
-      end
-      @basic.reload
-
-      get :show, id: @basic, locale: "pt-BR"
-
-      assigns[:children].length.should == \
-        @basic.children.length
-    end
-  end
-
   context "GET new" do
     it "should render guides/new" do
       http_login

@@ -43,6 +43,36 @@ describe TopicsController do
       @topic = create(:topic)
     end
 
+    context "faq" do
+      before do
+        @faq = create(:faq)
+
+        2.times do
+          category = create(:topic)
+          category.move_to_child_of(@faq)
+
+          3.times do
+            topic = create(:topic)
+            topic.move_to_child_of(category)
+          end
+        end
+
+        @faq.reload
+      end
+
+      it "should render faq" do
+        get :show, id: @faq, locale: "pt-BR"
+
+        response.should render_template("faqs/show")
+      end
+
+      it "should load top_questions" do
+        get :show, id: @faq, locale: "pt-BR"
+
+        assigns[:top_questions].hits.length.should == 5
+      end
+    end
+
     context "faq category" do
       before do
         faq = create(:faq)
@@ -56,6 +86,66 @@ describe TopicsController do
         get :show, id: @category, locale: "pt-BR"
 
         response.should render_template("faqs/category")
+      end
+    end
+
+    context "basic guide" do
+      before do
+        @basic = create(:basic_guide)
+      end
+
+      it "should render basic guide" do
+        get :show, id: @basic, locale: "pt-BR"
+
+        response.should render_template("basic_guides/show")
+      end
+
+      it "should load all children" do
+        2.times do
+          category = create(:topic)
+          category.move_to_child_of(@basic)
+
+          3.times do
+            topic = create(:topic)
+            topic.move_to_child_of(category)
+          end
+        end
+        @basic.reload
+
+        get :show, id: @basic, locale: "pt-BR"
+
+        assigns[:children].length.should == \
+          @basic.children.length
+      end
+    end
+
+    context "guide" do
+      before do
+        @guide = create(:guide)
+      end
+
+      it "should render guide" do
+        get :show, id: @guide, locale: "pt-BR"
+
+        response.should render_template("guides/show")
+      end
+
+      it "should load all topics" do
+        2.times do
+          category = create(:topic)
+          category.move_to_child_of(@guide)
+
+          3.times do
+            topic = create(:topic)
+            topic.move_to_child_of(category)
+          end
+        end
+        @guide.reload
+
+        get :show, id: @guide, locale: "pt-BR"
+
+        assigns[:children].length.should == \
+          @guide.children.length
       end
     end
 

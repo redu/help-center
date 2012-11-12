@@ -11,7 +11,7 @@
     <li class="question-list-item <% if read_more %> item-gray <% end %>">
       <span class="icon-<%= search ? 'doubt-topic' : topic.icon_name %>-gray_16_18 text-replacement question-list-icon">Ícone</span>
       <div class="question-list-content">
-        <%= link_to topic.title, topic_path(topic), class: "question-list-link" %>
+        <%= link_to topic.title, show_topic_path(topic.root, topic), class: "question-list-link" %>
 
         <% if search %>
           <span class="question-list-description legend">

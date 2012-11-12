@@ -1,18 +1,23 @@
-<%=raw wymeditor_initialize %>
-<h1> Novo Tópico </h1>
+<div class="content-body">
+  <div class="help-central-header">
+    <%=raw wymeditor_initialize %>
+    <h1> Novo Tópico </h1>
+  </div>
 
-<%= form_for @topic_new do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <hr class="list-separator">
 
-  <%= f.label :icon_name %>
-  <%= f.text_field :icon_name %>
+  <div class="help-central-section">
+    <%= form_for @topic_new do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
 
-  <%= f.label :body %>
-  <%= f.text_area :body, class: 'wymeditor' %>
+      <%= f.label :icon_name %>
+      <%= f.text_field :icon_name %>
 
-  <%= hidden_field_tag :parent_id, params[:parent_id] %>
+      <%= f.label :body %>:
+      <%= f.text_area :body, class: 'wymeditor' %>
 
-  <%= f.submit %>
-<% end %>
-
+      <input type="button" class="button-default"<%= f.submit %></input>
+    <% end %>
+  </div>
+</div>

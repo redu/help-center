@@ -1,18 +1,13 @@
 <div class="content-body">
-
   <div class="help-central-header">
-
     <%=raw wymeditor_initialize %>
-    <h2> Edit <%= @topic.title %> </h2>
-    <%= link_to "Add topic", new_topic_path(parent_id: @topic) %>
-
+    <h2> Editar <%= @topic.title %> </h2>
+    <%= link_to "Adicionar topico", new_topic_path(parent_id: @topic) %>
   </div>
 
   <hr class="list-separator">
 
   <div class="help-central-section">
-
-
     <%= form_for @topic do |f| %>
       <%= f.label :title %>:
       <%= f.text_field :title %><br />
@@ -25,28 +20,23 @@
 
       <input type="button" class="button-default"<%= f.submit %></input>
     <% end %>
-
   </div>
 
   <hr class="list-separator">
 
   <div class="help-central-section">
-
     <ul class="list-button">
-
       <% @topics_and_categories.each do |item| %>
         <li class="list-button-item">
           <h6><a><%= item.title %></a></h6>
           <div class="list-lecture-info">
-            <%= link_to "Edit", edit_topic_path(item) %>
-            <%= link_to "Add topic", new_topic_path(parent_id: item) %>
-            <%= link_to "Remove topic", topic_path(item), confirm: "Are you sure?", method: :delete %>
+            <%= link_to "Editar", edit_topic_path(item) %>
+            <%= link_to "Adicionar topico", new_topic_path(parent_id: item) %>
+            <%= link_to "Remover topico", topic_path(item),
+              confirm: "Tem certeza que deseja remover?", method: :delete %>
           </div>
         </li>
       <% end %>
-
     </ul>
-
   </div>
-
 </div>

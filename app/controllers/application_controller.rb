@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   def searching
     @search = Topic.search do
-      fulltext params[:search]
+      fulltext params[:termo]
       with(:leaf, true)
     end
   end

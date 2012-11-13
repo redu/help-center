@@ -1606,6 +1606,23 @@ p {
   margin-top: 20px;
 }
 
+html,
+body {
+  height: 100%;
+}
+
+.main-wrapper {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  min-height: 100%;
+  margin: 0 auto -140px;
+}
+
+.footer-pusher {
+  height: 140px;
+}
+
 .footer {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -3738,8 +3755,7 @@ a.icon-teacher-gray_16_18-before:hover:before, .icon-teacher-gray_16_18-before:h
 .button-big {
   font-size: 16px;
   line-height: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 12px;
 }
 
 .button-dropdown {

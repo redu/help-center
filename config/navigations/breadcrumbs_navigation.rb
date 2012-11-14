@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-root = Topic.create(title: "Nothing", icon_name: "doubt")
+temp = Topic.new(title: "Nothing", icon_name: "doubt")
 
-@faq ||= root
-@basic ||= root
-@guide ||= root
-@topic ||= root
-@ancestors ||= [root]
+@faq ||= temp
+@basic ||= temp
+@guide ||= temp
+@topic ||= temp
+@ancestors ||= [temp]
 
 SimpleNavigation::Configuration.run do |navigation|
   navigation.selected_class = ''
@@ -14,7 +14,8 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :index, 'Índice', root_path, highlights_on: %r(^(\/indice|\/)$),
       class: "icon-list-lightblue_16_18-before"
 
-    primary.item :roots, 'Índice', show_root_topic_path(@topic) || show_topic_path(@topic.root, @topic) || search_path,
+    # Only use this section if it's not root_path
+    primary.item :roots, 'Índice', root_path, highlights_on: lambda { not_root? },
       alt_class: 'breadcrumb-mini-link icon-list-lightblue_16_18-before text-replacement' do |help|
       help.item :faq, @faq.title, show_root_topic_path(@faq),
         class: "breadcrumb-mini-link icon-#{ @faq.icon_name }-lightblue_16_18-before"
@@ -26,7 +27,7 @@ SimpleNavigation::Configuration.run do |navigation|
         highlights_on: lambda { highlights?(@topic) },
         class: "breadcrumb-mini-link icon-#{ @ancestors.first.icon_name }-lightblue_16_18-before",
         alt_class: "breadcrumb-mini-link icon-#{ @ancestors.first.icon_name }-lightblue_16_18-before" do |category|
-          category.item :category, @topic.title, show_topic_path(@topic.root, @topic),
+          category.item :category, @topic.title, show_topic_path(@ancestors.first, @topic),
           unless: Proc.new { @topic.leaf? },
           class: "breadcrumb-mini-link icon-#{ @topic.icon_name }-lightblue_16_18-before"
         end
@@ -45,4 +46,8 @@ def highlights?(item)
 
   topic = Topic.find_using_slug(id)
   topic.leaf?
+end
+
+def not_root?
+  !request.path_parameters[:action] == "index"
 end

@@ -20,9 +20,9 @@ class CustomBreadcrumbs < SimpleNavigation::Renderer::Base
     end
   end
 
-  # Cria o elemento âncora envolto por um li para cada elemento do breadcrumb
+  # Create the anchor element inside of a li for each element on the breadcrumb
   def anchor_tag(item)
-    if item.name == '' # Descarta elementos vazios (zombies do simple-navigation)
+    if item.name == '' # Don't use empty elements
       nil
     else
       li_content = content_tag(:a, item.name, { :href => item.url,
@@ -38,7 +38,7 @@ class CustomBreadcrumbs < SimpleNavigation::Renderer::Base
     @join_with ||= options[:join_with] || " "
   end
 
-  # Utiliza a classe alt_class caso o elemento do breadcrumb não esteja ativo
+  # Use alt_class when the element on breadcrumb is not activate
   def switch_class(item)
     if !item.active_leaf_class
       item.html_options[:alt_class]

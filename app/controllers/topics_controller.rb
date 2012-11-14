@@ -40,6 +40,7 @@ class TopicsController < ApplicationController
       @ancestors = @topic.ancestors
       @read_more = @topic.read_more
     else
+      @ancestors = @topic.ancestors
       @children = @topic.children
 
       render 'faqs/category'

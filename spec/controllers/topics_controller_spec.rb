@@ -58,18 +58,20 @@ describe TopicsController do
         end
 
         @faq.reload
+
+        get :show, id: @faq, locale: "pt-BR"
       end
 
       it "should render faq" do
-        get :show, id: @faq, locale: "pt-BR"
-
         response.should render_template("faqs/show")
       end
 
       it "should load top_questions" do
-        get :show, id: @faq, locale: "pt-BR"
-
         assigns[:top_questions].hits.length.should == 5
+      end
+
+      it "should load all categories" do
+        assigns[:categories].should == @faq.children
       end
     end
 
@@ -80,12 +82,20 @@ describe TopicsController do
 
         @category.move_to_child_of(faq)
         @topic.move_to_child_of(@category)
+
+        get :show, id: @category, locale: "pt-BR"
       end
 
       it "should render category show" do
-        get :show, id: @category, locale: "pt-BR"
-
         response.should render_template("faqs/category")
+      end
+
+      it "should load all children" do
+        assigns[:children].should == @category.children
+      end
+
+      it "should load all ancestors" do
+        assigns[:ancestors].should == @category.ancestors
       end
     end
 
@@ -114,8 +124,7 @@ describe TopicsController do
 
         get :show, id: @basic, locale: "pt-BR"
 
-        assigns[:children].length.should == \
-          @basic.children.length
+        assigns[:children].should == @basic.children
       end
     end
 
@@ -144,8 +153,7 @@ describe TopicsController do
 
         get :show, id: @guide, locale: "pt-BR"
 
-        assigns[:children].length.should == \
-          @guide.children.length
+        assigns[:children].should == @guide.children
       end
     end
 
@@ -165,7 +173,7 @@ describe TopicsController do
 
         get :show, id: @topic, locale: "pt-BR"
 
-        assigns[:ancestors].length.should == @topic.ancestors.count
+        assigns[:ancestors].should == @topic.ancestors
       end
 
       it "should increase view_count" do
@@ -259,7 +267,7 @@ describe TopicsController do
 
       get :edit, id: @topic, locale: "pt-BR"
 
-      assigns[:topics_and_categories].length.should == @topic.descendants.count
+      assigns[:topics_and_categories].should == @topic.descendants
     end
 
     context "POST update" do

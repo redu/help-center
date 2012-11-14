@@ -1,7 +1,7 @@
 class BasicGuidesController < ApplicationController
-  respond_to :html, :js
+  respond_to :html
 
-  before_filter :authenticate, except: [:show]
+  before_filter :authenticate
 
   def new
     @basic_new = BasicGuide.new
@@ -11,7 +11,7 @@ class BasicGuidesController < ApplicationController
     @basic = BasicGuide.new(params[:basic_guide])
     @basic.save
 
-    respond_with(@basic)
+    redirect_to edit_topic_path(@basic)
   end
 
   def update

@@ -1,7 +1,7 @@
 class GuidesController < ApplicationController
-  respond_to :html, :js
+  respond_to :html
 
-  before_filter :authenticate, except: [:show]
+  before_filter :authenticate
 
   def new
     @guide_new = Guide.new
@@ -11,7 +11,7 @@ class GuidesController < ApplicationController
     @guide = Guide.new(params[:guide])
     @guide.save
 
-    respond_with(@guide)
+    redirect_to edit_topic_path(@guide)
   end
 
   def update

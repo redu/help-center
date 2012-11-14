@@ -1,7 +1,7 @@
 # encoding: utf-8
 class TopicsController < ApplicationController
   require 'viewable'
-  respond_to :html, :js
+  respond_to :html
 
   before_filter :authenticate, except: [:index, :show, :search]
 
@@ -58,7 +58,7 @@ class TopicsController < ApplicationController
     parent = Topic.find(params[:parent_id])
     @topic.move_to_child_of(parent)
 
-    respond_with(@topic)
+    redirect_to edit_topic_path(@topic)
   end
 
   def edit

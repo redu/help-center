@@ -1,7 +1,7 @@
 class FaqsController < ApplicationController
-  respond_to :html, :js
+  respond_to :html
 
-  before_filter :authenticate, except: [:show]
+  before_filter :authenticate
 
   def new
     @faq_new = Faq.new
@@ -11,7 +11,7 @@ class FaqsController < ApplicationController
     @faq = Faq.new(params[:faq])
     @faq.save
 
-    respond_with(@faq)
+    redirect_to edit_topic_path(@faq)
   end
 
   def update

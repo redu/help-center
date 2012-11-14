@@ -1,0 +1,13 @@
+<%= form_for item do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :icon_name %>
+  <%= f.text_field :icon_name %>
+
+  <%= f.label :body %>
+  <%= f.text_area :body, class: 'wymeditor' %>
+
+  <input class="button-default"<%= f.submit %></input>
+<% end %>
+

@@ -8,18 +8,7 @@
   <hr class="list-separator">
 
   <div class="help-central-section">
-    <%= form_for @topic do |f| %>
-      <%= f.label :title %>:
-      <%= f.text_field :title %><br />
-
-      <%= f.label :icon_name %>:
-      <%= f.text_field :icon_name %><br />
-
-      <%= f.label :body %>:
-      <%= f.text_area :body, class: 'wymeditor' %><br />
-
-      <input type="button" class="button-default"<%= f.submit %></input>
-    <% end %>
+    <%= render partial: "shared/form", locals: { item: @topic } %>
   </div>
 
   <hr class="list-separator">

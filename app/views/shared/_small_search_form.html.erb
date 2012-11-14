@@ -1,5 +1,5 @@
 <%= form_tag search_path, method: :get, class: "form-search" do %>
-  <%= text_field_tag :termo, params[:termo], class: "control-area",
+  <%= text_field_tag :t, params[:t], class: "control-area",
     placeholder: "O que deseja saber?", "data-toggle" => ".hide-title"%>
   <button class="control-append-area button-default" type="submit">
     <span class="control-search-icon icon-magnifier-gray_16_18 text-replacement">Busca</span>

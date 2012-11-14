@@ -1,6 +1,7 @@
 .help-central-header {
   margin: 10px 30px 20px 20px;
-  overflow: hidden;
+  overflow: visible;
+  height: 43px;
 
   h1 {
     color: $blue3;

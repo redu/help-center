@@ -92,7 +92,7 @@ class TopicsController < ApplicationController
     @categories << Faq.roots
     @categories << BasicGuide.roots
     @categories << Guide.roots
-    @categories = @categories.flatten
+    @categories.flatten!
 
     render 'topics/edit_all'
   end

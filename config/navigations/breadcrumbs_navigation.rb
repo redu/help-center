@@ -15,7 +15,8 @@ SimpleNavigation::Configuration.run do |navigation|
       class: "icon-list-lightblue_16_18-before"
 
     # Only use this section if it's not root_path
-    primary.item :roots, 'Índice', root_path, highlights_on: lambda { not_root? },
+    primary.item :roots, 'Índice', root_path,
+      if: Proc.new { !(request.path_parameters[:action] == "index") },
       alt_class: 'breadcrumb-mini-link icon-list-lightblue_16_18-before text-replacement' do |help|
       help.item :faq, @faq.title, show_root_topic_path(@faq),
         class: "breadcrumb-mini-link icon-#{ @faq.icon_name }-lightblue_16_18-before"
@@ -46,8 +47,4 @@ def highlights?(item)
 
   topic = Topic.find_using_slug(id)
   topic.leaf?
-end
-
-def not_root?
-  !request.path_parameters[:action] == "index"
 end

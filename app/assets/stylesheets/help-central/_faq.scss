@@ -9,7 +9,7 @@
 
   h2 {
     color: $blue3;
-    font-weight: lighter;
+    font-weight: 300;
 
     a {
       text-decoration: none;
@@ -19,28 +19,28 @@
   .title {
     text-decoration: none;
     float: left;
-    
+
     &:hover {
       h2 {
         color: $blue4;
       }
     }
-    
+
     h2 {
       display: inline;
       line-height: inherit;
     }
-    
+
     span {
       float: left;
     }
   }
-  
+
   p {
     padding-left: 44px;
     float: left;
     clear: both;
-    
+
     a {
       color: $gray5;
     }
@@ -51,7 +51,7 @@
     h2 {
       color: $gray5;
     }
-    
+
     &:hover {
       h2 {
         color: $gray6;
@@ -76,12 +76,12 @@
   overflow: hidden;
   padding-bottom: 8px;
   color: $gray5;
-  font-weight: lighter;
-  
+  font-weight: 300;
+
   [class*="icon-"][class*="-before"]::before {
     vertical-align: middle;
   }
-  
+
   h6 {
     float: left;
     width: 100%;

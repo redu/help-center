@@ -4,7 +4,7 @@
   overflow: hidden;
 
   h3 {
-    font-weight: lighter;
+    font-weight: 300;
     line-height: inherit;
   }
 
@@ -30,13 +30,13 @@
 
   .title-gray {
     color: $gray5;
-    font-weight: lighter;
+    font-weight: 300;
   }
 
   .guide-subtopic {
     color: $gray5;
     padding-top: 20px;
-    font-weight: lighter;
+    font-weight: 300;
   }
 
 }

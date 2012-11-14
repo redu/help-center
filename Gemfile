@@ -25,7 +25,6 @@ group :test do
 end
 
 group :development do
-  gem 'sqlite3'
   gem 'thin'
   gem 'sunspot_solr'
 end

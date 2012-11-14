@@ -2,14 +2,14 @@
   <div class="help-central-header">
 
     <a href="#" class="title icon-frequent-questions-lightblue_32_34-before">
-      <h2 id="title">
+      <h2 class="hide-title">
         <%= @topic.root.title %>
       </h2>
     </a>
 
     <%= render partial: "shared/small_search_form" %>
 
-    <p id="title" class="legend"><%= topic_path_html(@children.first, true) %></p>
+    <p class="hide-title legend"><%= topic_path_html(@children.first, true) %></p>
   </div>
 
   <hr class="list-separator">

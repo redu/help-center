@@ -1,27 +1,27 @@
 // ==========================================================================
-// Estilos a Central de Ajuda
+// Help Center styles
 // ==========================================================================
 
-// Mixins de imagens do Compass.
+// Mixins images of Compass.
 @import "compass/css3/images";
-// Variáveis do UI-components.
+// Variables of UI-components.
 @import "ui-components/variables";
-// Mixins do UI-components.
+// Mixins of UI-components.
 @import "ui-components/mixins";
 
-// Estilos do layout.
+// Layout styles.
 @import "help-central/layout";
-// Estilos compartilhados.
+// Shared styles.
 @import "help-central/shared";
-// Estilos da área com pergunta e formulário de busca.
+// Styles of the area with question and search form.
 @import "help-central/big-search-form";
-// Estilos do "Sinta-se apoiado!".
+// "Feel Supported" styles
 @import "help-central/feel-supported";
-// Estilos do índice.
+// Index styles.
 @import "help-central/index";
-// Estilos do FAQ.
+// FAQ styles.
 @import "help-central/faq";
-// Estilos do Guide.
+// Guide styles.
 @import "help-central/guide";
-// Estilos de Busca.
+// Search styles.
 @import "help-central/search";

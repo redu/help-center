@@ -1,13 +1,13 @@
 // ==========================================================================
-// Estilos compartilhados
+// Shared styles
 // ==========================================================================
 
 
-// Navegação global
+// Navigation global
 // ==========================================================================
 
 .nav-global-container {
-  // Botão de voltar ao Redu.
+  // Button back to Redu.
   .nav-global-brand {
     text-decoration: none;
   }
@@ -20,10 +20,10 @@
 }
 
 
-// Barra lateral
+// Sidebar
 // ==========================================================================
 
-// Preenche o fundo com um branco transparente, bordas internas brancas e bordas arredondadas.
+// Fill the background with a white transparent, white inside edges and rounded edges.
 .white-area {
   @include border-radius;
   @include box-shadow(0 0 1px 1px $white inset);
@@ -36,18 +36,18 @@
   padding-bottom: 20px;
 }
 
-// Título da Central de Ajuda.
+// Help Center title.
 .help-central-title {
   text-align: center;
 
-  // Modifica o ícone-before para centralizá-lo.
+  // Modifies the icon-before to center it.
   [class*="icon-"][class*="-before"]:before {
     display: block;
     margin: 0 auto 10px;
   }
 }
 
-// Link para Central de Ajuda.
+// Link to Help Center.
 .help-central-link {
   @include heading(4);
 
@@ -83,16 +83,16 @@
 .content-body { margin-top: 8px; }
 
 
-// Lista de perguntas
+// List of questions.
 // ==========================================================================
 
-// Lista.
+// List.
 .questions-list  {
   list-style: none;
   margin: 10px 0 0 0;
 }
 
-// Item da lista.
+// List item.
 .question-list-item {
   @include border-radius(7px);
   padding: 10px;
@@ -101,13 +101,13 @@
   &:nth-child(even) { background-color: $gray1; }
 }
 
-// Ícone.
+// Icon.
 .question-list-icon {
   float: left;
   margin-right: 10px;
 }
 
-// Wrapper do link e legenda.
+// Wrapper link and caption.
 .question-list-content { overflow: hidden; }
 
 // Link.

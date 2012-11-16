@@ -23,9 +23,9 @@
         <% if read_more %>
           <span class="legend"><%= topic_path_html(topic) %></span>
         <% elsif with_path %>
-          <span class="legend"><%= total_visualizations(topic.view_count) %> — <%= topic_path_html(topic) %></span>
+          <span class="legend"><%= t(:visualizations, count: topic.view_count) %> — <%= topic_path_html(topic) %></span>
         <% else %>
-          <span class="legend"><%= total_visualizations(topic.view_count) %></span>
+          <span class="legend"><%= t(:visualizations, count: topic.view_count) %></span>
         <% end %>
 
       </div>

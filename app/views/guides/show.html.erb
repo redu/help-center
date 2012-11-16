@@ -1,3 +1,9 @@
-<% @topics_and_categories.each do |item| %>
-  <%= item.title %>
-<% end %>
+<div class="content-body">
+  <%= render partial: "guides/header", locals: { guide: @guide } %>
+
+  <%= render partial: "guides/categories", collection: @children, as: :category %>
+
+  <hr class="list-separator">
+
+  <%= render :partial => "shared/feel_supported", :locals => { :index => false } %>
+</div>

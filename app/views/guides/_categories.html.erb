@@ -1,0 +1,10 @@
+<hr class="list-separator">
+
+<div class="help-central-section">
+  <h3 class="icon-<%= category.icon_name %>-black_16_18-before"><%= category.title %></h3>
+
+  <ul class="questions-list">
+    <%= render partial: category.children %>
+  </ul>
+</div>
+

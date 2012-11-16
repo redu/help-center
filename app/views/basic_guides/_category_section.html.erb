@@ -1,0 +1,17 @@
+<hr class="list-separator">
+
+<div class="help-central-section">
+  <div class="basic-guide-row">
+
+    <h3 class="icon-<%= category.icon_name %>-black_16_18-before"><%= category.title %></h3>
+
+    <div class="basic-guide-section">
+      <ul class="questions-list">
+        <%= render partial: category.children, locals: { basic_guide: true } %>
+      </ul>
+    </div>
+
+    <%= render partial: "basic_guides/category_subsection", collection: category.children, as: :subcategory%>
+  </div>
+</div>
+

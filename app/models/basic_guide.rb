@@ -1,0 +1,2 @@
+class BasicGuide < Topic
+end

@@ -1,0 +1,14 @@
+// ==========================================================================
+// Estilos da área com pergunta e formulário de busca
+// ==========================================================================
+
+
+.section-question { padding: 20px 20px 10px; }
+
+// Título do índice e busca.
+.help-central-title-question {
+  @include heading(1);
+  color: $blue3;
+}
+
+.section-form { padding: 20px 0; }

@@ -10,7 +10,11 @@ gem 'factory_girl_rails'
 gem "jquery-rails"
 gem 'kaminari'
 gem 'mysql2'
+gem 'nokogiri'
+gem 'rails-translate-routes'
+gem "redcarpet"
 gem 'simple-navigation'
+gem 'slugged'
 gem 'sunspot_rails'
 gem 'wymeditor'
 
@@ -21,7 +25,14 @@ group :test do
 end
 
 group :development do
+  gem 'thin'
   gem 'sunspot_solr'
+end
+
+group :assets do
+  gem 'asset_sync'
+  gem 'sass-rails'
+  gem 'compass-rails'
 end
 
 # Use unicorn as the web server

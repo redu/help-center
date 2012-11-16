@@ -1,0 +1,13 @@
+<div class="basic-guide-column">
+  <ul class="questions-list">
+    <%= render partial: more.first, locals: { with_path: true, read_more: true } %>
+  </ul>
+</div>
+
+<% unless more.second.nil? %>
+  <div class="basic-guide-column right">
+    <ul class="questions-list">
+      <%= render partial: more.second, locals: { with_path: true, read_more: true } %>
+    </ul>
+  </div>
+<% end %>

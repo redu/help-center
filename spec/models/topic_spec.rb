@@ -12,6 +12,18 @@ describe Topic do
 
       faq.faq?.should be_true
     end
+
+    it "is guide" do
+      guide = create(:guide)
+
+      guide.guide?.should be_true
+    end
+
+    it "is basic guide" do
+      basic = create(:basic_guide)
+
+      basic.basic?.should be_true
+    end
   end
 
   context "read more" do

@@ -1,0 +1,38 @@
+<div class="content-body">
+
+  <div class="help-central-header">
+
+    <a href="#" class="article title icon-<%= @ancestors.first.icon_name %>-gray_32_34-before">
+      <h2 class="hide-title">
+        <%= @ancestors.first.title %>
+      </h2>
+    </a>
+
+    <%= render partial: "shared/small_search_form" %>
+
+    <span class="subtitle hide-title legend"><%= topic_path_html(@topic, true) %></subtitle>
+  </div>
+
+  <hr class="list-separator">
+
+  <div class="help-central-section">
+    <div class="article">
+      <h3><%= @topic.title %></h3>
+      <%= raw markparser.render(@topic.body) %>
+    </div>
+  </div>
+
+  <hr class="list-separator">
+
+  <div class="help-central-section">
+    <h3 class="title-gray">Leia também</h3>
+
+    <%= render partial: "topics/read_more", locals: { more: @read_more }%>
+  </div>
+
+  <hr class="list-separator">
+
+  <div class="help-central-footer">
+    <p class="article">Este é um artigo do <%= link_to @ancestors.first.title, show_root_topic_path(@ancestors.first) %>, capítulo “<%= topic_path_html(@topic, true) %>”.</p>
+  </div>
+</div>

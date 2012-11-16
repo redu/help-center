@@ -1,0 +1,79 @@
+.help-central-header {
+  margin: 10px 30px 20px 20px;
+  overflow: visible;
+  height: 43px;
+
+  h1 {
+    color: $blue3;
+    height: 62px;
+  }
+
+  h2 {
+    color: $blue3;
+    font-weight: 300;
+  }
+
+  .title {
+    text-decoration: none;
+    float: left;
+
+    &:hover {
+      h2 {
+        color: $blue4;
+      }
+    }
+
+    h2 {
+      display: inline;
+      line-height: inherit;
+    }
+  }
+
+  .subtitle {
+    padding-left: 44px;
+    float: left;
+    clear: both;
+    margin-top: -6px;
+  }
+
+  .article {
+
+    h2 {
+      color: $gray5;
+    }
+
+    &:hover {
+      h2 {
+        color: $gray6;
+      }
+    }
+  }
+
+  .form-search {
+    float: right;
+    margin: 3px 3px 3px 0;
+  }
+}
+
+.faq-category {
+  border: 1px solid $gray3;
+  @include border-radius(10px);
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.faq-category-title {
+  overflow: hidden;
+  padding-bottom: 8px;
+  color: $gray5;
+  font-weight: 300;
+
+  [class*="icon-"][class*="-before"]::before {
+    vertical-align: middle;
+  }
+
+  h6 {
+    width: 100%;
+    text-align: center;
+  }
+}

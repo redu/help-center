@@ -1,0 +1,32 @@
+<div class="content-body">
+  <div class="help-central-header">
+    <%=raw wymeditor_initialize %>
+    <h2> Editar Central de Ajuda </h2>
+  </div>
+
+  <hr class="list-separator">
+
+  <div class="help-central-section">
+    <%= link_to "Adicionar Faq", new_faq_path %>
+    <%= link_to "Adicionar Guia Basico", new_basic_guide_path %>
+    <%= link_to "Adicionar Guia", new_guide_path %>
+  </div>
+
+  <hr class="list-separator">
+
+  <div class="help-central-section">
+    <ul class="list-button">
+      <% @categories.each do |item| %>
+        <li class="list-button-item">
+          <h6><a><%= item.title %></a></h6>
+          <div class="list-lecture-info">
+            <%= link_to "Editar", edit_topic_path(item) %>
+            <%= link_to "Adicionar topico", new_topic_path(parent_id: item) %>
+            <%= link_to "Remover topico", topic_path(item), confirm: "Tem certeza que deseja remover?", method: :delete %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+

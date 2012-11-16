@@ -1,8 +1,27 @@
-<% @top_questions.each do |top| %>
-  <%= top.title %>
-<% end %>
+<div class="content-body">
+  <div class="help-central-header">
+    <%= link_to "#", class: "title icon-#{ @faq.icon_name }-lightblue_32_34-before" do %>
+      <h2 class="hide-title"><%= @faq.title %></h2>
+    <% end %>
 
+    <%= render partial: "shared/small_search_form" %>
+  </div>
 
-<% @topics_and_categories.each do |item| %>
-  <%= item.title %>
-<% end %>
+  <hr class="list-separator">
+
+  <div class="help-central-section">
+    <h3>Dúvidas (Mais) Frequentes</h3>
+
+    <ul class="questions-list">
+      <%= render partial: @top_questions.results, locals: { with_path: true }  %>
+    </ul>
+  </div>
+
+  <hr class="list-separator">
+
+  <div class="help-central-section">
+    <h3>Dúvidas por Categorias</h3>
+
+    <%= render partial: "faqs/categories", collection: @categories, as: :category %>
+  </div>
+</div>

@@ -5,6 +5,7 @@ class Topic < ActiveRecord::Base
   acts_as_nested_set
 
   validates :title, presence: true
+  after_save :reindex_topics
 
   searchable do
     text :title, boost: 3.0
@@ -55,5 +56,11 @@ class Topic < ActiveRecord::Base
     else
       leaves[index + 1, length]
     end
+  end
+
+  private
+
+  def reindex_topics
+    self.index
   end
 end

@@ -8,6 +8,7 @@
   <%= f.label :body %>
   <%= f.text_area :body, class: 'wymeditor' %>
 
+  <%= hidden_field_tag :parent_id, params[:parent_id] %>
+
   <input class="button-default"<%= f.submit %></input>
 <% end %>
-

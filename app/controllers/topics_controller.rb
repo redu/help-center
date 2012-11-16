@@ -55,7 +55,7 @@ class TopicsController < ApplicationController
     @topic = Topic.create(params[:topic])
     @topic.save
 
-    parent = Topic.find(params[:parent_id])
+    parent = Topic.find_using_slug(params[:parent_id])
     @topic.move_to_child_of(parent)
 
     redirect_to edit_topic_path(@topic)

@@ -48,7 +48,7 @@ describe GuidesController do
 
       post :update, params
 
-      assigns[:guide].body.should eq("focus on the work")
+      Guide.find(@guide).body.should eq("focus on the work")
     end
   end
 end

@@ -51,7 +51,7 @@ describe FaqsController do
 
       post :update, params
 
-      assigns[:faq].body.should eq("focus on the work")
+      Faq.find(@faq).body.should eq("focus on the work")
     end
   end
 end

@@ -277,7 +277,7 @@ describe TopicsController do
 
         post :update, params
 
-        assigns[:topic].body.should eq("focus on the work")
+        Topic.find(@topic).body.should eq("focus on the work")
       end
     end
   end

@@ -13,14 +13,4 @@ module ApplicationHelper
 
     html
   end
-
-  def total_visualizations(view_count)
-    if view_count == 0
-      "Nenhuma visualização"
-    elsif view_count == 1
-      "1 visualização"
-    else
-      "#{ view_count } visualizações"
-    end
-  end
 end

@@ -215,7 +215,7 @@ describe TopicsController do
         @params =  {
           format: :js,
           locale: "pt-BR",
-          parent_id: @guide,
+          parent_id: @guide.id,
           topic: {
             title: "New topic",
             body: "Help Center" }

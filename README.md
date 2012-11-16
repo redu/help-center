@@ -13,9 +13,9 @@ rake db:migrate
 rake db:test:prepare
 ```
 
-To populate database just run the script:
+To populate database just run the task:
 ```shell
-script/populate.rb
+rake populate:minimun
 ```
 
 ### Sunspot / Solr

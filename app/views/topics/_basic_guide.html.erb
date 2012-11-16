@@ -6,7 +6,7 @@
     <h4>
       <%= link_to @basic_guide.title, show_root_topic_path(@basic_guide), class: "guides-list-item-title link-target" %>
     </h4>
-    <em class="legend">Comece aqui!</em>
+    <em class="legend"><%= t(:start_here) %></em>
   </div>
   <div class="guides-list-item-footer">
     <p class="legend"><%= @basic_guide.body %></p>

@@ -1,0 +1,39 @@
+pt-BR:
+  big_form_question: Como podemos ajudar?
+  frequently_questions: Dúvidas (Mais) Frequentes
+  learn_with_guides: Aprenda com os Guias
+  start_here: Comece aqui!
+  placehold_big_form: Busque por uma dúvida ou um tópico que você deseja aprender
+  placehold_small_form: O que deseja saber?
+  search: Busca
+  search_question: Procurando por algo?
+  search_for: Você buscou por
+  feel_supported: Sinta-se apoiado!
+  help_us: Ajude-nos a melhorar a Central de Ajuda.
+  help_us_explanation: A nossa Central de Ajuda está em constante evolução. Caso hajam tópicos que ainda não foram contemplados
+  talk_with_us: fale conosco
+  talk_online: Precisa de atendimento online?
+  talk_online_explanation: Nos preocupamos com suas dificuldades. Se você precisar de atendimento e suporte online, em tempo real, estamos dispostos a atendê-lo.
+  say_hello: Diga "Olá"
+  oracle: Oráculo
+  help_center: Central de Ajuda
+  index: Índice
+  doubts_by_category: Dúvidas por categoria
+  questions:
+    zero: Nenhuma pergunta
+    one: 1 pergunta
+    other: "%{count} perguntas"
+  visualizations:
+    zero: Nenhuma visualização
+    one: 1 visualização
+    other: "%{count} visualização"
+  read_more: Leia também
+  article_from: Este é um artigo do
+  chapter: capítulo
+  not_found: Não encontrado
+  found: Achamos
+  not_found_sorry: Sentimos muito, mas não achamos resultado para
+  try_another: Tente outro termo
+  results:
+    one: resultado
+    other: resultados

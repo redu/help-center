@@ -14,7 +14,7 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.items do |primary|
     primary.dom_class = 'nav-local'
 
-    primary.item :index, 'Índice', root_path, highlights_on: %r(^(\/indice|\/)$),
+    primary.item :index, t(:index), root_path, highlights_on: %r(^(\/indice|\/)$),
       class: 'nav-local-item link-container icon-list-lightblue_16_18-before',
       link: { class: 'nav-local-link link-target' }
 

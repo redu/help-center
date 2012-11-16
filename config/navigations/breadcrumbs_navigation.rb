@@ -11,11 +11,11 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.selected_class = ''
 
   navigation.items do |primary|
-    primary.item :index, 'Índice', root_path, highlights_on: %r(^(\/indice|\/)$),
+    primary.item :index, t(:index), root_path, highlights_on: %r(^(\/indice|\/)$),
       class: "icon-list-lightblue_16_18-before"
 
     # Only use this section if it's not root_path
-    primary.item :roots, 'Índice', root_path,
+    primary.item :roots, t(:index), root_path,
       if: Proc.new { !(request.path_parameters[:action] == "index") },
       alt_class: 'breadcrumb-mini-link icon-list-lightblue_16_18-before text-replacement' do |help|
       help.item :faq, @faq.title, show_root_topic_path(@faq),
@@ -32,7 +32,7 @@ SimpleNavigation::Configuration.run do |navigation|
           unless: Proc.new { @topic.leaf? },
           class: "breadcrumb-mini-link icon-#{ @topic.icon_name }-lightblue_16_18-before"
         end
-      help.item :search, "Busca", search_path,
+      help.item :search, t(:search), search_path,
         class: "breadcrumb-mini-link icon-magnifier-lightblue_16_18-before"
     end
   end

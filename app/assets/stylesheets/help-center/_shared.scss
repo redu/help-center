@@ -143,3 +143,11 @@
 .item-gray {
   background-color: $gray1;
 }
+
+// Oracle.
+// ==========================================================================
+
+// Remove text shadow.
+#habla_topbar_div {
+  text-shadow: none;
+}

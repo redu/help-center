@@ -3,7 +3,7 @@ HelpCenter::Application.routes.draw do
   match "index" => "topics#index"
 
   match "search" => "topics#search"
-  match "admin/edit" => "topics#edit_all"
+  match "admin/" => "topics#edit_all"
 
   get "/:id" => "topics#show", as: :show_root_topic
 

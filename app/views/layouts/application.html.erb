@@ -1,12 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>HelpCenter</title>
-  <%= javascript_include_tag "application" %>
-  <%=raw wymeditor_initialize %>
-</head>
-<body>
-  <%= render_navigation %>
-  <%= yield %>
-</body>
+<!doctype html>
+<!--[if gt IE 8]><html class="gt-ie8" lang="pt-br"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="pt-br"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <title>Central de Ajuda — Redu</title>
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= render partial: "shared/typekit" %>
+    <%= csrf_meta_tags  %>
+  </head>
+  <body>
+    <%= render partial: "shared/navigation_global" %>
+    <div class="main-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="span3">
+            <div class="help-central-sidebar white-area">
+              <h2 class="help-central-title">
+                <%= link_to "Central de Ajuda", root_path,
+                  class: "help-central-link icon-help-central-gray_66-before",
+                  title: "Central de Ajuda" %>
+              </h2>
+              <%= render_navigation(context: :help_central_nav_local, renderer: NavLocal) %>
+            </div>
+          </div>
+          <div class="span13">
+            <div class="help-central-content">
+              <%= render_navigation(context: :breadcrumbs, renderer: CustomBreadcrumbs) %>
+              <%= yield %>
+              <%= render_navigation(context: :breadcrumbs, white: true, renderer: CustomBreadcrumbs)%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-pusher"></div>
+    </div>
+    <%= render partial: "shared/footer" %>
+    <%= render partial: "shared/olark" %>
+  </body>
 </html>

@@ -1,0 +1,10 @@
+pt-BR:
+  routes:
+    index: indice
+    edit: editar
+    edit_all: edicao
+    new: novo
+    search: busca
+    guides: guias
+    basic_guides: guias-basicos
+    topics: topicos

@@ -1,15 +1,29 @@
-<%= form_tag search_path, method: :get do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", name: nil %>
-  </p>
-<% end %>
+<div class="content-body">
+  <%= render partial: "shared/big_search_form", locals: { question: "Procurando por algo?" } %>
 
-<% @results.each do |result| %>
-  <%= result.title %>
-<% end %>
+  <% if @results.empty? %>
+    <div class="search-empty">
+      <span class="icon-help-central-empty_128 show text-replacement">Não encontrado</span>
+      <p>Sentimos muito, mas não achamos resultado para <b>“<%= params[:t] %>”</b>. Tente outro termo.</p>
+    </div>
 
-<div id="paginator">
-  <%= link_to_next_page(@results, 'Mostrar Mais', { remote: true }) %>
+  <% else %>
+    <div class="search-results help-central-section">
+      <span>Você buscou por <b>“<%= params[:t] %>”</b>. Achamos <b><%= @search.total %></b> resultados.</span>
+
+      <ul class="questions-list">
+        <div id="search-results">
+          <%= render partial: @results, locals: { with_path: true, search: true } %>
+        </div>
+      </ul>
+    </div>
+
+    <hr class="list-separator">
+
+    <div class="help-central-footer">
+      <div class="pagination">
+        <%= paginate @results, remote: true, outer_window: 1, inner_window: 4 %>
+      </div>
+    </div>
+  <% end %>
 </div>
-

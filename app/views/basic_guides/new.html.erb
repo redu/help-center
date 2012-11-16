@@ -1,0 +1,12 @@
+<div class="content-body">
+  <div class="help-central-header">
+    <%=raw wymeditor_initialize %>
+    <h1> Novo Guia Básico </h1>
+  </div>
+
+  <hr class="list-separator">
+
+  <div class="help-central-section">
+    <%= render partial: "shared/form", locals: { item: @basic_new } %>
+  </div>
+</div>

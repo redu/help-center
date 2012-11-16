@@ -10,13 +10,13 @@ describe TopicsController do
     end
 
     it "should render index" do
-      get :index
+      get :index, locale: "pt-BR"
 
       response.should render_template("topics/index")
     end
 
     it "should load all roots from Guide" do
-      get :index
+      get :index, locale: "pt-BR"
 
       assigns[:guides].length.should == Guide.count
     end
@@ -31,7 +31,7 @@ describe TopicsController do
       end
 
       it "should load top questions in Faq" do
-        get :index
+        get :index, locale: "pt-BR"
 
         assigns[:top_questions].hits.length.should == 5
       end
@@ -43,50 +43,166 @@ describe TopicsController do
       @topic = create(:topic)
     end
 
-    it "should render show" do
-      get :show, id: @topic
+    context "faq" do
+      before do
+        @faq = create(:faq)
 
-      response.should render_template("topics/show")
-    end
+        2.times do
+          category = create(:topic)
+          category.move_to_child_of(@faq)
 
-    it "should load all ancestors" do
-      guide = create(:guide)
-      category = create(:topic)
+          3.times do
+            topic = create(:topic)
+            topic.move_to_child_of(category)
+          end
+        end
 
-      category.move_to_child_of(guide)
-      @topic.move_to_child_of(category)
+        @faq.reload
 
-      get :show, id: @topic
-
-      assigns[:ancestors].length.should == @topic.ancestors.count
-    end
-
-    it "should increase view_count" do
-      expect{
-      get :show, id: @topic
-        @topic.reload
-      }.to change(@topic, :view_count).by(1)
-    end
-
-    it "should load two topics to read more" do
-      guide = create(:guide)
-      @topic.move_to_child_of(guide)
-
-      2.times do
-        topic = create(:topic)
-        topic.move_to_child_of(guide)
+        get :show, id: @faq, locale: "pt-BR"
       end
 
-      get :show, id: @topic
+      it "should render faq" do
+        response.should render_template("faqs/show")
+      end
 
-      assigns[:read_more].length.should == 2
+      it "should load top_questions" do
+        assigns[:top_questions].hits.length.should == 5
+      end
+
+      it "should load all categories" do
+        assigns[:categories].should == @faq.children
+      end
+    end
+
+    context "faq category" do
+      before do
+        faq = create(:faq)
+        @category = create(:topic)
+
+        @category.move_to_child_of(faq)
+        @topic.move_to_child_of(@category)
+
+        get :show, id: @category, locale: "pt-BR"
+      end
+
+      it "should render category show" do
+        response.should render_template("faqs/category")
+      end
+
+      it "should load all children" do
+        assigns[:children].should == @category.children
+      end
+
+      it "should load all ancestors" do
+        assigns[:ancestors].should == @category.ancestors
+      end
+    end
+
+    context "basic guide" do
+      before do
+        @basic = create(:basic_guide)
+      end
+
+      it "should render basic guide" do
+        get :show, id: @basic, locale: "pt-BR"
+
+        response.should render_template("basic_guides/show")
+      end
+
+      it "should load all children" do
+        2.times do
+          category = create(:topic)
+          category.move_to_child_of(@basic)
+
+          3.times do
+            topic = create(:topic)
+            topic.move_to_child_of(category)
+          end
+        end
+        @basic.reload
+
+        get :show, id: @basic, locale: "pt-BR"
+
+        assigns[:children].should == @basic.children
+      end
+    end
+
+    context "guide" do
+      before do
+        @guide = create(:guide)
+      end
+
+      it "should render guide" do
+        get :show, id: @guide, locale: "pt-BR"
+
+        response.should render_template("guides/show")
+      end
+
+      it "should load all topics" do
+        2.times do
+          category = create(:topic)
+          category.move_to_child_of(@guide)
+
+          3.times do
+            topic = create(:topic)
+            topic.move_to_child_of(category)
+          end
+        end
+        @guide.reload
+
+        get :show, id: @guide, locale: "pt-BR"
+
+        assigns[:children].should == @guide.children
+      end
+    end
+
+    context "topics" do
+      it "should render show" do
+        get :show, id: @topic, locale: "pt-BR"
+
+        response.should render_template("topics/show")
+      end
+
+      it "should load all ancestors" do
+        guide = create(:guide)
+        category = create(:topic)
+
+        category.move_to_child_of(guide)
+        @topic.move_to_child_of(category)
+
+        get :show, id: @topic, locale: "pt-BR"
+
+        assigns[:ancestors].should == @topic.ancestors
+      end
+
+      it "should increase view_count" do
+        expect{
+          get :show, id: @topic, locale: "pt-BR"
+          @topic.reload
+        }.to change(@topic, :view_count).by(1)
+      end
+
+      it "should load two topics to read more" do
+        guide = create(:guide)
+        @topic.move_to_child_of(guide)
+
+        2.times do
+          topic = create(:topic)
+          topic.move_to_child_of(guide)
+        end
+
+        get :show, id: @topic, locale: "pt-BR"
+
+        assigns[:read_more].length.should == 2
+      end
     end
   end
 
   context "New" do
     it "should render topics/new" do
       http_login
-      get :new
+      get :new, locale: "pt-BR"
 
       response.should render_template("topics/new")
     end
@@ -98,7 +214,8 @@ describe TopicsController do
 
         @params =  {
           format: :js,
-          parent_id: @guide,
+          locale: "pt-BR",
+          parent_id: @guide.id,
           topic: {
             title: "New topic",
             body: "Help Center" }
@@ -133,7 +250,7 @@ describe TopicsController do
     end
 
     it "should render edit" do
-      get :edit, id: @topic
+      get :edit, id: @topic, locale: "pt-BR"
 
       response.should render_template("topics/edit")
     end
@@ -148,20 +265,29 @@ describe TopicsController do
       end
       @topic.reload
 
-      get :edit, id: @topic
+      get :edit, id: @topic, locale: "pt-BR"
 
-      assigns[:topics_and_categories].length.should == @topic.descendants.count
+      assigns[:topics_and_categories].should == @topic.descendants
     end
 
     context "POST update" do
       it "should update the topic" do
-        params = { id: @topic, format: :js,
+        params = { id: @topic, format: :js, locale: "pt-BR",
                    topic: { body: "focus on the work" } }
 
         post :update, params
 
-        assigns[:topic].body.should eq("focus on the work")
+        Topic.find(@topic).body.should eq("focus on the work")
       end
+    end
+  end
+
+  context "GET edit_all" do
+    it "should render edit_all" do
+      http_login
+      get "edit_all", locale: "pt-BR"
+
+      response.should render_template("topics/edit_all")
     end
   end
 
@@ -175,13 +301,13 @@ describe TopicsController do
     end
 
     it "should delete the topic" do
-      delete :destroy, id: @top_child
+      delete :destroy, id: @top_child, locale: "pt-BR"
 
       @topic.children.should be_empty
     end
 
     it "should redirect to home path" do
-      delete :destroy, id: @top_child
+      delete :destroy, id: @top_child, locale: "pt-BR"
 
       response.should redirect_to(root_path)
     end

@@ -1,0 +1,98 @@
+// ==========================================================================
+// Estilos do índice
+// ==========================================================================
+
+
+.section-title +
+.questions-list { margin-top: 10px; }
+
+.section-title +
+.guides-list { margin-top: 20px; }
+
+// Lista de guias.
+// ==========================================================================
+
+// Lista.
+.guides-list {
+  margin: 0;
+  list-style: none;
+  padding-left: 1px;
+}
+
+// Item.
+.guides-list-item {
+  @include border-radius(10px);
+  @include box-shadow(0 0 1px 1px $blue2);
+  @include size(130px, 280px);
+  float: left;
+  border: 1px solid $white;
+  background-color: $gray1;
+  text-align: center;
+
+  & + & { margin-left: 14px; }
+
+  &:hover {
+    @include box-shadow(0 0 1px 1px $blue4);
+
+    .guides-list-item-title {
+      color: $link-color-hover;
+      text-decoration: none;
+    }
+
+    .guides-list-item-footer .legend { color: $black; }
+  }
+}
+
+// Item do Guia Básico.
+.guides-list-item-basic {
+  @include box-shadow(0 0 1px 1px $green3);
+
+  .guides-list-item-body {
+    @include text-shadow(0 -1px 0 $green4);
+    background-color: $green3;
+    border-bottom-color: $green4;
+
+    .legend { color: $gray2; }
+  }
+
+  .guides-list-item-title { color: $white }
+
+  &:hover {
+    @include box-shadow(0 0 1px 1px $green4);
+
+    .guides-list-item-title { color: $white; }
+  }
+}
+
+// Cabeçalho.
+.guides-list-item-header { padding: 9px 0 10px; }
+
+// Ícone.
+.guides-list-item-icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+// Corpo.
+.guides-list-item-body {
+  $box-shadow:
+    0 1px 0 $white inset
+  , 0 1px 0 $white;
+  @include box-shadow($box-shadow);
+  @include box-sizing(border-box);
+  height: 64px;
+  background-color: $gray2;
+  border-top: 1px solid rgb(229, 229, 229);
+  border-bottom: 1px solid rgb(229, 229, 229);
+  padding: 10px 12px;
+}
+
+// Rodapé.
+.guides-list-item-footer {
+  padding: 10px 9px;
+
+  .legend {
+    color: $gray6;
+    line-height: 14px;
+  }
+}

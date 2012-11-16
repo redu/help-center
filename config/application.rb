@@ -3,9 +3,12 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 require "sprockets/railtie"
 
-# If you have a Gemfile, require the gems listed there, including any gems
-# you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env) if defined?(Bundler)
+if defined?(Bundler)
+  # If you precompile assets before deploying to production, use this line
+  Bundler.require(*Rails.groups(:assets => %w(development test)))
+  # If you want your assets lazily compiled in production, use this line
+  # Bundler.require(:default, :assets, Rails.env)
+end
 
 module HelpCenter
   class Application < Rails::Application
@@ -25,11 +28,11 @@ module HelpCenter
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
+    config.time_zone = 'Brasilia'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.default_locale = "pt-BR"
 
     # JavaScript files you want as :defaults (application.js is always included).
     # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
@@ -41,5 +44,12 @@ module HelpCenter
     config.filter_parameters += [:password]
 
     config.assets.enabled = true
+
+    # Carrega renderers do simple_navigation
+    config.autoload_paths << "#{config.root}/app/navigation_renderers"
+    File.open("#{Rails.root}/config/user.yml") do |file|
+      user = Psych.load(file)
+      config.user = HashWithIndifferentAccess.new_from_hash_copying_default(user)
+    end
   end
 end

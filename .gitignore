@@ -15,4 +15,7 @@ Gemfile.local.rb
 solr/data/*
 solr/pids/*
 config/initializers/user.rb
+.rvmrc
+config/user.yml
+config/s3.yml
 

@@ -1,0 +1,11 @@
+<div class="content-body">
+  <%= render partial: "guides/header", locals: { guide: @basic } %>
+
+  <hr class="list-separator">
+
+  <div class="help-central-section">
+    <%= render partial: "basic_guides/category_column", locals: { categories: @children.shift(2) } %>
+  </div>
+
+  <%= render partial: "basic_guides/category_section", collection: @children, as: :category %>
+</div>

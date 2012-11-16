@@ -1,17 +1,21 @@
 HelpCenter::Application.routes.draw do
-
   root to: "topics#index"
+  match "index" => "topics#index"
 
   match "search" => "topics#search"
+  match "admin/" => "topics#edit_all"
 
-  resources :topics, except: [:new, :edit]
-  resources :faqs, only: [:show, :create, :update]
-  resources :guides, only: [:show, :create, :update]
+  get "/:id" => "topics#show", as: :show_root_topic
+
+  resources :topics, only: [:index]
+  get "/:root_id/:id" => "topics#show", as: :show_topic
 
   scope "/admin" do
-    resources :topics, only: [:new, :edit]
-    resources :faqs, only: [:new]
-    resources :guides, only: [:new]
+    resources :topics, except: [:index, :show]
+    resources :basic_guides, only: [:new, :create, :update]
+    resources :faqs, only: [:new, :create, :update]
+    resources :guides, only: [:new, :create, :update]
   end
 
+  ActionDispatch::Routing::Translator.translate_from_file('lang/i18n-routes.yml', { :no_prefixes => true })
 end

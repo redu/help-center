@@ -1,23 +1,31 @@
-<h1> Edit <%= @topic.title %> </h1>
+<div class="content-body">
+  <div class="help-central-header">
+    <%=raw wymeditor_initialize %>
+    <h2> Editar <%= @topic.title %> </h2>
+    <%= link_to "Adicionar topico", new_topic_path(parent_id: @topic) %>
+  </div>
 
-<%= link_to "Add topic", new_topic_path(parent_id: @topic) %>
+  <hr class="list-separator">
 
-<% @topics_and_categories.each do |item| %>
-  <%= item.title %>
-  <%= link_to "Edit", edit_topic_path(item) %>
-  <%= link_to "Add topic", new_topic_path(parent_id: item) %>
-  <%= link_to "Remove topic", topic_path(item), confirm: "Are you sure?", method: :delete %>
-<% end %>
+  <div class="help-central-section">
+    <%= render partial: "shared/form", locals: { item: @topic } %>
+  </div>
 
-<%= form_for @topic do |f| %>
-  <%= f.label :title %>:
-  <%= f.text_field :title %><br />
+  <hr class="list-separator">
 
-  <%= f.label :icon_name %>:
-  <%= f.text_field :icon_name %><br />
-
-  <%= f.label :body %>:
-  <%= f.text_area :body, class: 'wymeditor' %><br />
-
-  <%= f.submit %>
-<% end %>
+  <div class="help-central-section">
+    <ul class="list-button">
+      <% @topics_and_categories.each do |item| %>
+        <li class="list-button-item">
+          <h6><a><%= item.title %></a></h6>
+          <div class="list-lecture-info">
+            <%= link_to "Editar", edit_topic_path(item) %>
+            <%= link_to "Adicionar topico", new_topic_path(parent_id: item) %>
+            <%= link_to "Remover topico", topic_path(item),
+              confirm: "Tem certeza que deseja remover?", method: :delete %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

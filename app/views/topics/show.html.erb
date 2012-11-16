@@ -25,7 +25,7 @@
   <hr class="list-separator">
 
   <div class="help-central-section">
-    <h3 class="title-gray">Leia também</h3>
+    <h3 class="title-gray"><%= t(:read_more) %></h3>
 
     <%= render partial: "topics/read_more", locals: { more: @read_more }%>
   </div>
@@ -33,6 +33,6 @@
   <hr class="list-separator">
 
   <div class="help-central-footer">
-    <p class="article">Este é um artigo do <%= link_to @ancestors.first.title, show_root_topic_path(@ancestors.first) %>, capítulo “<%= topic_path_html(@topic, true) %>”.</p>
+    <p class="article"><%= t(:article_from) %> <%= link_to @ancestors.first.title, show_root_topic_path(@ancestors.first) %>, <%= t(:chapter) %> “<%= topic_path_html(@topic, true) %>”.</p>
   </div>
 </div>

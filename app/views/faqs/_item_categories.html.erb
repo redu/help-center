@@ -3,6 +3,6 @@
     <h6><%= category_item.title %></h6>
   <% end %>
   <div class="list-lecture-info">
-    <span class="wall-stats icon-doubt-topic-gray_16_18-before legend"><%= category_item.children.count %> perguntas </span>
+    <span class="wall-stats icon-doubt-topic-gray_16_18-before legend"><%= t(:questions, count: category_item.children.count) %></span>
   </div>
 </li>

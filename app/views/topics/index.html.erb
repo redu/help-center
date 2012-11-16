@@ -1,9 +1,9 @@
 <div class="content-body">
-  <%= render partial: "shared/big_search_form", locals: { question: "Como podemos ajudar?" } %>
+  <%= render partial: "shared/big_search_form", locals: { question: t(:big_form_question) } %>
 
   <div class="section-questions">
 
-    <h3 class="section-title icon-frequent-questions-lightgray_32_34-before">Dúvidas (Mais) Frequentes</h3>
+    <h3 class="section-title icon-frequent-questions-lightgray_32_34-before"><%= t(:frequently_questions) %></h3>
 
     <ul class="questions-list">
       <%= render partial: @top_questions.results, locals: { with_path: true } %>
@@ -14,7 +14,7 @@
 
   <div class="section">
 
-    <h3 class="section-title icon-help-central-lightgray_32_34-before">Aprenda com os Guias</h3>
+    <h3 class="section-title icon-help-central-lightgray_32_34-before"><%= t(:learn_with_guides) %></h3>
 
     <ul class="guides-list clearfix">
       <%= render partial: "basic_guide" %>

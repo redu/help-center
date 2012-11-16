@@ -17,7 +17,7 @@
   <div class="help-central-section">
     <h3><%= @topic.title %></h3>
 
-    <span class="questions legend"><%= @children.count %> perguntas</span>
+    <span class="questions legend"><%= t(:questions, count: @children.count) %></span>
 
     <ul class="questions-list">
       <%= render partial: @children, locals: { with_path: true } %>

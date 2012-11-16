@@ -3,7 +3,7 @@
 <!--[if gt IE 8]><!--><html lang="pt-br"><!--<![endif]-->
   <head>
     <meta charset="utf-8">
-    <title>Central de Ajuda — Redu</title>
+    <title><%= t(:help_center) %> — Redu</title>
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <%= render partial: "shared/typekit" %>
@@ -17,9 +17,9 @@
           <div class="span3">
             <div class="help-central-sidebar white-area">
               <h2 class="help-central-title">
-                <%= link_to "Central de Ajuda", root_path,
+                <%= link_to t(:help_center), root_path,
                   class: "help-central-link icon-help-central-gray_66-before",
-                  title: "Central de Ajuda" %>
+                  title: t(:help_center) %>
               </h2>
               <%= render_navigation(context: :help_central_nav_local, renderer: NavLocal) %>
             </div>

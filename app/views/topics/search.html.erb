@@ -1,15 +1,15 @@
 <div class="content-body">
-  <%= render partial: "shared/big_search_form", locals: { question: "Procurando por algo?" } %>
+  <%= render partial: "shared/big_search_form", locals: { question: t(:search_question) } %>
 
   <% if @results.empty? %>
     <div class="search-empty">
-      <span class="icon-help-central-empty_128 show text-replacement">Não encontrado</span>
-      <p>Sentimos muito, mas não achamos resultado para <b>“<%= params[:t] %>”</b>. Tente outro termo.</p>
+      <span class="icon-help-central-empty_128 show text-replacement"><%= t(:not_found) %></span>
+      <p><%= t(:not_found_sorry) %><b>“<%= params[:t] %>”</b>. <%= t(:try_another) %>.</p>
     </div>
 
   <% else %>
     <div class="search-results help-central-section">
-      <span>Você buscou por <b>“<%= params[:t] %>”</b>. Achamos <b><%= @search.total %></b> resultados.</span>
+      <span><%= t(:search_for) %> <b>“<%= params[:t] %>”</b>. <%= t(:found) %> <b><%= @search.total %></b> <%= t(:results, count: @search.total) %>.</span>
 
       <ul class="questions-list">
         <div id="search-results">

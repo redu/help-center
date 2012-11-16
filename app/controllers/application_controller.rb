@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :set_locale
-
   protected
 
   def authenticate
@@ -28,9 +26,5 @@ class ApplicationController < ActionController::Base
       order_by(:view_count, :desc)
       paginate page: 1, per_page: 5
     end
-  end
-
-  def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
   end
 end

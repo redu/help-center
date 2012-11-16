@@ -4,12 +4,12 @@
   <% if @results.empty? %>
     <div class="search-empty">
       <span class="icon-help-central-empty_128 show text-replacement">Não encontrado</span>
-      <p>Sentimos muito, mas não achamos resultado para <b>“<%= params[:search] %>”</b>. Tente outro termo.</p>
+      <p>Sentimos muito, mas não achamos resultado para <b>“<%= params[:t] %>”</b>. Tente outro termo.</p>
     </div>
 
   <% else %>
     <div class="search-results help-central-section">
-      <span>Você buscou por <b>“<%= params[:search] %>”</b>. Achamos <b><%= @search.total %></b> resultados.</span>
+      <span>Você buscou por <b>“<%= params[:t] %>”</b>. Achamos <b><%= @search.total %></b> resultados.</span>
 
       <ul class="questions-list">
         <div id="search-results">

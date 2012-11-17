@@ -11,11 +11,8 @@ config/database.yml
 *.swo
 .DS_Store
 Gemfile.local.rb
-.rvmrc
 solr/data/*
 solr/pids/*
 config/initializers/user.rb
-.rvmrc
 config/user.yml
 config/s3.yml
-

@@ -8,10 +8,10 @@
 //= require bootstrap-redu
 //= require olark
 
-$(document).ready(function() {
+$(function() {
 
-  $(".form-search .button-default").click(function(e) {
-    var val = $(".form-search .control-area").val();
+  $(".form-search").submit(function() {
+    var val = $(this).children('input').val();
     if ($.trim(val) === "") {
         return false;
     }

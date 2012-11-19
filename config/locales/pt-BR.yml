@@ -26,7 +26,7 @@ pt-BR:
   visualizations:
     zero: Nenhuma visualização
     one: 1 visualização
-    other: "%{count} visualização"
+    other: "%{count} visualizações"
   read_more: Leia também
   article_from: Este é um artigo do
   chapter: capítulo

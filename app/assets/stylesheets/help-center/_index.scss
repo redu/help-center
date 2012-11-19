@@ -1,5 +1,5 @@
 // ==========================================================================
-// Estilos do índice
+// Index styles
 // ==========================================================================
 
 
@@ -9,10 +9,10 @@
 .section-title +
 .guides-list { margin-top: 20px; }
 
-// Lista de guias.
+// Guides list.
 // ==========================================================================
 
-// Lista.
+// List.
 .guides-list {
   margin: 0;
   list-style: none;
@@ -43,7 +43,7 @@
   }
 }
 
-// Item do Guia Básico.
+// Basic Guide item.
 .guides-list-item-basic {
   @include box-shadow(0 0 1px 1px $green3);
 
@@ -64,16 +64,16 @@
   }
 }
 
-// Cabeçalho.
+// Header.
 .guides-list-item-header { padding: 9px 0 10px; }
 
-// Ícone.
+// Icon.
 .guides-list-item-icon {
   display: inline-block;
   vertical-align: middle;
 }
 
-// Corpo.
+// Body.
 .guides-list-item-body {
   $box-shadow:
     0 1px 0 $white inset
@@ -87,7 +87,7 @@
   padding: 10px 12px;
 }
 
-// Rodapé.
+// Footer.
 .guides-list-item-footer {
   padding: 10px 9px;
 

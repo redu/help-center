@@ -7,3 +7,15 @@
 //= require placeholder-polyfill.min
 //= require bootstrap-redu
 //= require olark
+
+$(document).ready(function() {
+
+  $(".form-search .button-default").click(function(e) {
+    var val = $(".form-search .control-area").val();
+    if ($.trim(val) === "") {
+        return false;
+    }
+  });
+
+});
+

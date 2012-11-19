@@ -7,3 +7,10 @@
 //= require placeholder-polyfill.min
 //= require bootstrap-redu
 //= require olark
+
+$.getScript("http://use.typekit.com/lpo4rgu.js", function () {
+    try {
+        Typekit.load();
+        $(".typekit-badge").css("left", "0");
+    }catch(e){}
+});

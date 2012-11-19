@@ -1,0 +1,27 @@
+// ==========================================================================
+// Help Center styles
+// ==========================================================================
+
+// Mixins images of Compass.
+@import "compass/css3/images";
+// Variables of UI-components.
+@import "ui-components/variables";
+// Mixins of UI-components.
+@import "ui-components/mixins";
+
+// Layout styles.
+@import "help-center/layout";
+// Shared styles.
+@import "help-center/shared";
+// Styles of the area with question and search form.
+@import "help-center/big-search-form";
+// "Feel Supported" styles
+@import "help-center/feel-supported";
+// Index styles.
+@import "help-center/index";
+// FAQ styles.
+@import "help-center/faq";
+// Guide styles.
+@import "help-center/guide";
+// Search styles.
+@import "help-center/search";

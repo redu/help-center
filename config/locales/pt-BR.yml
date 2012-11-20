@@ -37,3 +37,6 @@ pt-BR:
   results:
     one: resultado
     other: resultados
+  views:
+    pagination:
+      truncate: ...

@@ -7,7 +7,6 @@
 //= require placeholder-polyfill.min
 //= require bootstrap-redu
 //= require olark
-//= require analytics
 
 $(function() {
 

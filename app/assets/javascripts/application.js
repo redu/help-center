@@ -30,8 +30,8 @@ $.cachedScript = function(url) {
 };
 
 $.cachedScript("http://use.typekit.com/lpo4rgu.js").done(function() {
-    try {
-        Typekit.load();
-        $(".typekit-badge").css("left", "0");
-    }catch(e){}
+  try {
+    Typekit.load();
+    $(".typekit-badge").css("left", "0");
+  }catch(e){}
 });

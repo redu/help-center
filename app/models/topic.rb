@@ -35,7 +35,7 @@ class Topic < ActiveRecord::Base
 
   def read_more
     leaves = self.root.leaves
-    index = leaves.index(self)
+    index = leaves.find_index(self)
 
     if leaves.length == 1 || index.nil?
       return []

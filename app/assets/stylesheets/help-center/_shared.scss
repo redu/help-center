@@ -34,6 +34,13 @@
   margin-top: $nav-global-height;
   padding-top: 10px;
   padding-bottom: 20px;
+
+  .nav-local .nav-local-item .nav-local-link {
+    width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 // Help Center title.

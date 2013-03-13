@@ -2,7 +2,7 @@
 
   <div class="help-central-header">
 
-    <a href="#" class="article title icon-<%= @ancestors.first.icon_name %>-gray_32_34-before">
+    <a href="<%= show_root_topic_path(@ancestors.first) %>" class="article title icon-<%= @ancestors.first.icon_name %>-gray_32_34-before">
       <h2 class="hide-title">
         <%= @ancestors.first.title %>
       </h2>

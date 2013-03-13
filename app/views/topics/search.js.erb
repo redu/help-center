@@ -4,7 +4,8 @@ var $pages = $('.pagination-nav');
 var $newResults = ('<div id="search-results"><%= escape_javascript render @results, with_path: true, search: true %></div>');
 var $newPaginate = ('<%= escape_javascript(paginate(@results,
                                                     remote: true,
-                                                    window: 1).to_s) %>');
+                                                    outer_window: 1,
+                                                    inner_window: 4).to_s) %>');
 
 $results.replaceWith($newResults);
 $pages.replaceWith($newPaginate);

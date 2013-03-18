@@ -16,7 +16,7 @@
         <% if search %>
           <span class="question-list-description legend">
             <% text = markparser.render(topic.body) %>
-            <%= raw truncate_html(truncate_html_tag(text, "img")) %>
+            <%= raw strip_tags(truncate_html(truncate_html_tag(text, "img"))) %>
           </span>
         <% end %>
 
